@@ -481,17 +481,13 @@ function App() {
         <span>GF = Gluten Free · V = Vegetarian · VE = Vegan</span>
       </div>
     </footer>
-    {/* Small floating Halal badge visible across all scroll positions on Mobile and PC */}
+    {/* Floating Halal badge on right side - clean badge only */}
     <a href="#about" className="floating-halal-badge" title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
       <img
         src="/assets/images/halal-certified-badge.png"
-        alt="Halal Certified Badge"
+        alt="Halal Food Certified"
         className="floating-halal-img"
       />
-      <div className="floating-halal-text">
-        <strong>HALAL CERTIFIED</strong>
-        <span>100% Halal Food</span>
-      </div>
     </a>
   </div>;
 }
