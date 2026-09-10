@@ -82,7 +82,7 @@ const bowlSteps = [
     note: 'Pick one or two',
     items: [
       ['Rotisserie Chicken', 'DASARI-style slow-roasted chicken (+$2).'],
-      ['Chicken Tikka', 'Char-grilled chicken with Indian spices.'],
+      ['Chicken Tikka', 'Marinated chicken with authentic Indian spices.'],
       ['Spicy Chicken', 'Bold, spicy grilled chicken.'],
       ['Lamb Meatballs', 'Seasoned lamb meatballs (+$1.50 | $3).'],
       ['Paneer', 'Indian cheese, grilled and seasoned (V).'],
@@ -362,7 +362,7 @@ function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title: strin
 function App() {
   return <div id="top" className="app"><LoadingScreen /><Header />
     <main>
-      <section className="hero"><div className="hero-bg"><img src={photos.feast} alt="Dasari Fusion Grill authentic Indian feast banquet table with butter chicken, tikka masala, and garlic naan" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · SOUTH INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted, char-grilled and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
+      <section className="hero"><div className="hero-bg"><img src={photos.feast} alt="Dasari Fusion Grill authentic Indian feast banquet table with butter chicken, tikka masala, and garlic naan" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
       <section className="intro section-pad" id="intro"><div className="intro-mark">D</div><div className="intro-content"><p className="eyebrow">THE DASARI WAY</p><h2>Authentic flavors.<br /><i>Modern fusion.</i></h2><p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p><a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a></div><div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div></section>
 
@@ -371,7 +371,7 @@ function App() {
       <section className="bowl-section section-pad" id="menu"><div className="bowl-heading"><div><p className="eyebrow">THE SIGNATURE FORMAT</p><h2>Build your <i>bowl.</i></h2></div><div className="price-callout"><span>STARTING AT</span><strong>$10.99<span>+</span></strong></div></div><p className="bowl-lede">Choose your base, protein, masala, sauce, heat &amp; garnishes. Work your way down — we'll handle the rest.</p><div className="bowl-steps">{bowlSteps.map((step) => <div className="bowl-step" key={step.number}><div className="step-number">{step.number}</div><div className="step-content"><div className="step-title"><h3>{step.title}</h3><span>{step.note}</span></div><div className="ingredient-grid">{step.items.map(([name, desc]) => <div className="ingredient" key={name}><strong>{name}</strong><span>{desc}</span></div>)}</div>{step.price && <div className="step-price">{step.price}</div>}</div></div>)}</div></section>
 
       <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
-        <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Char-grilled.</i><br />Spice-simmered.</p><span>DASARI FUSION GRILL</span></div></div>
+        <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><span>DASARI FUSION GRILL</span></div></div>
         <section className="menu-block" id="naan-wraps"><div className="menu-block-head"><SectionIntro eyebrow="FRESH-BAKED · ROLLED TO ORDER" title="Naan wraps" copy="House-made naan, white basmati rice, our signature wrap sauce and red onions, wrapped around your choice of protein." /><span className="menu-index">03</span></div><PlateCarousel items={wrapItems} /></section>
         <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">04</span></div><PlateCarousel items={snackItems} /></section>
         <section className="menu-block" id="rotisserie"><div className="menu-block-head"><SectionIntro eyebrow="SLOW-ROASTED · INDIAN-SPICED · JUICY" title="Rotisserie chicken" copy="Made for the middle of the table." /><span className="menu-index">05</span></div><PlateCarousel items={rotisserieItems} /></section>
@@ -380,7 +380,7 @@ function App() {
         <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">08</span></div><MenuRows items={sideItems} /></section>
       </section>
 
-      <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, char-grilled proteins, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>
+      <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>
 
       <section className="location-section section-pad" id="location">
         <div className="location-panel">
@@ -393,7 +393,7 @@ function App() {
                 <MapPin size={18} className="location-pin-icon" /> 1163 E Tallmadge Ave
               </p>
               <p className="location-city-state">Akron, OH 44310</p>
-              <span className="location-subtag">Indian fusion · South Indian flavors · Bowls · Naan</span>
+              <span className="location-subtag">Indian fusion · Indian flavors · Bowls · Naan</span>
             </div>
             <div className="location-actions">
               <a className="button" href={mapsUrl} target="_blank" rel="noopener noreferrer">
@@ -441,7 +441,7 @@ function App() {
         </div>
       </section>
     </main>
-    <footer className="footer"><div className="footer-top"><Logo light /><p className="footer-tag">INDIAN FUSION · SOUTH INDIAN FLAVORS · BOWLS · NAAN</p><p className="footer-services">DINE IN · TAKE OUT · CATERING</p><a className="button button-cream" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <ArrowRight size={16} /></a></div><div className="footer-bottom"><span>Authentic Indian taste, your way.</span><div className="footer-nav">{[['MENU', '#menu'], ['ABOUT', '#about'], ['POPULAR', '#popular'], ['LOCATION', '#location']].map(([label, href]) => <a href={href} key={href}>{label}</a>)}</div><span>GF = Gluten Free · V = Vegetarian · VE = Vegan</span></div></footer>
+    <footer className="footer"><div className="footer-top"><Logo light /><p className="footer-tag">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><p className="footer-services">DINE IN · TAKE OUT · CATERING</p><a className="button button-cream" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <ArrowRight size={16} /></a></div><div className="footer-bottom"><span>Authentic Indian taste, your way.</span><div className="footer-nav">{[['MENU', '#menu'], ['ABOUT', '#about'], ['POPULAR', '#popular'], ['LOCATION', '#location']].map(([label, href]) => <a href={href} key={href}>{label}</a>)}</div><span>GF = Gluten Free · V = Vegetarian · VE = Vegan</span></div></footer>
   </div>;
 }
 
