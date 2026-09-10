@@ -380,7 +380,7 @@ function App() {
         <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">08</span></div><MenuRows items={sideItems} /></section>
       </section>
 
-      <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>
+      <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span><span>100% HALAL</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>
 
       <section className="location-section section-pad" id="location">
         <div className="location-panel">
@@ -441,7 +441,58 @@ function App() {
         </div>
       </section>
     </main>
-    <footer className="footer"><div className="footer-top"><Logo light /><p className="footer-tag">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><p className="footer-services">DINE IN · TAKE OUT · CATERING</p><a className="button button-cream" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <ArrowRight size={16} /></a></div><div className="footer-bottom"><span>Authentic Indian taste, your way.</span><div className="footer-nav">{[['MENU', '#menu'], ['ABOUT', '#about'], ['POPULAR', '#popular'], ['LOCATION', '#location']].map(([label, href]) => <a href={href} key={href}>{label}</a>)}</div><span>GF = Gluten Free · V = Vegetarian · VE = Vegan</span></div></footer>
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-brand-col">
+          <Logo light />
+          <p className="footer-tag">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p>
+        </div>
+        <div className="footer-halal-badge">
+          <img
+            src="/assets/images/halal-certified-badge.png"
+            alt="Halal Food Certified"
+            className="halal-badge-img"
+          />
+          <div className="halal-badge-copy">
+            <span className="halal-pill-label">100% CERTIFIED</span>
+            <strong>HALAL FOOD</strong>
+            <small>All meats &amp; ingredients certified Halal</small>
+          </div>
+        </div>
+        <p className="footer-services">DINE IN · TAKE OUT · CATERING</p>
+        <a className="button button-cream" href={mapsUrl} target="_blank" rel="noreferrer">
+          GET DIRECTIONS <ArrowRight size={16} />
+        </a>
+      </div>
+      <div className="footer-bottom">
+        <div className="footer-halal-inline">
+          <img
+            src="/assets/images/halal-certified-badge.png"
+            alt="Halal Food Certified"
+            className="halal-badge-inline-img"
+          />
+          <span>100% Halal Food Certified · Authentic Indian taste, your way.</span>
+        </div>
+        <div className="footer-nav">
+          {[['MENU', '#menu'], ['ABOUT', '#about'], ['POPULAR', '#popular'], ['LOCATION', '#location']].map(([label, href]) => (
+            <a href={href} key={href}>{label}</a>
+          ))}
+        </div>
+        <span>GF = Gluten Free · V = Vegetarian · VE = Vegan</span>
+      </div>
+    </footer>
+    {/* Small floating Halal badge visible across all scroll positions on Mobile and PC */}
+    <a href="#about" className="floating-halal-badge" title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
+      <img
+        src="/assets/images/halal-certified-badge.png"
+        alt="Halal Certified Badge"
+        className="floating-halal-img"
+      />
+      <div className="floating-halal-text">
+        <strong>HALAL CERTIFIED</strong>
+        <span>100% Halal Food</span>
+      </div>
+    </a>
   </div>;
 }
 
