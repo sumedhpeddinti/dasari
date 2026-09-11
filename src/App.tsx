@@ -527,6 +527,197 @@ function TempleWireframe({ className = "", light = false }: { className?: string
   );
 }
 
+function LotusMandalaOrnament({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const strokeColor = light ? "#d4a74a" : "#452618";
+  return (
+    <svg className={`lotus-mandala-svg ${className}`} viewBox="0 0 200 200" fill="none" stroke={strokeColor} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="100" cy="100" r="18" strokeWidth="1.4" />
+      <circle cx="100" cy="100" r="12" strokeDasharray="2 2" />
+      <circle cx="100" cy="100" r="6" />
+      {/* Inner Petals */}
+      <path d="M100 70 Q108 55 116 70 Q108 85 100 70 Z" />
+      <path d="M130 100 Q145 108 130 116 Q115 108 130 100 Z" />
+      <path d="M100 130 Q92 145 84 130 Q92 115 100 130 Z" />
+      <path d="M70 100 Q55 92 70 84 Q85 92 70 100 Z" />
+      <path d="M121 79 Q136 71 136 86 Q121 94 121 79 Z" />
+      <path d="M121 121 Q136 129 121 136 Q113 121 121 121 Z" />
+      <path d="M79 121 Q64 129 64 114 Q79 106 79 121 Z" />
+      <path d="M79 79 Q64 71 79 64 Q87 79 79 79 Z" />
+      {/* Outer Petals Layer */}
+      <path d="M100 40 C125 15 150 40 135 70 C120 50 110 40 100 40 Z" strokeWidth="1.3" />
+      <path d="M160 100 C185 125 160 150 130 135 C150 120 160 110 160 100 Z" strokeWidth="1.3" />
+      <path d="M100 160 C75 185 50 160 65 130 C80 150 90 160 100 160 Z" strokeWidth="1.3" />
+      <path d="M40 100 C15 75 40 50 70 65 C50 80 40 90 40 100 Z" strokeWidth="1.3" />
+      {/* Paisley Swirl Accent Rays */}
+      <path d="M140 40 C170 30 185 70 160 90" />
+      <path d="M160 160 C170 190 130 205 110 180" />
+      <path d="M60 160 C30 170 15 130 40 110" />
+      <path d="M40 40 C30 10 70 -5 90 20" />
+    </svg>
+  );
+}
+
+function PaisleyFloralOrnament({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const strokeColor = light ? "#d4a74a" : "#452618";
+  return (
+    <svg className={`paisley-floral-svg ${className}`} viewBox="0 0 240 160" fill="none" stroke={strokeColor} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 140 C50 130 80 80 120 100 C160 120 180 60 220 40" strokeWidth="1.5" />
+      <path d="M60 115 C90 100 120 50 150 70" />
+      {/* Paisley Leaves */}
+      <path d="M80 90 C70 60 100 40 110 70 Z" strokeWidth="1.3" />
+      <path d="M130 75 C120 45 150 25 160 55 Z" strokeWidth="1.3" />
+      <path d="M180 50 C170 20 200 0 210 30 Z" strokeWidth="1.3" />
+      {/* Flower Buds */}
+      <circle cx="110" cy="45" r="8" />
+      <circle cx="160" cy="30" r="8" />
+      <circle cx="210" cy="15" r="8" />
+      <path d="M106 37 Q110 30 114 37 M156 22 Q160 15 164 22 M206 7 Q210 0 214 7" />
+    </svg>
+  );
+}
+
+function BrihadeeswararTempleIllustration({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const color = light ? "#d4a74a" : "#452618";
+  return (
+    <svg
+      className={`brihadeeswarar-illustration-svg ${className}`}
+      viewBox="0 0 900 480"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {/* TOP-LEFT TRADITIONAL KOLAM / RANGOLI PATTERN */}
+      <g opacity="0.75" strokeWidth="1">
+        <rect x="30" y="20" width="160" height="100" rx="4" strokeDasharray="3 3" opacity="0.4" />
+        <path d="M40 30 Q55 20 70 30 Q85 40 100 30 Q115 20 130 30 Q145 40 160 30 M40 50 Q55 40 70 50 Q85 60 100 50 Q115 40 130 50 Q145 60 160 50 M40 70 Q55 60 70 70 Q85 80 100 70 Q115 60 130 70 Q145 80 160 70 M40 90 Q55 80 70 90 Q85 100 100 90 Q115 80 130 90 Q145 100 160 90" />
+        <path d="M50 25 Q40 40 50 55 Q60 70 50 85 M70 25 Q60 40 70 55 Q80 70 70 85 M90 25 Q80 40 90 55 Q100 70 90 85 M110 25 Q100 40 110 55 Q120 70 110 85 M130 25 Q120 40 130 55 Q140 70 130 85 M150 25 Q140 40 150 55 Q160 70 150 85" />
+        <circle cx="50" cy="35" r="2" fill={color} />
+        <circle cx="70" cy="35" r="2" fill={color} />
+        <circle cx="90" cy="35" r="2" fill={color} />
+        <circle cx="110" cy="35" r="2" fill={color} />
+        <circle cx="130" cy="35" r="2" fill={color} />
+        <circle cx="150" cy="35" r="2" fill={color} />
+        <circle cx="50" cy="55" r="2" fill={color} />
+        <circle cx="70" cy="55" r="2" fill={color} />
+        <circle cx="90" cy="55" r="2" fill={color} />
+        <circle cx="110" cy="55" r="2" fill={color} />
+        <circle cx="130" cy="55" r="2" fill={color} />
+        <circle cx="150" cy="55" r="2" fill={color} />
+        <circle cx="50" cy="75" r="2" fill={color} />
+        <circle cx="70" cy="75" r="2" fill={color} />
+        <circle cx="90" cy="75" r="2" fill={color} />
+        <circle cx="110" cy="75" r="2" fill={color} />
+        <circle cx="130" cy="75" r="2" fill={color} />
+        <circle cx="150" cy="75" r="2" fill={color} />
+      </g>
+
+      {/* TOP-RIGHT FLOWING INDIAN LOTUS MANDALA & PAISLEY FLORAL ART */}
+      <g opacity="0.85" strokeWidth="1.2">
+        <circle cx="750" cy="110" r="35" />
+        <circle cx="750" cy="110" r="25" strokeDasharray="3 3" />
+        <circle cx="750" cy="110" r="14" />
+
+        <path d="M750 75 Q765 60 780 75 Q765 90 750 75 Z" />
+        <path d="M785 110 Q800 125 785 140 Q770 125 785 110 Z" />
+        <path d="M750 145 Q735 160 720 145 Q735 130 750 145 Z" />
+        <path d="M715 110 Q700 95 715 80 Q730 95 715 110 Z" />
+
+        <path d="M775 85 Q795 75 795 95 Q775 105 775 85 Z" />
+        <path d="M775 135 Q795 145 775 155 Q765 135 775 135 Z" />
+        <path d="M725 135 Q705 145 705 125 Q725 115 725 135 Z" />
+        <path d="M725 85 Q705 75 725 65 Q735 85 725 85 Z" />
+
+        <path d="M750 40 C790 10 830 50 810 90 C780 70 760 50 750 40 Z" strokeWidth="1.4" />
+        <path d="M820 110 C860 140 830 190 780 180 C780 140 800 120 820 110 Z" strokeWidth="1.4" />
+        <path d="M750 180 C710 210 670 170 690 130 C720 150 740 170 750 180 Z" strokeWidth="1.4" />
+        <path d="M680 110 C640 80 670 30 720 40 C720 80 700 100 680 110 Z" strokeWidth="1.4" />
+
+        <path d="M650 100 C600 80 580 140 630 180 C670 210 700 170 680 130" strokeWidth="1.3" />
+        <path d="M630 60 C580 40 560 100 610 140" strokeWidth="1" />
+        <path d="M780 30 C820 10 870 50 840 90" strokeWidth="1" />
+
+        <path d="M755 52 Q775 35 795 55 M765 62 Q785 45 802 65" opacity="0.6" />
+        <path d="M805 125 Q825 145 805 165 M795 135 Q815 155 795 172" opacity="0.6" />
+      </g>
+
+      {/* === MAIN BRIHADEESWARAR TEMPLE SILHOUETTE (DRAVIDIAN VIMANA) === */}
+      <path d="M335 30 L335 50 M330 50 L340 50 M332 40 L338 40 M335 50 C342 56 342 64 335 70 C328 64 328 56 335 50 Z" strokeWidth="1.4" />
+      <path d="M320 70 C335 60 335 60 350 70 L355 90 L315 90 Z" strokeWidth="1.5" />
+      <rect x="310" y="90" width="50" height="10" rx="2" strokeWidth="1.3" />
+
+      {/* DRAVIDIAN VIMANA TIERED TOWER */}
+      <path d="M320 100 L350 100 L354 118 L316 118 Z" />
+      <path d="M316 118 L354 118 L358 136 L312 136 Z" />
+      <path d="M312 136 L358 136 L362 154 L308 154 Z" />
+      <path d="M308 154 L362 154 L366 172 L304 172 Z" />
+      <path d="M304 172 L366 172 L370 190 L300 190 Z" />
+      <path d="M300 190 L370 190 L374 208 L296 208 Z" />
+      <path d="M296 208 L374 208 L378 226 L292 226 Z" />
+      <path d="M292 226 L378 226 L382 244 L288 244 Z" />
+      <path d="M288 244 L382 244 L386 262 L284 262 Z" />
+      <path d="M284 262 L386 262 L390 280 L280 280 Z" />
+      <path d="M280 280 L390 280 L395 300 L275 300 Z" strokeWidth="1.5" />
+      <path d="M275 300 L395 300 L400 322 L270 322 Z" strokeWidth="1.6" />
+
+      <path d="M322 100 L322 118 M335 100 L335 118 M348 100 L348 118" opacity="0.6" />
+      <path d="M318 118 L318 136 M335 118 L335 136 M352 118 L352 136" opacity="0.6" />
+      <path d="M314 136 L314 154 M335 136 L335 154 M356 136 L356 154" opacity="0.6" />
+      <path d="M310 154 L310 172 M335 154 L335 172 M360 154 L360 172" opacity="0.6" />
+      <path d="M306 172 L306 190 M335 172 L335 190 M364 172 L364 190" opacity="0.6" />
+      <path d="M302 190 L302 208 M335 190 L335 208 M368 190 L368 208" opacity="0.6" />
+      <path d="M298 208 L298 226 M335 208 L335 226 M372 208 L372 226" opacity="0.6" />
+      <path d="M294 226 L294 244 M335 226 L335 244 M376 226 L376 244" opacity="0.6" />
+      <path d="M290 244 L290 262 M335 244 L335 262 M380 244 L380 262" opacity="0.6" />
+      <path d="M286 262 L286 280 M335 262 L335 280 M384 262 L384 280" opacity="0.6" />
+
+      <rect x="260" y="322" width="150" height="48" rx="2" strokeWidth="1.6" />
+      <path d="M260 338 L410 338 M260 354 L410 354" />
+      <path d="M278 322 L278 370 M300 322 L300 370 M335 322 L335 370 M370 322 L370 370 M392 322 L392 370" opacity="0.75" />
+
+      {/* === LONG COLONNADED MANDAPA === */}
+      <path d="M310 290 L680 290 L710 325 L310 325 Z" strokeWidth="1.5" />
+      <path d="M310 300 L690 300 M310 312 L700 312" />
+
+      <path d="M520 265 L700 265 L715 290 L520 290 Z" strokeWidth="1.4" />
+      <path d="M520 277 L708 277" />
+
+      <path d="M330 325 L330 380 M360 325 L360 380 M390 325 L390 380 M420 325 L420 380 M450 325 L450 380 M480 325 L480 380 M510 325 L510 380 M540 325 L540 380 M570 325 L570 380 M600 325 L600 380 M630 325 L630 380 M660 325 L660 380 M690 325 L690 380" strokeWidth="1.2" />
+      <path d="M325 335 L700 335" strokeWidth="1.3" />
+
+      <rect x="290" y="370" width="425" height="28" rx="2" strokeWidth="1.6" />
+      <path d="M290 384 L715 384" />
+
+      {/* FRONT ENTRANCE GRAND STAIRCASE */}
+      <path d="M680 370 L770 420 L770 435 L680 398 Z" strokeWidth="1.5" />
+      <path d="M690 375 L770 419 M700 380 L770 418 M710 385 L770 417 M720 390 L770 416 M730 395 L770 415" opacity="0.8" />
+      <path d="M680 398 L770 435 L680 435 Z" strokeWidth="1.3" />
+
+      <path d="M260 360 L230 385 L230 398 L260 375 Z" strokeWidth="1.4" />
+      <line x1="230" y1="398" x2="260" y2="398" strokeWidth="1.3" />
+
+      <rect x="250" y="398" width="440" height="25" rx="3" strokeWidth="1.8" />
+      <path d="M250 410 L690 410" />
+
+      <rect x="235" y="423" width="550" height="22" rx="4" strokeWidth="2" />
+      <path d="M235 434 L785 434" />
+
+      <line x1="20" y1="445" x2="880" y2="445" strokeWidth="2.5" />
+      <path d="M100 445 C150 455 200 460 300 460 M220 445 C280 460 380 470 550 470 M50 445 C80 460 120 470 200 475" opacity="0.75" strokeWidth="1.2" />
+
+      {/* LANDSCAPE TREES */}
+      <path d="M115 445 L115 340 M113 445 L113 340" strokeWidth="1.5" />
+      <path d="M115 360 C90 350 70 330 85 300 C100 270 140 280 145 310 C150 340 130 360 115 360 Z" strokeWidth="1.3" />
+      <path d="M95 320 Q115 300 130 320 M85 340 Q115 325 135 340" opacity="0.6" />
+
+      <path d="M155 445 L155 380" strokeWidth="1.3" />
+      <path d="M155 390 C140 380 135 360 150 350 C165 340 180 350 175 370 Z" strokeWidth="1.1" />
+    </svg>
+  );
+}
+
 function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title: string; copy?: string }) {
   return <div className="section-intro">{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h2>{title}</h2>{copy && <p className="section-copy">{copy}</p>}</div>;
 }
@@ -544,11 +735,52 @@ function App() {
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
-      <section className="intro section-pad" id="intro"><div className="intro-mark"><TempleWireframe /></div><div className="intro-content"><p className="eyebrow">THE DASARI WAY</p><h2>Authentic flavors.<br /><i>Modern fusion.</i></h2><p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p><a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a></div><div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div></section>
+      <section className="intro section-pad" id="intro">
+        <LotusMandalaOrnament className="intro-floating-lotus-left" />
+        <PaisleyFloralOrnament className="intro-floating-paisley-right" />
+        <div className="intro-top-grid">
+          <div className="intro-content">
+            <p className="eyebrow">THE DASARI WAY</p>
+            <h2>Authentic flavors.<br /><i>Modern fusion.</i></h2>
+            <p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p>
+            <a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a>
+          </div>
+          <div className="intro-stamp">
+            <LotusMandalaOrnament className="stamp-lotus-icon" />
+            <span>FRESH</span><span>SPICED</span><span>DAILY</span>
+          </div>
+        </div>
 
-      <section className="popular section-pad section-dark" id="popular"><div className="section-head"><SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." /><div className="section-number">01 <span>/ 04</span></div></div><PlateCarousel items={popular} /></section>
+        {/* Brihadeeswarar Hindu Temple Dravidian Wireframe Line Art (Matching User Reference Drawing Exactly) */}
+        <div className="temple-drawing-banner" title="Brihadeeswarar Dravidian Temple Wireframe Blueprint Drawing">
+          <BrihadeeswararTempleIllustration />
+        </div>
+      </section>
 
-      <section className="bowl-section section-pad" id="menu"><div className="bowl-heading"><div><p className="eyebrow">THE SIGNATURE FORMAT</p><h2>Build your <i>bowl.</i></h2></div><div className="price-callout"><span>STARTING AT</span><strong>$10.99<span>+</span></strong></div></div><p className="bowl-lede">Choose your base, protein, masala, sauce, heat &amp; garnishes. Work your way down — we'll handle the rest.</p><div className="bowl-steps">{bowlSteps.map((step) => <div className="bowl-step" key={step.number}><div className="step-number">{step.number}</div><div className="step-content"><div className="step-title"><h3>{step.title}</h3><span>{step.note}</span></div><div className="ingredient-grid">{step.items.map(([name, desc]) => <div className="ingredient" key={name}><strong>{name}</strong><span>{desc}</span></div>)}</div>{step.price && <div className="step-price">{step.price}</div>}</div></div>)}</div></section>
+      <section className="popular section-pad section-dark" id="popular">
+        <LotusMandalaOrnament className="popular-bg-flower" light />
+        <div className="section-head">
+          <SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." />
+          <div className="section-number">01 <span>/ 04</span></div>
+        </div>
+        <PlateCarousel items={popular} />
+      </section>
+
+      <section className="bowl-section section-pad" id="menu">
+        <PaisleyFloralOrnament className="bowl-bg-paisley" />
+        <div className="bowl-heading">
+          <div>
+            <p className="eyebrow">THE SIGNATURE FORMAT</p>
+            <h2>Build your <i>bowl.</i></h2>
+          </div>
+          <div className="price-callout">
+            <span>STARTING AT</span>
+            <strong>$10.99<span>+</span></strong>
+          </div>
+        </div>
+        <p className="bowl-lede">Choose your base, protein, masala, sauce, heat &amp; garnishes. Work your way down — we'll handle the rest.</p>
+        <div className="bowl-steps">{bowlSteps.map((step) => <div className="bowl-step" key={step.number}><div className="step-number">{step.number}</div><div className="step-content"><div className="step-title"><h3>{step.title}</h3><span>{step.note}</span></div><div className="ingredient-grid">{step.items.map(([name, desc]) => <div className="ingredient" key={name}><strong>{name}</strong><span>{desc}</span></div>)}</div>{step.price && <div className="step-price">{step.price}</div>}</div></div>)}</div>
+      </section>
 
       <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
         <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><span>DASARI FUSION GRILL</span></div></div>
