@@ -413,6 +413,36 @@ function Header({ scrolled }: { scrolled: boolean }) {
   return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><Logo light /><nav>{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a><a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a></div><button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>{open && <div className="mobile-nav">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={18} /></a>)}<a href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS<ArrowRight size={18} /></a></div>}</header>;
 }
 
+function TempleWireframe({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const color = light ? "rgba(201, 154, 72, 0.18)" : "rgba(74, 44, 29, 0.15)";
+  return (
+    <svg
+      className={`temple-wireframe-svg ${className}`}
+      viewBox="0 0 200 300"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M100 12 L100 24 M96 24 L104 24 M94 30 Q100 24 106 30 Q100 36 94 30 Z M97 36 L103 36 L100 42 Z" />
+      <path d="M100 42 L80 70 L120 70 Z M88 56 L112 56" />
+      <path d="M85 70 L85 90 L115 90 L115 70 M92 70 L92 90 M108 70 L108 90" />
+      <path d="M72 90 L128 90 L136 115 L64 115 Z M78 102 L122 102" />
+      <path d="M70 115 L70 145 L130 145 L130 115 M82 115 L82 145 M100 115 L100 145 M118 115 L118 145" />
+      <path d="M54 145 L146 145 L156 175 L44 175 Z M62 160 L138 160" />
+      <path d="M50 175 L50 220 L150 220 L150 175 M66 175 L66 220 M84 175 L84 220 M116 175 L116 220 M134 175 L134 220" />
+      <path d="M86 220 L86 185 Q100 170 114 185 L114 220 Z M92 220 L92 192 Q100 180 108 192 L108 220 Z" />
+      <path d="M34 220 L166 220 L174 245 L26 245 Z M42 232 L158 232" />
+      <path d="M20 245 L180 245 L180 260 L20 260 Z" />
+      <circle cx="100" cy="130" r="8" />
+      <circle cx="100" cy="130" r="4" />
+      <path d="M100 118 L100 142 M88 130 L112 130" />
+    </svg>
+  );
+}
+
 function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title: string; copy?: string }) {
   return <div className="section-intro">{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h2>{title}</h2>{copy && <p className="section-copy">{copy}</p>}</div>;
 }
@@ -430,7 +460,7 @@ function App() {
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
-      <section className="intro section-pad" id="intro"><div className="intro-mark">D</div><div className="intro-content"><p className="eyebrow">THE DASARI WAY</p><h2>Authentic flavors.<br /><i>Modern fusion.</i></h2><p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p><a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a></div><div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div></section>
+      <section className="intro section-pad" id="intro"><div className="intro-mark"><TempleWireframe /></div><div className="intro-content"><p className="eyebrow">THE DASARI WAY</p><h2>Authentic flavors.<br /><i>Modern fusion.</i></h2><p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p><a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a></div><div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div></section>
 
       <section className="popular section-pad section-dark" id="popular"><div className="section-head"><SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." /><div className="section-number">01 <span>/ 04</span></div></div><PlateCarousel items={popular} /></section>
 
