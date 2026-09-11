@@ -408,7 +408,82 @@ function App() {
         <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><span>DASARI FUSION GRILL</span></div></div>
         <section className="menu-block" id="naan-wraps"><div className="menu-block-head"><SectionIntro eyebrow="FRESH-BAKED · ROLLED TO ORDER" title="Naan wraps" copy="House-made naan, white basmati rice, our signature wrap sauce and red onions, wrapped around your choice of protein." /><span className="menu-index">03</span></div><PlateCarousel items={wrapItems} /></section>
         <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">04</span></div><PlateCarousel items={snackItems} /></section>
-        <section className="menu-block" id="rotisserie"><div className="menu-block-head"><SectionIntro eyebrow="SLOW-ROASTED · INDIAN-SPICED · JUICY" title="Rotisserie chicken" copy="Made for the middle of the table." /><span className="menu-index">05</span></div><PlateCarousel items={rotisserieItems} /></section>
+        <section className="rotisserie-showcase-section" id="rotisserie">
+          <div className="rotisserie-showcase-bg">
+            <img src="/assets/images/rotisserie_farm_bg.jpg" alt="Dasari farm feast background" className="rotisserie-bg-img" />
+            <div className="rotisserie-bg-overlay" />
+          </div>
+          <div className="rotisserie-showcase-container">
+            <div className="rotisserie-machine-col">
+              <div className="rotisserie-machine-card">
+                <div className="rotisserie-oven-glow" />
+                <img
+                  src="/assets/images/rotisserie_machine.jpg"
+                  alt="Articia Rotisserie Oven with golden roasted chickens at Dasari Fusion Grill"
+                  className="rotisserie-machine-img"
+                />
+                <div className="rotisserie-machine-badge">
+                  <Flame size={14} className="flame-icon" />
+                  <span>ARTICIA OVEN SLOW-ROASTED</span>
+                </div>
+              </div>
+            </div>
+            <div className="rotisserie-content-col">
+              <div className="rotisserie-eyebrow-tag">
+                <Flame size={14} /> GOOD FOOD · GOOD MOOD!
+              </div>
+              <h2 className="rotisserie-hero-title">
+                <span>OUR SIGNATURE</span>
+                <em>ROTISSERIE CHICKEN</em>
+              </h2>
+              <p className="rotisserie-hero-subtitle">Slow Roasted · Bold Flavors</p>
+              
+              <div className="rotisserie-features-grid">
+                <div className="rotisserie-feature-item">
+                  <div className="feature-icon-wrapper">🥬</div>
+                  <div>
+                    <strong>JUICY &amp; TENDER</strong>
+                    <span>Slow-marinated in Indian spices &amp; flame roasted.</span>
+                  </div>
+                </div>
+                <div className="rotisserie-feature-item">
+                  <div className="feature-icon-wrapper">🔥</div>
+                  <div>
+                    <strong>NATURALLY ROASTED</strong>
+                    <span>Clean, open-flame roasting with zero heavy oils.</span>
+                  </div>
+                </div>
+                <div className="rotisserie-feature-item">
+                  <div className="feature-icon-wrapper">🌿</div>
+                  <div>
+                    <strong>NO ARTIFICIAL COLORS</strong>
+                    <span>100% authentic whole spices &amp; real ingredients.</span>
+                  </div>
+                </div>
+                <div className="rotisserie-feature-item">
+                  <div className="feature-icon-wrapper">❤️</div>
+                  <div>
+                    <strong>MADE WITH LOVE</strong>
+                    <span>Crafted fresh daily for your table.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rotisserie-slogan-box">
+                <span className="slogan-quote">“Once You Smell It, You’ll Crave It!”</span>
+              </div>
+
+              <div className="rotisserie-together-badge">
+                <span className="together-text">Good Food Brings People Together ❤️</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="rotisserie-dishes-header">
+            <SectionIntro eyebrow="SERVED FRESH FROM THE ROTISSERIE" title="Rotisserie Chicken Plates" copy="Served whole, half, or over basmati rice with your choice of signature sauces." />
+          </div>
+          <PlateCarousel items={rotisserieItems} />
+        </section>
         <section className="menu-block compact-block" id="family-meals"><div className="menu-block-head"><SectionIntro eyebrow="SERVES THE TABLE · SOLD BY THE PINT OR QUART" title="Family meals" /><span className="menu-index">06</span></div><MenuRows items={familyItems} /></section>
         <section className="menu-block compact-block" id="lentils-and-masalas"><div className="menu-block-head"><SectionIntro eyebrow="PINT OR QUART · ON THEIR OWN OR PILED OVER RICE" title="Lentils & masalas" /><span className="menu-index">07</span></div><MenuRows items={lentilItems} /></section>
         <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">08</span></div><MenuRows items={sideItems} /></section>

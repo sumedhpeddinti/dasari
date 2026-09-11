@@ -1372,3 +1372,293 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   color: var(--cream);
   line-height: 1;
 }
+
+/* Rotisserie Showcase Feature Section */
+.rotisserie-showcase-section {
+  position: relative;
+  background: var(--espresso);
+  color: var(--cream);
+  padding: 90px 0 60px;
+  overflow: hidden;
+  margin-bottom: 72px;
+  border-radius: 16px;
+  border: 1px solid rgba(201, 154, 72, 0.25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+.rotisserie-showcase-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.rotisserie-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: contrast(1.1) saturate(1.1) brightness(0.7);
+}
+
+.rotisserie-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 15, 11, 0.94) 0%, rgba(26, 15, 11, 0.82) 45%, rgba(26, 15, 11, 0.94) 100%);
+}
+
+.rotisserie-showcase-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.rotisserie-machine-col {
+  display: flex;
+  justify-content: center;
+}
+
+.rotisserie-machine-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(201, 154, 72, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(201, 95, 53, 0.35);
+  background: #120906;
+}
+
+.rotisserie-oven-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(201, 95, 53, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rotisserie-machine-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.rotisserie-machine-card:hover .rotisserie-machine-img {
+  transform: scale(1.03);
+}
+
+.rotisserie-machine-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26, 15, 11, 0.92);
+  border: 1px solid var(--gold);
+  color: var(--cream);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+}
+
+.flame-icon {
+  color: var(--terracotta);
+}
+
+.rotisserie-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rotisserie-eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.rotisserie-hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(38px, 4.5vw, 62px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 0;
+}
+
+.rotisserie-hero-title span {
+  color: var(--cream);
+  font-size: 0.55em;
+  letter-spacing: 0.15em;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+
+.rotisserie-hero-title em {
+  font-style: normal;
+  color: var(--gold);
+  background: linear-gradient(135deg, #fceda2 0%, #d4a74a 40%, #c95f35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(201, 154, 72, 0.35));
+}
+
+.rotisserie-hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--terracotta);
+  font-style: italic;
+  letter-spacing: 0.05em;
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+.rotisserie-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  margin: 10px 0 15px;
+}
+
+.rotisserie-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(247, 241, 231, 0.1);
+  padding: 12px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.rotisserie-feature-item:hover {
+  background: rgba(201, 95, 53, 0.12);
+  border-color: rgba(201, 95, 53, 0.4);
+  transform: translateY(-2px);
+}
+
+.feature-icon-wrapper {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rotisserie-feature-item strong {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  margin-bottom: 2px;
+}
+
+.rotisserie-feature-item span {
+  display: block;
+  font-size: 11px;
+  color: rgba(247, 241, 231, 0.65);
+  line-height: 1.35;
+}
+
+.rotisserie-slogan-box {
+  background: linear-gradient(135deg, rgba(201, 95, 53, 0.25) 0%, rgba(201, 154, 72, 0.15) 100%);
+  border: 1.5px dashed var(--gold);
+  border-radius: 14px;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.slogan-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.rotisserie-together-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  background: rgba(26, 15, 11, 0.85);
+  border: 1px solid rgba(247, 241, 231, 0.2);
+  padding: 8px 18px;
+  border-radius: 999px;
+}
+
+.together-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(247, 241, 231, 0.9);
+  letter-spacing: 0.05em;
+}
+
+.rotisserie-dishes-header {
+  position: relative;
+  z-index: 2;
+  padding: 0 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .rotisserie-showcase-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 0 24px;
+  }
+  .rotisserie-hero-title {
+    font-size: clamp(32px, 7vw, 48px);
+  }
+  .rotisserie-features-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .rotisserie-dishes-header {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .rotisserie-showcase-section {
+    padding: 50px 0 40px;
+  }
+  .rotisserie-showcase-container {
+    padding: 0 16px;
+  }
+  .rotisserie-dishes-header {
+    padding: 0 16px;
+  }
+  .rotisserie-machine-badge {
+    font-size: 9px;
+    padding: 6px 12px;
+  }
+  .rotisserie-slogan-box {
+    padding: 12px 16px;
+  }
+  .slogan-quote {
+    font-size: 16px;
+  }
+}
