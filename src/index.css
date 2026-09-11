@@ -1373,17 +1373,24 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   line-height: 1;
 }
 
-/* Rotisserie Showcase Feature Section */
+/* Rotisserie Showcase Feature Section (Full Bleed Edge-to-Edge) */
 .rotisserie-showcase-section {
   position: relative;
   background: var(--espresso);
   color: var(--cream);
-  padding: 90px 0 60px;
+  padding: 100px 0 80px;
   overflow: hidden;
-  margin-bottom: 72px;
-  border-radius: 16px;
-  border: 1px solid rgba(201, 154, 72, 0.25);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  margin-top: 70px;
+  margin-left: calc(max(40px, calc((100vw - 1240px) / 2)) * -1);
+  margin-right: calc(max(40px, calc((100vw - 1240px) / 2)) * -1);
+  margin-bottom: 90px;
+  border-radius: 0;
+  border-top: 1px solid rgba(201, 154, 72, 0.3);
+  border-bottom: 1px solid rgba(201, 154, 72, 0.3);
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+  width: 100vw;
 }
 
 .rotisserie-showcase-bg {
@@ -1624,6 +1631,12 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 }
 
 @media (max-width: 900px) {
+  .rotisserie-showcase-section {
+    margin-left: -24px;
+    margin-right: -24px;
+    width: 100vw;
+    padding: 70px 0 50px;
+  }
   .rotisserie-showcase-container {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -1643,6 +1656,9 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 
 @media (max-width: 600px) {
   .rotisserie-showcase-section {
+    margin-left: -16px;
+    margin-right: -16px;
+    width: 100vw;
     padding: 50px 0 40px;
   }
   .rotisserie-showcase-container {
