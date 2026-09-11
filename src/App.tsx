@@ -343,24 +343,25 @@ function MenuRows({ items }: { items: MenuItem[] }) {
   return <div className="menu-rows">{items.map((item) => <article className="menu-row" key={item.name}><div><div className="row-title"><h3>{item.name}</h3><Badge value={item.badge} /></div>{item.description && <p>{item.description}</p>}</div><strong>{item.price}</strong></article>)}</div>;
 }
 
-function Header() {
+function Header({ scrolled }: { scrolled: boolean }) {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 32); window.addEventListener('scroll', onScroll); return () => window.removeEventListener('scroll', onScroll); }, []);
   const links = [['MENU', '#menu'], ['POPULAR', '#popular'], ['ABOUT', '#about'], ['LOCATION', '#location']];
-  return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><Logo light /><nav>{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a><a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a></div><button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>{open && <div className="mobile-nav">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={18} /></a>)}<a href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS<ArrowRight size={18} /></a></div>}</header>;
+  return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><Logo light /><nav>{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a><a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a><a href="#about" className={`header-halal-badge ${scrolled ? 'visible' : ''}`} title="100% Halal Food Certified" aria-label="100% Halal Food Certified"><img src="/assets/images/halal-certified-badge.png" alt="100% Halal Certified" /></a></div><button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>{open && <div className="mobile-nav">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={18} /></a>)}<a href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS<ArrowRight size={18} /></a></div>}</header>;
 }
-
-
-
-
 
 function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title: string; copy?: string }) {
   return <div className="section-intro">{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h2>{title}</h2>{copy && <p className="section-copy">{copy}</p>}</div>;
 }
 
 function App() {
-  return <div id="top" className="app"><LoadingScreen /><Header />
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 32);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return <div id="top" className="app"><LoadingScreen /><Header scrolled={scrolled} />
     <main>
       <section className="hero"><div className="hero-bg"><img src={photos.feast} alt="Dasari Fusion Grill authentic Indian feast banquet table with butter chicken, tikka masala, and garlic naan" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
@@ -482,7 +483,7 @@ function App() {
       </div>
     </footer>
     {/* Floating Halal badge on right side - clean badge only */}
-    <a href="#about" className="floating-halal-badge" title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
+    <a href="#about" className={`floating-halal-badge ${scrolled ? 'scrolled-hidden' : ''}`} title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
       <img
         src="/assets/images/halal-certified-badge.png"
         alt="Halal Food Certified"
