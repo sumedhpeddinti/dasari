@@ -679,7 +679,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 /* Floating Halal Trust Badge (Top Right, position absolute to scroll with content) */
 .floating-halal-badge {
   position: absolute;
-  top: 115px;
+  top: 170px;
   right: 40px;
   bottom: auto;
   z-index: 5;
@@ -830,6 +830,12 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .hero-content { padding: 130px 24px 70px; }
   .hero-overlay { background: linear-gradient(160deg, rgba(26,15,11,.96) 0%, rgba(26,15,11,.7) 100%); }
   .hero-mark { display: none; }
+  .floating-halal-badge {
+    top: 130px;
+    right: 24px;
+    width: 115px;
+    height: 115px;
+  }
 
   /* Sections */
   .section-pad { padding: 72px 24px; }
@@ -982,7 +988,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .footer-nav { gap: 16px; flex-wrap: wrap; }
   .floating-halal-badge {
     position: absolute;
-    top: 85px;
+    top: 110px;
     right: 16px;
     bottom: auto;
     left: auto;
