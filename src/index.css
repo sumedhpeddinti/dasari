@@ -687,6 +687,12 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 .footer-top .logo { color: var(--cream); }
 .footer-tag, .footer-services { color: rgba(247,241,231,.54); font-size: 10px; letter-spacing: .14em; line-height: 1.6; }
 .footer-services { color: #e9a46f; }
+.footer-contact { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.footer-contact-link { display: flex; align-items: center; gap: 8px; color: rgba(247,241,231,.72); font-size: 12px; letter-spacing: .04em; text-decoration: none; transition: color 0.2s ease; }
+.footer-contact-link:hover { color: var(--gold); }
+.footer-contact-icon { font-size: 13px; line-height: 1; }
+.map-contact-link { display: block; margin-top: 4px; font-size: 12px; color: rgba(255,248,239,.75); text-decoration: none; letter-spacing: .02em; transition: color 0.2s ease; }
+.map-contact-link:hover { color: var(--gold); }
 
 /* Halal Certified Footer Badge */
 .footer-halal-badge {

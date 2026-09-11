@@ -15,6 +15,8 @@ type MenuItem = { name: string; price: string; description?: string; calories?: 
 const mapsUrl = 'https://maps.app.goo.gl/sFDW3pSq3YrCTpS77?g_st=iw';
 const appleMapsUrl = 'https://maps.apple/p/CSG~CZN8E23uHd';
 const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.482845341209!2d-81.4762186!3d41.1020812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88312944ddfd8a29%3A0x6ee709f8b7c5ea11!2s1163%20E%20Tallmadge%20Ave%2C%20Akron%2C%20OH%2044310!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus';
+const storePhone = '+1 (234) 208-8523';
+const storeEmail = 'info@dasarifusiongrill.com';
 const photos = {
   feast: '/assets/images/curry_masala_bowls.jpg',
   tikka: '/assets/images/tikka_masala_bowl.jpg',
@@ -803,6 +805,8 @@ function App() {
               <div>
                 <strong>DASARI FUSION GRILL</strong>
                 <span>1163 E Tallmadge Ave, Akron, OH 44310</span>
+                <a href={`tel:${storePhone.replace(/\s/g,'')}`} className="map-contact-link">📞 {storePhone}</a>
+                <a href={`mailto:${storeEmail}`} className="map-contact-link">✉ {storeEmail}</a>
               </div>
             </div>
           </div>
@@ -814,6 +818,14 @@ function App() {
         <div className="footer-brand-col">
           <Logo light />
           <p className="footer-tag">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p>
+          <div className="footer-contact">
+            <a href={`tel:${storePhone.replace(/\s/g,'')}`} className="footer-contact-link">
+              <span className="footer-contact-icon">📞</span>{storePhone}
+            </a>
+            <a href={`mailto:${storeEmail}`} className="footer-contact-link">
+              <span className="footer-contact-icon">✉</span>{storeEmail}
+            </a>
+          </div>
         </div>
         <div className="footer-halal-badge">
           <img
