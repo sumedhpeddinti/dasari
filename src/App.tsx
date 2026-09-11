@@ -353,7 +353,7 @@ function MenuRows({ items }: { items: MenuItem[] }) {
 function Header({ scrolled }: { scrolled: boolean }) {
   const [open, setOpen] = useState(false);
   const links = [['MENU', '#menu'], ['POPULAR', '#popular'], ['ABOUT', '#about'], ['LOCATION', '#location']];
-  return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><Logo light /><nav>{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a><a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a><a href="#about" className={`header-halal-badge ${scrolled ? 'visible' : ''}`} title="100% Halal Food Certified" aria-label="100% Halal Food Certified"><img src="/assets/images/halal-certified-badge.png" alt="100% Halal Certified" /></a></div><button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>{open && <div className="mobile-nav">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={18} /></a>)}<a href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS<ArrowRight size={18} /></a></div>}</header>;
+  return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><Logo light /><nav>{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a><a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a></div><button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>{open && <div className="mobile-nav">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={18} /></a>)}<a href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS<ArrowRight size={18} /></a></div>}</header>;
 }
 
 function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title: string; copy?: string }) {
@@ -541,7 +541,7 @@ function App() {
       </div>
     </footer>
     {/* Floating Halal badge on right side - clean badge only */}
-    <a href="#about" className={`floating-halal-badge ${scrolled ? 'scrolled-hidden' : ''}`} title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
+    <a href="#about" className="floating-halal-badge" title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
       <img
         src="/assets/images/halal-certified-badge.png"
         alt="Halal Food Certified"
