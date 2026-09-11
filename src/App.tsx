@@ -9,8 +9,8 @@ function AppleIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-type FoodItem = { name: string; price: string; description: string; image: string; badge?: 'V' | 'VE' | 'GF' };
-type MenuItem = { name: string; price: string; description?: string; badge?: 'V' | 'VE' | 'GF' };
+type FoodItem = { name: string; price: string; description: string; image: string; calories?: string; badge?: 'V' | 'VE' | 'GF' };
+type MenuItem = { name: string; price: string; description?: string; calories?: string; badge?: 'V' | 'VE' | 'GF' };
 
 const mapsUrl = 'https://maps.app.goo.gl/sFDW3pSq3YrCTpS77?g_st=iw';
 const appleMapsUrl = 'https://maps.apple/p/CSG~CZN8E23uHd';
@@ -31,41 +31,41 @@ const photos = {
 };
 
 const popular: FoodItem[] = [
-  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', description: 'Chicken tikka, tikka masala, white basmati, spicy mango and hot sauce.', image: photos.tikka },
-  { name: 'Butter Chicken Bowl', price: '$10.99', description: 'Chicken in butter masala over white basmati, with DASARI ranch and hot sauce.', image: photos.butterChicken },
-  { name: 'Rotisserie Chicken Bowl', price: '$11.99', description: 'DASARI rotisserie chicken, white basmati, roasted vegetables and mint yogurt.', image: photos.rotisserieBowl },
-  { name: 'Vegetarian Paneer Bowl', price: '$10.99', description: 'Paneer, butter masala, chickpea masala, white basmati and mint yogurt.', image: photos.paneer, badge: 'V' },
-  { name: 'Vegan Bowl', price: '$10.99', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils and brown basmati.', image: photos.vegan, badge: 'VE' },
-  { name: 'Samosa Chaat', price: '$8.99', description: 'Samosas topped with chickpea masala, sweet yogurt and signature sauces.', image: photos.samosaChaat, badge: 'V' },
+  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Chicken tikka, tikka masala, white basmati, spicy mango and hot sauce.', image: photos.tikka },
+  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Chicken in butter masala over white basmati, with DASARI ranch and hot sauce.', image: photos.butterChicken },
+  { name: 'Rotisserie Chicken Bowl', price: '$11.99', calories: '610 cal', description: 'DASARI rotisserie chicken, white basmati, roasted vegetables and mint yogurt.', image: photos.rotisserieBowl },
+  { name: 'Vegetarian Paneer Bowl', price: '$10.99', calories: '640 cal', description: 'Paneer, butter masala, chickpea masala, white basmati and mint yogurt.', image: photos.paneer, badge: 'V' },
+  { name: 'Vegan Bowl', price: '$10.99', calories: '540 cal', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils and brown basmati.', image: photos.vegan, badge: 'VE' },
+  { name: 'Samosa Chaat', price: '$8.99', calories: '450 cal', description: 'Samosas topped with chickpea masala, sweet yogurt and signature sauces.', image: photos.samosaChaat, badge: 'V' },
 ];
 
 const wrapItems: FoodItem[] = [
-  { name: 'Rotisserie Chicken Wrap', price: '$9.99', description: 'Slow-roasted chicken, rice, sauce and red onions.', image: '/assets/images/rotisserie_wrap.jpg' },
-  { name: 'Chicken Wrap', price: '$8.99', description: 'Chicken, rice, sauce and red onions.', image: '/assets/images/grilled_chicken_wrap.jpg' },
-  { name: 'Spicy Chicken Wrap', price: '$8.99', description: 'Spicy chicken, rice, sauce and red onions.', image: '/assets/images/spicy_chicken_wrap.jpg' },
-  { name: 'Lamb Wrap', price: '$9.99', description: 'Lamb, rice, sauce and red onions.', image: '/assets/images/lamb_wrap.jpg' },
-  { name: 'Paneer Wrap', price: '$8.99', description: 'Paneer, rice, sauce and red onions.', image: '/assets/images/paneer_wrap.jpg', badge: 'V' },
-  { name: 'Broccoli-Chickpea Wrap 🥦', price: '$8.99', description: 'Roasted broccoli, chickpea masala, rice and sauce.', image: '/assets/images/cauli_chickpea_wrap.jpg', badge: 'VE' },
+  { name: 'Rotisserie Chicken Wrap', price: '$9.99', calories: '670 cal', description: 'Slow-roasted chicken, rice, sauce and red onions.', image: '/assets/images/rotisserie_wrap.jpg' },
+  { name: 'Chicken Wrap', price: '$8.99', calories: '630 cal', description: 'Chicken, rice, sauce and red onions.', image: '/assets/images/grilled_chicken_wrap.jpg' },
+  { name: 'Spicy Chicken Wrap', price: '$8.99', calories: '640 cal', description: 'Spicy chicken, rice, sauce and red onions.', image: '/assets/images/spicy_chicken_wrap.jpg' },
+  { name: 'Lamb Wrap', price: '$9.99', calories: '720 cal', description: 'Lamb, rice, sauce and red onions.', image: '/assets/images/lamb_wrap.jpg' },
+  { name: 'Paneer Wrap', price: '$8.99', calories: '680 cal', description: 'Paneer, rice, sauce and red onions.', image: '/assets/images/paneer_wrap.jpg', badge: 'V' },
+  { name: 'Broccoli-Chickpea Wrap 🥦', price: '$8.99', calories: '560 cal', description: 'Roasted broccoli, chickpea masala, rice and sauce.', image: '/assets/images/cauli_chickpea_wrap.jpg', badge: 'VE' },
 ];
 
 const snackItems: FoodItem[] = [
-  { name: 'Samosas', price: '$3.35', description: 'Savory pastries filled with potatoes, peas and spices.', image: photos.samosa, badge: 'V' },
+  { name: 'Samosas', price: '$3.35', calories: '290 cal / 2 pcs', description: 'Savory pastries filled with potatoes, peas and spices.', image: photos.samosa, badge: 'V' },
 ];
 
 const rotisserieItems: FoodItem[] = [
-  { name: 'Half Rotisserie Chicken', price: '$9.99', description: 'Slow-roasted Indian-spiced chicken with your choice of sauce.', image: photos.rotisserie },
-  { name: 'Whole Rotisserie Chicken', price: '$18.99', description: 'Perfect for sharing. Served with your choice of two sides.', image: photos.rotisserie },
-  { name: 'Rotisserie Chicken Plate', price: '$13.99', description: 'Rotisserie chicken, basmati rice, roasted vegetables and your choice of sauce.', image: photos.rotisserie },
-  { name: 'Rotisserie Chicken Family Meal', price: '$34.99', description: 'Whole chicken, large basmati rice, large roasted vegetables, 4 naan and 2 sauces.', image: photos.rotisserie },
+  { name: 'Half Rotisserie Chicken', price: '$9.99', calories: '540 cal', description: 'Slow-roasted Indian-spiced chicken with your choice of sauce.', image: photos.rotisserie },
+  { name: 'Whole Rotisserie Chicken', price: '$18.99', calories: '1,080 cal', description: 'Perfect for sharing. Served with your choice of two sides.', image: photos.rotisserie },
+  { name: 'Rotisserie Chicken Plate', price: '$13.99', calories: '720 cal', description: 'Rotisserie chicken, basmati rice, roasted vegetables and your choice of sauce.', image: photos.rotisserie },
+  { name: 'Rotisserie Chicken Family Meal', price: '$34.99', calories: '2,250 cal', description: 'Whole chicken, large basmati rice, large roasted vegetables, 4 naan and 2 sauces.', image: photos.rotisserie },
 ];
 
 const lentilItems: FoodItem[] = [
-  { name: 'Butter Masala', price: '$9.95 | $19.90', description: 'Creamy tomato-based masala.', image: photos.curry, badge: 'V' },
-  { name: 'Tikka Masala', price: '$9.95 | $19.90', description: 'Classic Indian spiced tomato masala.', image: photos.curry },
-  { name: 'Chickpea Masala', price: '$9.95 | $19.90', description: 'Chickpeas simmered in aromatic spices.', image: photos.curry, badge: 'VE' },
-  { name: 'Yellow Lentil', price: '$9.95 | $19.90', description: 'Comforting yellow lentil dal.', image: photos.curry, badge: 'VE' },
-  { name: 'Black Lentil', price: '$9.95 | $19.90', description: 'Rich, slow-cooked lentils.', image: photos.curry, badge: 'VE' },
-  { name: 'Veggie Bhaji', price: '$13.95 | $21.90', description: 'Flavorful vegetable bhaji.', image: photos.pavBhaji, badge: 'VE' },
+  { name: 'Butter Masala', price: '$9.95 | $19.90', calories: '240 cal / 8 oz', description: 'Creamy tomato-based masala.', image: photos.curry, badge: 'V' },
+  { name: 'Tikka Masala', price: '$9.95 | $19.90', calories: '220 cal / 8 oz', description: 'Classic Indian spiced tomato masala.', image: photos.curry },
+  { name: 'Chickpea Masala', price: '$9.95 | $19.90', calories: '180 cal / 8 oz', description: 'Chickpeas simmered in aromatic spices.', image: photos.curry, badge: 'VE' },
+  { name: 'Yellow Lentil', price: '$9.95 | $19.90', calories: '150 cal / 8 oz', description: 'Comforting yellow lentil dal.', image: photos.curry, badge: 'VE' },
+  { name: 'Black Lentil', price: '$9.95 | $19.90', calories: '190 cal / 8 oz', description: 'Rich, slow-cooked lentils.', image: photos.curry, badge: 'VE' },
+  { name: 'Veggie Bhaji', price: '$13.95 | $21.90', calories: '160 cal / 8 oz', description: 'Flavorful vegetable bhaji.', image: photos.pavBhaji, badge: 'VE' },
 ];
 
 const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'NAAN WRAPS', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
@@ -76,10 +76,10 @@ const bowlSteps = [
     title: 'Base',
     note: 'Pick one or two',
     items: [
-      ['White Basmati Rice', 'Fragrant basmati rice.'],
-      ['Brown Basmati Rice', 'Whole-grain basmati rice.'],
-      ['Field Greens', 'Fresh greens.'],
-      ['Roasted Vegetables', 'Seasoned roasted vegetables.'],
+      ['White Basmati Rice', 'Fragrant basmati rice (210 cal).'],
+      ['Brown Basmati Rice', 'Whole-grain basmati rice (190 cal).'],
+      ['Field Greens', 'Fresh greens (25 cal).'],
+      ['Roasted Vegetables', 'Seasoned roasted vegetables (90 cal).'],
     ],
     price: '+$2.50 | $5',
   },
@@ -88,13 +88,13 @@ const bowlSteps = [
     title: 'Proteins',
     note: 'Pick one or two',
     items: [
-      ['Rotisserie Chicken', 'DASARI-style slow-roasted chicken (+$2).'],
-      ['Chicken Tikka', 'Marinated chicken with authentic Indian spices.'],
-      ['Spicy Chicken', 'Bold, spicy grilled chicken.'],
-      ['Lamb Meatballs', 'Seasoned lamb meatballs (+$1.50 | $3).'],
-      ['Paneer', 'Indian cheese, grilled and seasoned (V).'],
-      ['Tofu', 'Seasoned plant-based protein (VE).'],
-      ['Roasted Vegetables', 'Seasoned roasted vegetables.'],
+      ['Rotisserie Chicken', 'DASARI-style slow-roasted chicken (240 cal, +$2).'],
+      ['Chicken Tikka', 'Marinated chicken with authentic Indian spices (220 cal).'],
+      ['Spicy Chicken', 'Bold, spicy grilled chicken (230 cal).'],
+      ['Lamb Meatballs', 'Seasoned lamb meatballs (280 cal, +$1.50 | $3).'],
+      ['Paneer', 'Indian cheese, grilled and seasoned (260 cal, V).'],
+      ['Tofu', 'Seasoned plant-based protein (170 cal, VE).'],
+      ['Roasted Vegetables', 'Seasoned roasted vegetables (90 cal).'],
     ],
     price: '+$2 / +$1.50 | $3',
   },
@@ -103,11 +103,11 @@ const bowlSteps = [
     title: 'Lentils & Masalas',
     note: 'Pick one or two',
     items: [
-      ['Butter Masala', 'Creamy tomato-based masala (V).'],
-      ['Tikka Masala', 'Classic Indian spiced tomato masala.'],
-      ['Chickpea Masala', 'Chickpeas simmered in aromatic spices (VE).'],
-      ['Black Lentil', 'Rich, slow-cooked lentils (VE).'],
-      ['Yellow Lentil', 'Comforting yellow lentil dal (VE).'],
+      ['Butter Masala', 'Creamy tomato-based masala (220 cal, V).'],
+      ['Tikka Masala', 'Classic Indian spiced tomato masala (200 cal).'],
+      ['Chickpea Masala', 'Chickpeas simmered in aromatic spices (160 cal, VE).'],
+      ['Black Lentil', 'Rich, slow-cooked lentils (170 cal, VE).'],
+      ['Yellow Lentil', 'Comforting yellow lentil dal (140 cal, VE).'],
     ],
   },
   {
@@ -115,12 +115,12 @@ const bowlSteps = [
     title: 'Sauces',
     note: 'Pick one to drizzle',
     items: [
-      ['Spicy Mango', 'Sweet heat with mango.'],
-      ['Mint Yogurt', 'Cool, fresh and creamy.'],
-      ['Sweet Tango', 'Sweet signature sauce.'],
-      ['DASARI Ranch', 'Creamy house ranch.'],
-      ['Tamarind Ginger', 'Tangy tamarind with ginger.'],
-      ['Raita', 'Cool yogurt sauce.'],
+      ['Spicy Mango', 'Sweet heat with mango (60 cal).'],
+      ['Mint Yogurt', 'Cool, fresh and creamy (50 cal).'],
+      ['Sweet Tango', 'Sweet signature sauce (70 cal).'],
+      ['DASARI Ranch', 'Creamy house ranch (110 cal).'],
+      ['Tamarind Ginger', 'Tangy tamarind with ginger (65 cal).'],
+      ['Raita', 'Cool yogurt sauce (45 cal).'],
     ],
   },
   {
@@ -128,10 +128,10 @@ const bowlSteps = [
     title: 'Hot Stuff',
     note: 'Pick one',
     items: [
-      ['WHOA (5/10)', 'A little kick.'],
-      ['OMG (10/10)', 'Bring the heat.'],
-      ['OUCH (8/10)', 'For serious heat lovers.'],
-      ['Serrano Peppers (10/10)', 'Fresh serrano heat.'],
+      ['WHOA (5/10)', 'A little kick (10 cal).'],
+      ['OMG (10/10)', 'Bring the heat (15 cal).'],
+      ['OUCH (8/10)', 'For serious heat lovers (10 cal).'],
+      ['Serrano Peppers (10/10)', 'Fresh serrano heat (5 cal).'],
     ],
   },
   {
@@ -139,60 +139,60 @@ const bowlSteps = [
     title: 'Garnishes',
     note: 'Choose all, a few or none',
     items: [
-      ['Romaine Lettuce', 'Fresh crunchy romaine.'],
-      ['Purple Slaw', 'Crispy spiced purple slaw.'],
-      ['Pickled Onions', 'Tangy house-pickled onions.'],
-      ['Roasted Corn', 'Sweet fire-roasted corn.'],
-      ['Diced Onions', 'Fresh diced red onions.'],
-      ['Fresh Herbs', 'Chipped mint & coriander.'],
+      ['Romaine Lettuce', 'Fresh crunchy romaine (5 cal).'],
+      ['Purple Slaw', 'Crispy spiced purple slaw (35 cal).'],
+      ['Pickled Onions', 'Tangy house-pickled onions (20 cal).'],
+      ['Roasted Corn', 'Sweet fire-roasted corn (45 cal).'],
+      ['Diced Onions', 'Fresh diced red onions (10 cal).'],
+      ['Fresh Herbs', 'Chipped mint & coriander (5 cal).'],
     ],
   },
 ];
 
 const chefBowls: MenuItem[] = [
-  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', description: 'Chicken tikka and tikka masala over white basmati, finished with spicy mango drizzle and hot sauce.' },
-  { name: 'Butter Chicken Bowl', price: '$10.99', description: 'Chicken in butter masala over white basmati, with DASARI ranch drizzle and hot sauce.' },
-  { name: 'Rotisserie Chicken Bowl', price: '$11.99', description: 'DASARI rotisserie chicken, white basmati, roasted vegetables, mint yogurt, hot sauce.' },
-  { name: 'Vegetarian Paneer Bowl', price: '$10.99', description: 'Paneer, butter masala, chickpea masala, white basmati, mint yogurt, hot sauce.', badge: 'V' },
-  { name: 'Vegan Bowl', price: '$10.99', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils, brown basmati, spicy mango, hot sauce.', badge: 'VE' },
-  { name: 'Pro Bowl', price: '$13.77', description: 'Double roasted vegetables, your choice of protein, signature sauce, and hot stuff. Lamb +$3 · Salmon +$4.' },
-  { name: 'Dasari Salad', price: '$12.99', description: 'Choice of protein over greens, roasted broccoli 🥦, tomatoes, roasted corn, chickpeas, cranberries, cheese, pickled onions, slaw and dressing.' },
+  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Chicken tikka and tikka masala over white basmati, finished with spicy mango drizzle and hot sauce.' },
+  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Chicken in butter masala over white basmati, with DASARI ranch drizzle and hot sauce.' },
+  { name: 'Rotisserie Chicken Bowl', price: '$11.99', calories: '610 cal', description: 'DASARI rotisserie chicken, white basmati, roasted vegetables, mint yogurt, hot sauce.' },
+  { name: 'Vegetarian Paneer Bowl', price: '$10.99', calories: '640 cal', description: 'Paneer, butter masala, chickpea masala, white basmati, mint yogurt, hot sauce.', badge: 'V' },
+  { name: 'Vegan Bowl', price: '$10.99', calories: '540 cal', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils, brown basmati, spicy mango, hot sauce.', badge: 'VE' },
+  { name: 'Pro Bowl', price: '$13.77', calories: '820 cal', description: 'Double roasted vegetables, your choice of protein, signature sauce, and hot stuff. Lamb +$3 · Salmon +$4.' },
+  { name: 'Dasari Salad', price: '$12.99', calories: '420 cal', description: 'Choice of protein over greens, roasted broccoli 🥦, tomatoes, roasted corn, chickpeas, cranberries, cheese, pickled onions, slaw and dressing.' },
 ];
 
 const familyItems: MenuItem[] = [
-  { name: 'Chicken Tikka Masala', price: 'Pint $12.75 · Quart $25.50' },
-  { name: 'Butter Chicken', price: 'Pint $12.75 · Quart $25.50' },
-  { name: 'Paneer Tikka Masala', price: 'Pint $12.75 · Quart $25.50', badge: 'V' },
-  { name: 'Butter Paneer', price: 'Pint $12.75 · Quart $25.50', badge: 'V' },
-  { name: 'Rotisserie Chicken', price: 'Pint $16 · Quart $32' },
-  { name: 'Chicken', price: 'Pint $15 · Quart $30' },
-  { name: 'Spicy Chicken', price: 'Pint $15 · Quart $30' },
-  { name: 'Paneer', price: 'Pint $15 · Quart $30', badge: 'V' },
-  { name: 'Tofu', price: 'Pint $15 · Quart $30', badge: 'VE' },
+  { name: 'Chicken Tikka Masala', price: 'Pint $12.75 · Quart $25.50', calories: '320 cal / 4 oz' },
+  { name: 'Butter Chicken', price: 'Pint $12.75 · Quart $25.50', calories: '340 cal / 4 oz' },
+  { name: 'Paneer Tikka Masala', price: 'Pint $12.75 · Quart $25.50', calories: '310 cal / 4 oz', badge: 'V' },
+  { name: 'Butter Paneer', price: 'Pint $12.75 · Quart $25.50', calories: '330 cal / 4 oz', badge: 'V' },
+  { name: 'Rotisserie Chicken', price: 'Pint $16 · Quart $32', calories: '280 cal / 4 oz' },
+  { name: 'Chicken', price: 'Pint $15 · Quart $30', calories: '240 cal / 4 oz' },
+  { name: 'Spicy Chicken', price: 'Pint $15 · Quart $30', calories: '250 cal / 4 oz' },
+  { name: 'Paneer', price: 'Pint $15 · Quart $30', calories: '290 cal / 4 oz', badge: 'V' },
+  { name: 'Tofu', price: 'Pint $15 · Quart $30', calories: '180 cal / 4 oz', badge: 'VE' },
 ];
 
 const sideItems: MenuItem[] = [
-  { name: 'Basmati Rice', price: '$3.25 pint | $6.50 quart', description: 'Fragrant basmati rice' },
-  { name: 'Naan', price: '5 for $9 · 10 for $18', description: 'Housemade. Pillowy soft. Fresh baked.' },
-  { name: 'Wheat Naan', price: '5 for $9 · 10 for $18', description: 'Fresh-baked wheat naan.' },
-  { name: 'Samosas', price: '10 for $11.50', description: 'Savory pastries filled with potatoes, peas and spices.' },
-  { name: 'Sauces', price: '$5', description: '8 oz signature sauce bottle' },
-  { name: 'Hot Sauce Bottle', price: '$5.99', description: 'Dasari signature spicy hot sauce bottle' },
+  { name: 'Basmati Rice', price: '$3.25 pint | $6.50 quart', calories: '210 cal', description: 'Fragrant basmati rice' },
+  { name: 'Naan', price: '5 for $9 · 10 for $18', calories: '290 cal', description: 'Housemade. Pillowy soft. Fresh baked.' },
+  { name: 'Wheat Naan', price: '5 for $9 · 10 for $18', calories: '270 cal', description: 'Fresh-baked wheat naan.' },
+  { name: 'Samosas', price: '10 for $11.50', calories: '140 cal / pc', description: 'Savory pastries filled with potatoes, peas and spices.' },
+  { name: 'Sauces', price: '$5', calories: '80 cal / 2 oz', description: '8 oz signature sauce bottle' },
+  { name: 'Hot Sauce Bottle', price: '$5.99', calories: '15 cal / tbsp', description: 'Dasari signature spicy hot sauce bottle' },
 ];
 
 const beverageItems: MenuItem[] = [
-  { name: 'Pepsi', price: '', description: 'Fountain soda' },
-  { name: 'Dr Pepper', price: '', description: 'Fountain soda' },
-  { name: 'Mountain Dew', price: '', description: 'Fountain soda' },
-  { name: 'Pink Lemonade', price: '', description: 'Groves Best lemonade' },
-  { name: 'Water', price: '', description: 'Filtered ice water' },
-  { name: 'Coca-Cola Zero Sugar', price: '', description: 'Zero sugar fountain soda' },
-  { name: 'Orange Soda', price: '', description: 'Groves Best orange' },
-  { name: 'Coca-Cola', price: '', description: 'Original taste fountain soda' },
-  { name: 'Unsweetened Black Tea', price: '', description: 'Groves Best fresh brewed black tea' },
-  { name: 'Sweet Black Tea', price: '', description: 'Groves Best fresh brewed sweet tea' },
-  { name: 'Raspberry Tea', price: '', description: 'Groves Best brewed raspberry tea' },
-  { name: 'Strawberry Lemonade', price: '', description: 'Craft \'62 pure cane beverage' },
+  { name: 'Pepsi', price: '', calories: '150 cal', description: 'Fountain soda' },
+  { name: 'Dr Pepper', price: '', calories: '150 cal', description: 'Fountain soda' },
+  { name: 'Mountain Dew', price: '', calories: '170 cal', description: 'Fountain soda' },
+  { name: 'Pink Lemonade', price: '', calories: '140 cal', description: 'Groves Best lemonade' },
+  { name: 'Water', price: '', calories: '0 cal', description: 'Filtered ice water' },
+  { name: 'Coca-Cola Zero Sugar', price: '', calories: '0 cal', description: 'Zero sugar fountain soda' },
+  { name: 'Orange Soda', price: '', calories: '160 cal', description: 'Groves Best orange' },
+  { name: 'Coca-Cola', price: '', calories: '140 cal', description: 'Original taste fountain soda' },
+  { name: 'Unsweetened Black Tea', price: '', calories: '0 cal', description: 'Groves Best fresh brewed black tea' },
+  { name: 'Sweet Black Tea', price: '', calories: '110 cal', description: 'Groves Best fresh brewed sweet tea' },
+  { name: 'Raspberry Tea', price: '', calories: '120 cal', description: 'Groves Best brewed raspberry tea' },
+  { name: 'Strawberry Lemonade', price: '', calories: '150 cal', description: 'Craft \'62 pure cane beverage' },
 ];
 
 function Logo({ light = false }: { light?: boolean }) {
@@ -246,10 +246,26 @@ function Badge({ value }: { value?: 'V' | 'VE' | 'GF' }) {
 }
 
 function PlateCard({ item, active }: { item: FoodItem; active?: boolean }) {
-  return <article className={`plate-card ${active ? 'plate-active' : ''}`}>
-    <div className="plate"><div className="plate-inner"><img src={item.image} alt={`Dasari Fusion Grill ${item.name} - ${item.description}`} loading="lazy" /></div></div>
-    <div className="plate-copy"><div className="item-heading"><h3>{item.name}</h3><Badge value={item.badge} /></div><strong>{item.price}</strong><p>{item.description}</p></div>
-  </article>;
+  return (
+    <article className={`plate-card ${active ? 'plate-active' : ''}`}>
+      <div className="plate">
+        <div className="plate-inner">
+          <img src={item.image} alt={`Dasari Fusion Grill ${item.name} - ${item.description}`} loading="lazy" />
+        </div>
+      </div>
+      <div className="plate-copy">
+        <div className="item-heading">
+          <h3>{item.name}</h3>
+          <Badge value={item.badge} />
+        </div>
+        <div className="item-price-row">
+          <strong>{item.price}</strong>
+          {item.calories && <span className="calorie-tag">{item.calories}</span>}
+        </div>
+        <p>{item.description}</p>
+      </div>
+    </article>
+  );
 }
 
 function PlateCarousel({ items, id }: { items: FoodItem[]; id?: string }) {
@@ -372,7 +388,23 @@ function PlateCarousel({ items, id }: { items: FoodItem[]; id?: string }) {
 }
 
 function MenuRows({ items }: { items: MenuItem[] }) {
-  return <div className="menu-rows">{items.map((item) => <article className="menu-row" key={item.name}><div><div className="row-title"><h3>{item.name}</h3><Badge value={item.badge} /></div>{item.description && <p>{item.description}</p>}</div><strong>{item.price}</strong></article>)}</div>;
+  return (
+    <div className="menu-rows">
+      {items.map((item) => (
+        <article className="menu-row" key={item.name}>
+          <div>
+            <div className="row-title">
+              <h3>{item.name}</h3>
+              <Badge value={item.badge} />
+              {item.calories && <span className="calorie-tag">{item.calories}</span>}
+            </div>
+            {item.description && <p>{item.description}</p>}
+          </div>
+          {item.price && <strong>{item.price}</strong>}
+        </article>
+      ))}
+    </div>
+  );
 }
 
 function Header({ scrolled }: { scrolled: boolean }) {

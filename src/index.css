@@ -161,6 +161,31 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 .plate-copy p { max-width: 320px; color: rgba(247,241,231,.58); font-size: 13px; line-height: 1.55; margin-top: 8px; }
 .badge { display: inline-grid; place-items: center; flex: 0 0 auto; width: 24px; height: 18px; border: 1px solid currentColor; border-radius: 2px; color: #79906a; font-size: 8px; font-weight: 700; letter-spacing: .02em; }
 .badge-ve { color: #5d8d65; }
+
+.item-price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.calorie-tag {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(201, 154, 72, 0.14);
+  color: var(--gold);
+  border: 1px solid rgba(201, 154, 72, 0.35);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.menu-row .calorie-tag {
+  margin-left: 6px;
+}
 .bowl-section { background: var(--paper); }
 .bowl-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .bowl-heading h2 { margin-bottom: 0; }
