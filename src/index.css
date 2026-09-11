@@ -343,75 +343,86 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-}
-.location-links-row {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
   align-items: center;
 }
-.button-apple-maps {
-  background: var(--bark);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: var(--cream);
-}
-.button-apple-maps:hover {
-  background: var(--espresso);
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-.map-pill-badge-group {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  pointer-events: auto;
-}
-.map-pill-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(26, 15, 11, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: var(--cream);
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 11px;
+.map-select-btn {
+  min-height: 48px;
+  padding: 0 20px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.13em;
+  gap: 8px;
   transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
 }
-.map-pill-btn svg {
-  color: var(--terracotta);
-}
-.map-pill-btn:hover {
+.active-google-btn {
   background: var(--terracotta);
   border-color: var(--terracotta);
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(201, 95, 53, 0.45);
 }
-.map-pill-btn:hover svg {
+.active-apple-btn {
+  background: #007aff;
+  border-color: #007aff;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.4);
+}
+.inactive-map-btn {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--cream);
+  opacity: 0.75;
+}
+.inactive-map-btn:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--cream);
   color: #fff;
 }
-.map-pill-btn-apple {
-  background: rgba(26, 15, 11, 0.92);
-  border-color: rgba(201, 154, 72, 0.45);
+.apple-btn-icon, .apple-tab-icon {
+  font-size: 14px;
+  line-height: 1;
 }
-.map-pill-btn-apple svg {
-  color: var(--gold);
+
+/* Map Art Switcher Tab Bar */
+.map-switch-tab-bar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  background: rgba(26, 15, 11, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
 }
-.map-pill-btn-apple:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--espresso);
-  box-shadow: 0 12px 28px rgba(201, 154, 72, 0.45);
+.map-switch-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: rgba(247, 241, 231, 0.75);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-.map-pill-btn-apple:hover svg {
-  color: var(--espresso);
+.map-switch-tab:hover {
+  color: #fff;
+}
+.tab-active-google {
+  background: var(--terracotta);
+  color: #fff !important;
+  box-shadow: 0 2px 10px rgba(201, 95, 53, 0.4);
+}
+.tab-active-apple {
+  background: #007aff;
+  color: #fff !important;
+  box-shadow: 0 2px 10px rgba(0, 122, 255, 0.4);
 }
 .map-overlay-note {
   position: absolute;
