@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight, Flame, Leaf, MapPin, Menu, X } from 'lucide-react';
 
+function AppleIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 170 170" width={size} height={size} fill="currentColor" style={{ display: 'inline-block', verticalAlign: '-0.15em' }}>
+      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.7.13-9.43-1.92-14.19-6.14-3.23-2.76-7.14-7.46-11.75-14.1-6.19-8.9-11.01-18.78-14.46-29.62-3.46-10.84-5.19-21.2-5.19-31.08 0-14.54 3.73-26.6 11.2-36.19 7.47-9.59 16.9-14.48 28.29-14.67 4.96 0 10.38 1.25 16.27 3.74 5.89 2.49 9.87 3.74 11.94 3.74 1.8 0 5.86-1.32 12.18-3.97 6.32-2.65 11.76-3.83 16.32-3.54 8.71.61 16.03 3.66 21.95 9.15 5.92 5.49 9.87 12.21 11.85 20.16-10.6 6.4-15.8 15.22-15.6 26.46.2 9.07 3.74 16.7 10.63 22.89 6.89 6.19 14.88 9.77 23.97 10.74-2.22 6.64-5.16 13.06-8.82 19.26zM119.22 31.08c0-7.25 2.68-14.28 8.04-21.09 5.36-6.81 12.1-10.87 20.22-12.18.23 1.18.35 2.23.35 3.17 0 7.37-2.74 14.47-8.22 21.3-5.48 6.83-12.3 10.92-20.46 12.27-.12-.82-.18-1.98-.18-3.47z" />
+    </svg>
+  );
+}
+
 type FoodItem = { name: string; price: string; description: string; image: string; badge?: 'V' | 'VE' | 'GF' };
 type MenuItem = { name: string; price: string; description?: string; badge?: 'V' | 'VE' | 'GF' };
 
@@ -416,7 +424,7 @@ function App() {
                   rel="noopener noreferrer"
                   onClick={() => setSelectedMap('apple')}
                 >
-                  <span className="apple-btn-icon"></span> APPLE MAPS ↗
+                  <AppleIcon size={14} /> APPLE MAPS ↗
                 </a>
               </div>
             </div>
@@ -435,7 +443,7 @@ function App() {
                 className={`map-switch-tab ${selectedMap === 'apple' ? 'tab-active-apple' : ''}`}
                 onClick={() => setSelectedMap('apple')}
               >
-                <span className="apple-tab-icon"></span> Apple Maps
+                <AppleIcon size={13} /> Apple Maps
               </button>
             </div>
             {selectedMap === 'google' ? (
@@ -478,7 +486,7 @@ function App() {
                     className="apple-map-launch-btn"
                     title="Open in Apple Maps"
                   >
-                    <span className="apple-btn-icon"></span> Open in Apple Maps ↗
+                    <AppleIcon size={15} /> Open in Apple Maps ↗
                   </a>
                 </div>
               </div>
