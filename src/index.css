@@ -1655,6 +1655,18 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   margin: 0 auto;
 }
 
+.rotisserie-showcase-section h2 {
+  color: var(--cream);
+}
+
+.rotisserie-showcase-section .section-copy {
+  color: rgba(247, 241, 231, 0.8);
+}
+
+.rotisserie-showcase-section .eyebrow {
+  color: var(--gold);
+}
+
 @media (max-width: 900px) {
   .rotisserie-showcase-section {
     margin-left: -24px;
