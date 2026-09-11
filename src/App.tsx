@@ -49,9 +49,7 @@ const wrapItems: FoodItem[] = [
 ];
 
 const snackItems: FoodItem[] = [
-  { name: 'Pav Bhaji', price: '$9.99', description: 'Flavorful vegetable bhaji with buttered toasted pav.', image: photos.pavBhaji, badge: 'V' },
   { name: 'Samosas', price: '$3.35', description: 'Savory pastries filled with potatoes, peas and spices.', image: photos.samosa, badge: 'V' },
-  { name: 'Samosa Chaat', price: '$8.99', description: 'Samosas topped with chickpea masala, sweet yogurt and signature sauces.', image: photos.samosaChaat, badge: 'V' },
 ];
 
 const rotisserieItems: FoodItem[] = [
