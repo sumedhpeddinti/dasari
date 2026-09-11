@@ -36,7 +36,7 @@ const wrapItems: FoodItem[] = [
   { name: 'Spicy Chicken Wrap', price: '$8.99', description: 'Spicy chicken, rice, sauce and red onions.', image: '/assets/images/spicy_chicken_wrap.jpg' },
   { name: 'Lamb Wrap', price: '$9.99', description: 'Lamb, rice, sauce and red onions.', image: '/assets/images/lamb_wrap.jpg' },
   { name: 'Paneer Wrap', price: '$8.99', description: 'Paneer, rice, sauce and red onions.', image: '/assets/images/paneer_wrap.jpg', badge: 'V' },
-  { name: 'Cauli-Chickpea Wrap', price: '$8.99', description: 'Roasted cauliflower, chickpea masala, rice and sauce.', image: '/assets/images/cauli_chickpea_wrap.jpg', badge: 'VE' },
+  { name: 'Broccoli-Chickpea Wrap 🥦', price: '$8.99', description: 'Roasted broccoli, chickpea masala, rice and sauce.', image: '/assets/images/cauli_chickpea_wrap.jpg', badge: 'VE' },
 ];
 
 const snackItems: FoodItem[] = [
@@ -149,7 +149,7 @@ const chefBowls: MenuItem[] = [
   { name: 'Vegetarian Paneer Bowl', price: '$10.99', description: 'Paneer, butter masala, chickpea masala, white basmati, mint yogurt, hot sauce.', badge: 'V' },
   { name: 'Vegan Bowl', price: '$10.99', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils, brown basmati, spicy mango, hot sauce.', badge: 'VE' },
   { name: 'Pro Bowl', price: '$13.77', description: 'Double roasted vegetables, your choice of protein, signature sauce, and hot stuff. Lamb +$3 · Salmon +$4.' },
-  { name: 'Dasari Salad', price: '$12.99', description: 'Choice of protein over greens, roasted cauliflower, tomatoes, roasted corn, chickpeas, cranberries, cheese, pickled onions, slaw and dressing.' },
+  { name: 'Dasari Salad', price: '$12.99', description: 'Choice of protein over greens, roasted broccoli 🥦, tomatoes, roasted corn, chickpeas, cranberries, cheese, pickled onions, slaw and dressing.' },
 ];
 
 const familyItems: MenuItem[] = [
