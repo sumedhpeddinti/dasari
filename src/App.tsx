@@ -454,59 +454,33 @@ function App() {
                   alt="Articia Rotisserie Oven with golden roasted chickens at Dasari Fusion Grill"
                   className="rotisserie-machine-img"
                 />
-                <div className="rotisserie-machine-badge">
-                  <Flame size={14} className="flame-icon" />
-                  <span>ARTICIA OVEN SLOW-ROASTED</span>
-                </div>
               </div>
             </div>
             <div className="rotisserie-content-col">
-              <div className="rotisserie-eyebrow-tag">
-                <Flame size={14} /> GOOD FOOD · GOOD MOOD!
-              </div>
               <h2 className="rotisserie-hero-title">
                 <span>OUR SIGNATURE</span>
                 <em>ROTISSERIE CHICKEN</em>
               </h2>
-              <p className="rotisserie-hero-subtitle">Slow Roasted · Bold Flavors</p>
+              <p className="rotisserie-hero-subtitle">Slow-Roasted · Spice-Marinated · Flame-Seared</p>
+              <p className="rotisserie-hero-description">
+                Slow-roasted daily in our open-flame rotisserie oven. Marinated for 24 hours in authentic Indian aromatics, yielding golden crispy skin and exceptionally tender, juicy meat.
+              </p>
               
-              <div className="rotisserie-features-grid">
-                <div className="rotisserie-feature-item">
-                  <div className="feature-icon-wrapper">🥬</div>
+              <div className="rotisserie-clean-specs">
+                <div className="spec-bullet">
+                  <Flame size={18} className="spec-icon" />
                   <div>
-                    <strong>JUICY &amp; TENDER</strong>
-                    <span>Slow-marinated in Indian spices &amp; flame roasted.</span>
+                    <strong>Slow Open-Flame Roasting</strong>
+                    <span>Cooked naturally over open heat with zero heavy oils or greases.</span>
                   </div>
                 </div>
-                <div className="rotisserie-feature-item">
-                  <div className="feature-icon-wrapper">🔥</div>
+                <div className="spec-bullet">
+                  <Leaf size={18} className="spec-icon" />
                   <div>
-                    <strong>NATURALLY ROASTED</strong>
-                    <span>Clean, open-flame roasting with zero heavy oils.</span>
+                    <strong>100% Whole Spices &amp; Real Ingredients</strong>
+                    <span>House-ground Indian masala rub, free from artificial colors or flavorings.</span>
                   </div>
                 </div>
-                <div className="rotisserie-feature-item">
-                  <div className="feature-icon-wrapper">🌿</div>
-                  <div>
-                    <strong>NO ARTIFICIAL COLORS</strong>
-                    <span>100% authentic whole spices &amp; real ingredients.</span>
-                  </div>
-                </div>
-                <div className="rotisserie-feature-item">
-                  <div className="feature-icon-wrapper">❤️</div>
-                  <div>
-                    <strong>MADE WITH LOVE</strong>
-                    <span>Crafted fresh daily for your table.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rotisserie-slogan-box">
-                <span className="slogan-quote">“Once You Smell It, You’ll Crave It!”</span>
-              </div>
-
-              <div className="rotisserie-together-badge">
-                <span className="together-text">Good Food Brings People Together ❤️</span>
               </div>
             </div>
           </div>
