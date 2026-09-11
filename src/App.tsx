@@ -447,12 +447,41 @@ function App() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             ) : (
-              <iframe
-                src="https://maps.apple.com/place?place-id=I19BA1DCB0F3265C6&_provider=9902"
-                title="Dasari Fusion Grill location on Apple Maps - 1163 E Tallmadge Ave, Akron, OH 44310"
-                loading="lazy"
-                allowFullScreen
-              />
+              <div className="apple-map-view">
+                <img
+                  src="/assets/images/apple-map-preview.png"
+                  alt="Apple Maps preview for Dasari Fusion Grill"
+                  className="apple-map-bg-img"
+                />
+                <div className="apple-map-content-overlay">
+                  <a
+                    href={appleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="apple-map-pin-marker"
+                    title="Open Dasari Fusion Grill in Apple Maps"
+                  >
+                    <div className="apple-pin-pulse" />
+                    <div className="apple-pin-head">
+                      <MapPin size={22} className="apple-pin-icon" />
+                    </div>
+                    <div className="apple-pin-callout">
+                      <strong>DASARI FUSION GRILL</strong>
+                      <span>1163 E Tallmadge Ave, Akron, OH 44310</span>
+                    </div>
+                  </a>
+
+                  <a
+                    href={appleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="apple-map-launch-btn"
+                    title="Open in Apple Maps"
+                  >
+                    <span className="apple-btn-icon"></span> Open in Apple Maps ↗
+                  </a>
+                </div>
+              </div>
             )}
             <div className="map-overlay-note">
               <MapPin size={17} />
