@@ -5,6 +5,7 @@ type FoodItem = { name: string; price: string; description: string; image: strin
 type MenuItem = { name: string; price: string; description?: string; badge?: 'V' | 'VE' | 'GF' };
 
 const mapsUrl = 'https://maps.app.goo.gl/sFDW3pSq3YrCTpS77?g_st=iw';
+const appleMapsUrl = 'https://maps.apple.com/p/CSG~CZN8E23uHd';
 const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.482845341209!2d-81.4762186!3d41.1020812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88312944ddfd8a29%3A0x6ee709f8b7c5ea11!2s1163%20E%20Tallmadge%20Ave%2C%20Akron%2C%20OH%2044310!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus';
 const photos = {
   feast: '/assets/images/curry_masala_bowls.jpg',
@@ -397,12 +398,22 @@ function App() {
               <span className="location-subtag">Indian fusion · Indian flavors · Bowls · Naan</span>
             </div>
             <div className="location-actions">
-              <a className="button" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-                GET DIRECTIONS <ArrowRight size={17} />
-              </a>
-              <a className="underlined-link light-link" href={mapsUrl} target="_blank" rel="noopener noreferrer">
-                OPEN IN GOOGLE MAPS <MapPin size={16} />
-              </a>
+              <div className="location-buttons-row">
+                <a className="button" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                  GOOGLE MAPS <MapPin size={16} />
+                </a>
+                <a className="button button-apple-maps" href={appleMapsUrl} target="_blank" rel="noopener noreferrer">
+                  APPLE MAPS <MapPin size={16} />
+                </a>
+              </div>
+              <div className="location-links-row">
+                <a className="underlined-link light-link" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                  OPEN IN GOOGLE MAPS <ArrowRight size={14} />
+                </a>
+                <a className="underlined-link light-link" href={appleMapsUrl} target="_blank" rel="noopener noreferrer">
+                  OPEN IN APPLE MAPS <ArrowRight size={14} />
+                </a>
+              </div>
             </div>
           </div>
           <div className="map-art">
@@ -413,19 +424,28 @@ function App() {
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
             />
-            {/* Clickable overlay covering 100% of the map: pressing ANYWHERE opens Google Maps */}
-            <a
-              href={mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="map-click-overlay"
-              aria-label="Open Dasari Fusion Grill at 1163 E Tallmadge Ave, Akron, OH 44310 in Google Maps"
-              title="Click anywhere to open in Google Maps"
-            >
-              <div className="map-pill-badge">
-                <MapPin size={14} />
-                <span>Open in Google Maps</span>
-                <ArrowRight size={13} />
+            <div className="map-click-overlay">
+              <div className="map-pill-badge-group">
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="map-pill-btn"
+                  title="Open in Google Maps"
+                >
+                  <MapPin size={14} />
+                  <span>Google Maps ↗</span>
+                </a>
+                <a
+                  href={appleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="map-pill-btn map-pill-btn-apple"
+                  title="Open in Apple Maps"
+                >
+                  <MapPin size={14} />
+                  <span>Apple Maps ↗</span>
+                </a>
               </div>
               <div className="map-overlay-note">
                 <MapPin size={17} />
@@ -434,10 +454,7 @@ function App() {
                   <span>1163 E Tallmadge Ave, Akron, OH 44310</span>
                 </div>
               </div>
-              <div className="map-click-hint">
-                <span>Tap anywhere to open Maps ↗</span>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </section>
