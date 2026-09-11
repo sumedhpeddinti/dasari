@@ -922,9 +922,18 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   }
 
   /* Hero */
-  .hero { min-height: 100svh; }
+  .hero { min-height: 100svh; background: #07180d; }
   .hero-content { padding: 130px 24px 70px; }
-  .hero-overlay { background: linear-gradient(160deg, rgba(26,15,11,.96) 0%, rgba(26,15,11,.7) 100%); }
+  .hero-overlay {
+    background: linear-gradient(
+      175deg,
+      rgba(7, 24, 13, 0.95) 0%,
+      rgba(14, 44, 25, 0.88) 35%,
+      rgba(22, 62, 36, 0.78) 65%,
+      rgba(32, 78, 48, 0.65) 85%,
+      rgba(58, 32, 20, 0.40) 100%
+    );
+  }
   .hero-mark { display: none; }
   .floating-halal-badge {
     position: fixed;
@@ -938,9 +947,37 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .section-pad { padding: 72px 24px; }
 
   /* Intro */
-  .intro { grid-template-columns: 1fr; min-height: auto; gap: 20px; }
-  .intro-mark { display: none; }
-  .intro-stamp { justify-self: start; width: 100px; height: 100px; margin-top: 16px; }
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: auto;
+    gap: 24px 16px;
+    text-align: center;
+  }
+  .intro-content {
+    grid-column: 1 / -1;
+    order: 1;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .intro-mark {
+    display: flex !important;
+    justify-content: center;
+    order: 2;
+    max-width: 140px;
+    margin: 0 auto;
+  }
+  .intro-right {
+    display: flex !important;
+    justify-content: center;
+    order: 3;
+    max-width: 140px;
+    margin: 0 auto;
+  }
+  .intro-mark .temple-wireframe-svg,
+  .intro-right .elephant-wireframe-svg {
+    width: 130px;
+  }
 
   /* Carousels */
   .carousel-controls { padding-left: 24px; padding-right: 24px; }
