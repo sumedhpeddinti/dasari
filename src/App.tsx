@@ -414,31 +414,104 @@ function Header({ scrolled }: { scrolled: boolean }) {
 }
 
 function TempleWireframe({ className = "", light = false }: { className?: string; light?: boolean }) {
-  const color = light ? "rgba(201, 154, 72, 0.18)" : "rgba(74, 44, 29, 0.15)";
+  const strokeColor = light ? "#d4a74a" : "#452618";
   return (
     <svg
       className={`temple-wireframe-svg ${className}`}
-      viewBox="0 0 200 300"
+      viewBox="0 0 400 600"
       fill="none"
-      stroke={color}
+      stroke={strokeColor}
       strokeWidth="1.2"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d="M100 12 L100 24 M96 24 L104 24 M94 30 Q100 24 106 30 Q100 36 94 30 Z M97 36 L103 36 L100 42 Z" />
-      <path d="M100 42 L80 70 L120 70 Z M88 56 L112 56" />
-      <path d="M85 70 L85 90 L115 90 L115 70 M92 70 L92 90 M108 70 L108 90" />
-      <path d="M72 90 L128 90 L136 115 L64 115 Z M78 102 L122 102" />
-      <path d="M70 115 L70 145 L130 145 L130 115 M82 115 L82 145 M100 115 L100 145 M118 115 L118 145" />
-      <path d="M54 145 L146 145 L156 175 L44 175 Z M62 160 L138 160" />
-      <path d="M50 175 L50 220 L150 220 L150 175 M66 175 L66 220 M84 175 L84 220 M116 175 L116 220 M134 175 L134 220" />
-      <path d="M86 220 L86 185 Q100 170 114 185 L114 220 Z M92 220 L92 192 Q100 180 108 192 L108 220 Z" />
-      <path d="M34 220 L166 220 L174 245 L26 245 Z M42 232 L158 232" />
-      <path d="M20 245 L180 245 L180 260 L20 260 Z" />
-      <circle cx="100" cy="130" r="8" />
-      <circle cx="100" cy="130" r="4" />
-      <path d="M100 118 L100 142 M88 130 L112 130" />
+      {/* Symmetrical Blueprint Grid Lines */}
+      <g strokeDasharray="4 4" opacity="0.28" strokeWidth="0.75">
+        <line x1="200" y1="10" x2="200" y2="560" />
+        <line x1="20" y1="530" x2="380" y2="530" />
+        <line x1="40" y1="430" x2="360" y2="430" />
+        <line x1="65" y1="337" x2="335" y2="337" />
+        <line x1="85" y1="243" x2="315" y2="243" />
+        <line x1="102" y1="165" x2="298" y2="165" />
+        <line x1="120" y1="95" x2="280" y2="95" />
+      </g>
+
+      {/* 1. KALASA FINIALS (STUPI) */}
+      <path d="M200 15 L200 35 M194 35 L206 35 M196 24 L204 24 M200 35 C210 42 210 52 200 60 C190 52 190 42 200 35 Z M194 54 L206 54" />
+      <circle cx="200" cy="20" r="3" />
+      <path d="M180 30 L180 46 M176 46 L184 46 M180 46 C187 52 187 58 180 64 C173 58 173 52 180 46 Z" />
+      <path d="M220 30 L220 46 M216 46 L224 46 M220 46 C227 52 227 58 220 64 C213 58 213 52 220 46 Z" />
+      <path d="M160 42 L160 56 M157 56 L163 56 M160 56 C165 60 165 65 160 70 C155 65 155 60 160 56 Z" />
+      <path d="M240 42 L240 56 M237 56 L243 56 M240 56 C245 60 245 65 240 70 C235 65 235 60 240 56 Z" />
+
+      {/* 2. TOP SHIKHARA / SALA CROWN ROOF */}
+      <path d="M140 70 L260 70 L275 95 L125 95 Z" />
+      <path d="M145 70 Q200 50 255 70" />
+      <path d="M150 70 L135 95 M170 70 L160 95 M190 70 L185 95 M200 70 L200 95 M210 70 L215 95 M230 70 L240 95 M250 70 L265 95" />
+      <path d="M180 95 A20 20 0 0 1 220 95" />
+      <path d="M185 95 Q200 75 215 95" />
+      <circle cx="200" cy="85" r="4" />
+      <rect x="120" y="95" width="160" height="12" rx="2" />
+      <path d="M120 101 L280 101" />
+
+      {/* 3. GOPURAM TIER 4 (UPPER LEVEL) */}
+      <path d="M130 107 L270 107 L280 150 L120 150 Z" />
+      <path d="M145 107 L140 150 M165 107 L162 150 M185 107 L185 150 M200 107 L200 150 M215 107 L215 150 M235 107 L238 150 M255 107 L260 150" />
+      <path d="M172 150 A13 18 0 0 1 198 150" />
+      <path d="M202 150 A13 18 0 0 1 228 150" />
+      <path d="M176 150 Q185 130 194 150" />
+      <path d="M206 150 Q215 130 224 150" />
+      <rect x="110" y="150" width="180" height="15" rx="3" />
+      <path d="M110 157 L290 157" />
+      <path d="M120 165 L120 168 M140 165 L140 168 M160 165 L160 168 M180 165 L180 168 M200 165 L200 168 M220 165 L220 168 M240 165 L240 168 M260 165 L260 168 M280 165 L280 168" />
+
+      {/* 4. GOPURAM TIER 3 (MID-UPPER LEVEL) */}
+      <path d="M115 165 L285 165 L298 225 L102 225 Z" />
+      <path d="M130 165 L122 225 M150 165 L145 225 M170 165 L168 225 M190 165 L190 225 M200 165 L200 225 M210 165 L210 225 M230 165 L232 225 M250 165 L255 225 M270 165 L278 225" />
+      <path d="M152 225 A16 22 0 0 1 184 225 M156 225 Q168 200 180 225" />
+      <path d="M216 225 A16 22 0 0 1 248 225 M220 225 Q232 200 244 225" />
+      <rect x="188" y="190" width="24" height="35" rx="2" />
+      <path d="M188 200 L212 200 M200 190 L200 225" />
+      <rect x="95" y="225" width="210" height="18" rx="3" />
+      <path d="M95 234 L305 234" />
+
+      {/* 5. GOPURAM TIER 2 (MID LEVEL) */}
+      <path d="M100 243 L300 243 L315 315 L85 315 Z" />
+      <path d="M115 243 L104 315 M135 243 L128 315 M155 243 L152 315 M175 243 L174 315 M190 243 L190 315 M200 243 L200 315 M210 243 L210 315 M225 243 L226 315 M245 243 L248 315 M265 243 L272 315 M285 243 L296 315" />
+      <circle cx="140" cy="275" r="8" />
+      <circle cx="260" cy="275" r="8" />
+      <path d="M160 315 A20 30 0 0 1 200 315 M164 315 Q180 280 196 315" />
+      <path d="M200 315 A20 30 0 0 1 240 315 M204 315 Q220 280 236 315" />
+      <rect x="75" y="315" width="250" height="22" rx="4" />
+      <path d="M75 326 L325 326" />
+      <path d="M75 320 L325 320" />
+
+      {/* 6. MAIN GROUND MANDAPAM LEVEL */}
+      <path d="M80 337 L320 337 L335 430 L65 430 Z" />
+      <path d="M95 337 L85 430 M120 337 L112 430 M145 337 L140 430 M170 337 L168 430 M230 337 L232 430 M255 337 L260 430 M280 337 L288 430 M305 337 L315 430" />
+      <path d="M90 350 L100 350 M115 350 L125 350 M140 350 L150 350 M165 350 L175 350 M225 350 L235 350 M250 350 L260 350 M275 350 L285 350 M300 350 L310 350" />
+
+      {/* 7. GRAND CENTRAL GATEWAY (GOPURA DWARAM) */}
+      <path d="M170 430 L170 370 Q200 345 230 370 L230 430 Z" strokeWidth="1.8" />
+      <path d="M176 430 L176 376 Q200 355 224 376 L224 430 Z" strokeWidth="1.2" />
+      <line x1="200" y1="360" x2="200" y2="430" strokeWidth="1.4" />
+      <rect x="180" y="380" width="16" height="40" rx="1" />
+      <rect x="204" y="380" width="16" height="40" rx="1" />
+      <path d="M180 390 L196 390 M180 405 L196 405 M180 420 L196 420" opacity="0.6" />
+      <path d="M204 390 L220 390 M204 405 L220 405 M204 420 L220 420" opacity="0.6" />
+
+      {/* 8. PLINTH & FOUNDATION BASE (ADHISTHANA) */}
+      <rect x="55" y="430" width="290" height="20" rx="2" strokeWidth="1.4" />
+      <path d="M55 440 L345 440" />
+      <rect x="45" y="450" width="310" height="25" rx="3" strokeWidth="1.6" />
+      <path d="M50 462 Q60 452 70 462 Q80 452 90 462 Q100 452 110 462 Q120 452 130 462 Q140 452 150 462 Q160 452 170 462 Q180 452 190 462 Q200 452 210 462 Q220 452 230 462 Q240 452 250 462 Q260 452 270 462 Q280 452 290 462 Q300 452 310 462 Q320 452 330 462 Q340 452 350 462" opacity="0.8" />
+      <rect x="35" y="475" width="330" height="25" rx="4" strokeWidth="1.8" />
+      <path d="M35 487 L365 487" />
+      <rect x="25" y="500" width="350" height="30" rx="5" strokeWidth="2" />
+      <path d="M25 515 L375 515" />
+      <line x1="10" y1="530" x2="390" y2="530" strokeWidth="2.5" />
+      <line x1="0" y1="536" x2="400" y2="536" strokeWidth="1.2" opacity="0.6" />
     </svg>
   );
 }
