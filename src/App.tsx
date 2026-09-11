@@ -68,7 +68,7 @@ const lentilItems: FoodItem[] = [
   { name: 'Veggie Bhaji', price: '$13.95 | $21.90', description: 'Flavorful vegetable bhaji.', image: photos.pavBhaji, badge: 'VE' },
 ];
 
-const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'NAAN WRAPS', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS'];
+const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'NAAN WRAPS', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
 
 const bowlSteps = [
   {
@@ -178,6 +178,21 @@ const sideItems: MenuItem[] = [
   { name: 'Samosas', price: '10 for $11.50', description: 'Savory pastries filled with potatoes, peas and spices.' },
   { name: 'Sauces', price: '$5', description: '8 oz signature sauce bottle' },
   { name: 'Hot Sauce Bottle', price: '$5.99', description: 'Dasari signature spicy hot sauce bottle' },
+];
+
+const beverageItems: MenuItem[] = [
+  { name: 'Pepsi', price: '', description: 'Fountain soda' },
+  { name: 'Dr Pepper', price: '', description: 'Fountain soda' },
+  { name: 'Mountain Dew', price: '', description: 'Fountain soda' },
+  { name: 'Pink Lemonade', price: '', description: 'Groves Best lemonade' },
+  { name: 'Water', price: '', description: 'Filtered ice water' },
+  { name: 'Coca-Cola Zero Sugar', price: '', description: 'Zero sugar fountain soda' },
+  { name: 'Orange Soda', price: '', description: 'Groves Best orange' },
+  { name: 'Coca-Cola', price: '', description: 'Original taste fountain soda' },
+  { name: 'Unsweetened Black Tea', price: '', description: 'Groves Best fresh brewed black tea' },
+  { name: 'Sweet Black Tea', price: '', description: 'Groves Best fresh brewed sweet tea' },
+  { name: 'Raspberry Tea', price: '', description: 'Groves Best brewed raspberry tea' },
+  { name: 'Strawberry Lemonade', price: '', description: 'Craft \'62 pure cane beverage' },
 ];
 
 function Logo({ light = false }: { light?: boolean }) {
@@ -397,6 +412,7 @@ function App() {
         <section className="menu-block compact-block" id="family-meals"><div className="menu-block-head"><SectionIntro eyebrow="SERVES THE TABLE · SOLD BY THE PINT OR QUART" title="Family meals" /><span className="menu-index">06</span></div><MenuRows items={familyItems} /></section>
         <section className="menu-block compact-block" id="lentils-and-masalas"><div className="menu-block-head"><SectionIntro eyebrow="PINT OR QUART · ON THEIR OWN OR PILED OVER RICE" title="Lentils & masalas" /><span className="menu-index">07</span></div><MenuRows items={lentilItems} /></section>
         <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">08</span></div><MenuRows items={sideItems} /></section>
+        <section className="menu-block compact-block" id="beverages"><div className="menu-block-head"><SectionIntro eyebrow="FOUNTAIN & CRAFT BREWED BEVERAGES" title="Beverages" copy="Refreshing fountain sodas, fresh brewed iced teas, and craft lemonades." /><span className="menu-index">09</span></div><MenuRows items={beverageItems} /></section>
       </section>
 
       <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span><span>100% HALAL</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>
