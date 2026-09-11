@@ -414,6 +414,11 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   color: var(--espresso);
 }
 .map-overlay-note {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 5;
+  pointer-events: none;
   display: flex;
   align-items: center;
   gap: 12px;

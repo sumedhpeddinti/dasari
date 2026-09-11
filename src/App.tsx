@@ -419,40 +419,16 @@ function App() {
           <div className="map-art">
             <iframe
               src={mapEmbedUrl}
-              title="Dasari Fusion Grill location on Google Maps - 1163 E Tallmadge Ave, Akron, OH 44310"
+              title="Dasari Fusion Grill location - 1163 E Tallmadge Ave, Akron, OH 44310"
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <div className="map-click-overlay">
-              <div className="map-pill-badge-group">
-                <a
-                  href={mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="map-pill-btn"
-                  title="Open in Google Maps"
-                >
-                  <MapPin size={14} />
-                  <span>Google Maps ↗</span>
-                </a>
-                <a
-                  href={appleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="map-pill-btn map-pill-btn-apple"
-                  title="Open in Apple Maps"
-                >
-                  <MapPin size={14} />
-                  <span>Apple Maps ↗</span>
-                </a>
-              </div>
-              <div className="map-overlay-note">
-                <MapPin size={17} />
-                <div>
-                  <strong>DASARI FUSION GRILL</strong>
-                  <span>1163 E Tallmadge Ave, Akron, OH 44310</span>
-                </div>
+            <div className="map-overlay-note">
+              <MapPin size={17} />
+              <div>
+                <strong>DASARI FUSION GRILL</strong>
+                <span>1163 E Tallmadge Ave, Akron, OH 44310</span>
               </div>
             </div>
           </div>
