@@ -59,19 +59,18 @@ h1 em { color: var(--terracotta); font-size: .57em; font-style: normal; letter-s
 .hero-mark span { display: block; color: var(--terracotta); font-family: 'Playfair Display', serif; font-size: 44px; letter-spacing: -.04em; }
 .scroll-cue { position: absolute; z-index: 1; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgba(255,248,239,.65); font-size: 9px; letter-spacing: .2em; }
 .section-pad { padding: 120px max(40px, calc((100vw - 1240px) / 2)); }
-/* ── Temple Intro Section ── */
 .intro-temple-section { position: relative; background: var(--cream); overflow: hidden; }
 .intro-temple-decor { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .intro-vine-left { position: absolute; left: 0; top: 0; }
 .intro-mandala-right { position: absolute; right: -20px; top: -30px; }
 .intro-temple-drawing { width: 100%; padding: 60px 0 0; position: relative; z-index: 1; overflow: hidden; }
-.temple-wireframe-svg { width: 100%; max-width: 900px; height: auto; display: block; margin: 0 auto; opacity: 0.82; filter: drop-shadow(0 4px 18px rgba(58,92,58,0.18)); }
+.temple-wireframe-svg { width: 180px; height: auto; display: block; transition: transform 0.4s ease; filter: drop-shadow(0 6px 18px rgba(58,92,58,0.2)); }
 .intro-below-temple { display: grid; grid-template-columns: 1.6fr 1fr .7fr; align-items: center; gap: 50px; padding-top: 50px; padding-bottom: 100px; position: relative; z-index: 1; }
-.intro-content { max-width: 600px; }
-.intro-flowers { display: flex; align-items: center; justify-content: center; gap: 10px; }
 /* Old intro compat */
 .intro { min-height: 550px; display: grid; grid-template-columns: 1fr 1.8fr .8fr; align-items: center; gap: 50px; position: relative; }
 .intro-mark { display: flex; align-items: center; justify-content: center; opacity: 0.9; }
+.intro-content { max-width: 600px; }
+.intro-flowers { display: flex; align-items: center; justify-content: center; gap: 10px; }
 .intro-stamp { justify-self: end; width: 150px; height: 150px; border: 1px solid rgba(201,95,53,.45); border-radius: 50%; display: grid; place-content: center; text-align: center; color: var(--terracotta); font-size: 10px; line-height: 1.65; letter-spacing: .22em; transform: rotate(12deg); }
 /* ── Flower Decorator Base ── */
 .flower-decor { display: block; flex-shrink: 0; pointer-events: none; }

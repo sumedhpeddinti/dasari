@@ -414,153 +414,108 @@ function Header({ scrolled }: { scrolled: boolean }) {
 }
 
 function TempleWireframe({ className = "", light = false }: { className?: string; light?: boolean }) {
-  const c = light ? "#d4a74a" : "#3a5c3a";
-  const w = (n: number) => ({ strokeWidth: n });
+  const strokeColor = light ? "#d4a74a" : "#3a5c3a";
   return (
     <svg
       className={`temple-wireframe-svg ${className}`}
-      viewBox="0 0 900 420"
+      viewBox="0 0 400 650"
       fill="none"
-      stroke={c}
-      strokeWidth="1"
+      stroke={strokeColor}
+      strokeWidth="1.2"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {/* ─── GROUND LINE ─── */}
-      <line x1="0" y1="390" x2="900" y2="390" {...w(1.8)} opacity="0.6" />
-
-      {/* ─── LEFT BACKGROUND: Auxiliary Shrine / Gopura ─── */}
-      <g opacity="0.65">
-        <rect x="30" y="310" width="90" height="80" rx="1" />
-        <line x1="30" y1="310" x2="120" y2="310" />
-        {[320,330,340].map(y=><line key={y} x1="30" y1={y} x2="120" y2={y} {...w(0.7)} opacity="0.6" />)}
-        <path d="M55 310 L55 260 L75 240 L95 260 L95 310" {...w(1.2)} />
-        <path d="M62 310 L62 265 L75 250 L88 265 L88 310" {...w(0.8)} />
-        {[270,280,290,300].map(y=><line key={y} x1="55" y1={y} x2="95" y2={y} {...w(0.6)} opacity="0.7" />)}
-        <path d="M68 240 L75 230 L82 240" {...w(1)} />
-        <ellipse cx="75" cy="228" rx="5" ry="7" {...w(1)} />
-        <line x1="75" y1="221" x2="75" y2="215" />
+      {/* Blueprint Construction Grid */}
+      <g strokeDasharray="3 3" opacity="0.25" strokeWidth="0.75">
+        <line x1="200" y1="10" x2="200" y2="620" />
+        <line x1="10" y1="575" x2="390" y2="575" />
+        <line x1="30" y1="480" x2="370" y2="480" />
+        <line x1="60" y1="360" x2="340" y2="360" />
+        <line x1="100" y1="220" x2="300" y2="220" />
+        <line x1="130" y1="120" x2="270" y2="120" />
       </g>
 
-      {/* ─── LEFT TREE ─── */}
-      <g opacity="0.55">
-        <line x1="155" y1="340" x2="155" y2="390" {...w(1.5)} />
-        <ellipse cx="155" cy="325" rx="20" ry="18" {...w(0.8)} />
-        <ellipse cx="145" cy="335" rx="14" ry="12" {...w(0.7)} />
-        <ellipse cx="168" cy="332" rx="12" ry="11" {...w(0.7)} />
-      </g>
+      {/* 1. SACRED DHVAJA (TEMPLE FLAG) & KALASH FINIAL */}
+      <path d="M200 8 L200 45 M200 12 L235 22 L200 32 Z" strokeWidth="1.4" />
+      <path d="M200 45 C212 52 212 62 200 70 C188 62 188 52 200 45 Z" strokeWidth="1.3" />
+      <path d="M192 70 L208 70 M190 60 L210 60" />
 
-      {/* ─── SURROUNDING WALL / PRAKARA ─── */}
-      <rect x="170" y="350" width="560" height="40" rx="2" {...w(1.3)} />
-      {/* Wall battlements */}
-      {Array.from({length:28},(_, i)=><rect key={i} x={172+i*20} y="344" width="12" height="8" rx="1" {...w(0.8)} />)}
-      {/* Steps up to main mandapa */}
-      <path d="M390 390 L390 350 M510 390 L510 350" {...w(0.7)} opacity="0.5" />
+      {/* 2. AMALAKA (RIBBED CROWN WHEEL) */}
+      <ellipse cx="200" cy="76" rx="28" ry="8" strokeWidth="1.4" />
+      <ellipse cx="200" cy="80" rx="34" ry="10" strokeWidth="1.4" />
+      <path d="M172 80 Q200 72 228 80 M176 77 L176 83 M188 74 L188 84 M200 72 L200 85 M212 74 L212 84 M224 77 L224 83" opacity="0.8" />
 
-      {/* ─── MAIN MANDAPAM (PILLARED HALL) ─── */}
-      {/* Roof of mandapam */}
-      <path d="M240 350 L660 350 L660 300 L240 300 Z" {...w(1.4)} />
-      <line x1="240" y1="310" x2="660" y2="310" {...w(0.8)} />
-      <line x1="240" y1="330" x2="660" y2="330" {...w(0.8)} />
-      {/* Cornice notches */}
-      {Array.from({length:14},(_,i)=><line key={i} x1={244+i*30} y1="300" x2={244+i*30} y2="296" {...w(0.8)} />)}
+      {/* 3. NAGARA SHIKHARA TOWER SPIRE */}
+      <path d="M166 80 C130 180 115 250 110 320 L290 320 C285 250 270 180 234 80 Z" strokeWidth="1.6" />
+      <path d="M180 120 C165 170 155 220 150 280 L250 280 C245 220 235 170 220 120 Z" strokeWidth="1.1" />
+      <path d="M188 150 C180 190 175 230 170 280 L230 280 C225 230 220 190 212 150 Z" strokeWidth="0.9" />
 
-      {/* Columns */}
-      {[255,285,315,345,375,405,435,465,495,525,555,585,615,645].map(x=>(
-        <g key={x}>
-          <line x1={x} y1="300" x2={x} y2="390" {...w(1.2)} />
-          {/* Capital */}
-          <path d={`M${x-7} 300 L${x+7} 300 L${x+5} 295 L${x-5} 295 Z`} {...w(0.8)} />
-          {/* Base */}
-          <rect x={x-7} y="383" width="14" height="7" rx="1" {...w(0.8)} />
-        </g>
-      ))}
+      {/* Horizontal Bhumi Stepped Tiers */}
+      <path d="M156 120 L244 120 M150 145 L250 145 M144 170 L256 170 M138 195 L262 195 M132 220 L268 220 M126 245 L274 245 M120 270 L280 270 M114 295 L286 295" opacity="0.85" />
 
-      {/* ─── MANDAPA INTERIOR DETAILS ─── */}
-      {/* Cross beams */}
-      {[320,340,360,380].map(y=><line key={y} x1="248" y1={y} x2="652" y2={y} {...w(0.5)} opacity="0.4" />)}
+      {/* Vertical Lattice Mesh */}
+      <path d="M200 80 L200 320" strokeWidth="1.3" />
+      <path d="M180 80 C160 170 150 240 145 320 M220 80 C240 170 250 240 255 320" opacity="0.75" />
 
-      {/* ─── MAIN GOPURAM / VIMANA TOWER (CENTER) ─── */}
-      {/* Tiered stepped Vimana - Dravidian pyramid style */}
-      {/* Base to top: each tier narrower */}
-      {([
-        [340, 560, 298, 20],
-        [360, 540, 278, 22],
-        [380, 520, 258, 22],
-        [400, 500, 238, 22],
-        [418, 482, 220, 20],
-        [435, 465, 202, 18],
-        [450, 450, 186, 16],
-        [463, 437, 172, 14],
-        [474, 426, 160, 12],
-        [483, 417, 150, 10],
-        [491, 409, 140, 8],
-      ] as [number,number,number,number][]).map(([y,end,w2,h],i)=>(
-        <g key={i}>
-          <rect x={(900-w2)/2} y={y} width={w2} height={h} rx="1" {...w(1)} />
-          {/* Horizontal moulding line */}
-          <line x1={(900-w2)/2+4} y1={y+h/2} x2={(900-w2)/2+w2-4} y2={y+h/2} {...w(0.5)} opacity="0.55" />
-          {/* Pilaster verticals at edges */}
-          <line x1={(900-w2)/2+8} y1={y} x2={(900-w2)/2+8} y2={y+h} {...w(0.6)} opacity="0.5" />
-          <line x1={(900+w2)/2-8} y1={y} x2={(900+w2)/2-8} y2={y+h} {...w(0.6)} opacity="0.5" />
-        </g>
-      ))}
+      {/* Gavaksha Arch Windows on Shikhara */}
+      <path d="M190 145 Q200 130 210 145 Q200 142 190 145 Z" />
+      <path d="M185 195 Q200 175 215 195 Q200 190 185 195 Z" />
+      <path d="M180 245 Q200 220 220 245 Q200 238 180 245 Z" />
+      <path d="M175 295 Q200 268 225 295 Q200 286 175 295 Z" />
 
-      {/* Vimana Octagonal Neck & Stupi */}
-      <ellipse cx="450" cy="399" rx="18" ry="6" {...w(1.2)} />
-      <ellipse cx="450" cy="394" rx="14" ry="5" {...w(1)} />
-      <ellipse cx="450" cy="390" rx="10" ry="4" {...w(1)} />
-      <path d="M450 386 L450 368 M444 386 L456 386" {...w(1.2)} />
-      <path d="M450 368 C458 374 458 382 450 386 C442 382 442 374 450 368 Z" {...w(1)} />
-      {/* Dhvaja flag */}
-      <line x1="450" y1="358" x2="450" y2="340" {...w(1.2)} />
-      <path d="M450 342 L468 348 L450 354 Z" {...w(1)} />
+      {/* 4. CORNICE / SHIKHARA BASE MOLDING */}
+      <rect x="95" y="320" width="210" height="18" rx="3" strokeWidth="1.5" />
+      <path d="M95 329 L305 329" />
+      <path d="M105 338 L105 342 M125 338 L125 342 M145 338 L145 342 M165 338 L165 342 M185 338 L185 342 M205 338 L205 342 M225 338 L225 342 M245 338 L245 342 M265 338 L265 342 M285 338 L285 342" />
 
-      {/* ─── GOPURAM FACE DECORATION ─── */}
-      {/* Central arch / Torana on vimana face */}
-      <path d="M430 298 L430 280 Q450 265 470 280 L470 298" {...w(1.3)} />
-      <path d="M435 298 L435 283 Q450 270 465 283 L465 298" {...w(0.8)} />
-      {/* Deity niche circles */}
-      <circle cx="450" cy="320" r="8" {...w(0.9)} />
-      <circle cx="450" cy="320" r="4" {...w(0.7)} />
-      {/* Side niches */}
-      <circle cx="425" cy="318" r="5" {...w(0.7)} />
-      <circle cx="475" cy="318" r="5" {...w(0.7)} />
+      {/* 5. MAIN MANDAPAM (PILLARED HALL & SANCTUM) */}
+      <path d="M85 338 L315 338 L330 460 L70 460 Z" strokeWidth="1.4" />
+      <path d="M95 338 L88 460 M105 338 L98 460" />
+      <rect x="91" y="348" width="18" height="10" rx="1" />
+      <circle cx="100" cy="400" r="5" />
+      <path d="M135 338 L130 460 M145 338 L140 460" />
+      <rect x="133" y="348" width="14" height="10" rx="1" />
+      <path d="M255 338 L260 460 M265 338 L270 460" />
+      <rect x="253" y="348" width="14" height="10" rx="1" />
+      <path d="M295 338 L302 460 M305 338 L312 460" />
+      <rect x="291" y="348" width="18" height="10" rx="1" />
+      <circle cx="300" cy="400" r="5" />
+      <path d="M82 352 L112 352 M124 352 L154 352 M246 352 L276 352 M286 352 L316 352" strokeWidth="1.3" />
 
-      {/* ─── STEPS / FLIGHT TO MAIN ENTRANCE ─── */}
-      {[0,1,2,3,4].map(i=>(
-        <line key={i} x1={395+i*4} y1={390-i*6} x2={505-i*4} y2={390-i*6} {...w(1)} />
-      ))}
+      {/* 6. MAKAR TORANA (ORNATE TEMPLE ARCH) & HANGING BELL */}
+      <path d="M150 460 L150 395 C150 355 250 355 250 395 L250 460 Z" strokeWidth="1.8" />
+      <path d="M158 460 L158 400 C158 367 242 367 242 400 L242 460 Z" strokeWidth="1.2" />
+      <path d="M200 365 L200 380 M194 380 Q200 376 206 380 M192 388 C192 380 208 380 208 388 L210 394 L190 394 Z M200 394 L200 398" strokeWidth="1.3" />
+      <circle cx="200" cy="399" r="1.8" />
+      <line x1="200" y1="400" x2="200" y2="460" strokeWidth="1.4" />
+      <rect x="166" y="405" width="28" height="55" rx="1" opacity="0.85" />
+      <rect x="206" y="405" width="28" height="55" rx="1" opacity="0.85" />
+      <circle cx="180" cy="420" r="1.5" />
+      <circle cx="180" cy="435" r="1.5" />
+      <circle cx="180" cy="450" r="1.5" />
+      <circle cx="220" cy="420" r="1.5" />
+      <circle cx="220" cy="435" r="1.5" />
+      <circle cx="220" cy="450" r="1.5" />
 
-      {/* ─── RIGHT SIDE: Smaller shrine / mandapa ─── */}
-      <g opacity="0.7">
-        <rect x="668" y="330" width="100" height="60" rx="1" {...w(1.2)} />
-        <line x1="668" y1="345" x2="768" y2="345" {...w(0.8)} />
-        <line x1="668" y1="360" x2="768" y2="360" {...w(0.8)} />
-        {[680,700,720,740,760].map(x=><line key={x} x1={x} y1="330" x2={x} y2="390" {...w(0.9)} />)}
-        <path d="M688 330 L688 295 Q718 275 748 295 L748 330" {...w(1.2)} />
-        {[300,310,320].map(y=><line key={y} x1="688" y1={y} x2="748" y2={y} {...w(0.6)} opacity="0.6" />)}
-        <path d="M718 275 L718 258 M712 275 L724 275" {...w(1)} />
-        <ellipse cx="718" cy="256" rx="8" ry="6" {...w(0.9)} />
-      </g>
-
-      {/* ─── FAR RIGHT: Trees / Shrubs ─── */}
-      <g opacity="0.5">
-        <line x1="800" y1="360" x2="800" y2="390" {...w(1.2)} />
-        <ellipse cx="800" cy="348" rx="16" ry="14" {...w(0.7)} />
-        <ellipse cx="792" cy="356" rx="11" ry="9" {...w(0.6)} />
-        <line x1="840" y1="372" x2="840" y2="390" {...w(1)} />
-        <ellipse cx="840" cy="362" rx="12" ry="11" {...w(0.6)} />
-      </g>
-
-      {/* ─── GROUND SHADOW / REFLECTION LINE ─── */}
-      <line x1="170" y1="393" x2="730" y2="393" {...w(0.6)} opacity="0.35" />
+      {/* 7. ADHISTHANA (PLINTH & LOTUS PATTERN BASE) */}
+      <rect x="60" y="460" width="280" height="22" rx="2" strokeWidth="1.5" />
+      <path d="M60 471 L340 471" />
+      <path d="M55 482 Q65 470 75 482 Q85 470 95 482 Q105 470 115 482 Q125 470 135 482 Q145 470 155 482 Q165 470 175 482 Q185 470 195 482 Q205 470 215 482 Q225 470 235 482 Q245 470 255 482 Q265 470 275 482 Q285 470 295 482 Q305 470 315 482 Q325 470 335 482 Q345 470 355 482" strokeWidth="1.1" opacity="0.85" />
+      <rect x="45" y="482" width="310" height="28" rx="3" strokeWidth="1.6" />
+      <path d="M45 496 L355 496" />
+      <rect x="30" y="510" width="340" height="30" rx="4" strokeWidth="1.8" />
+      <path d="M30 525 L370 525" />
+      <rect x="15" y="540" width="370" height="35" rx="5" strokeWidth="2" />
+      <path d="M15 558 L385 558" />
+      <line x1="0" y1="575" x2="400" y2="575" strokeWidth="2.8" />
+      <line x1="0" y1="582" x2="400" y2="582" strokeWidth="1.2" opacity="0.5" />
     </svg>
   );
 }
 
 /* ── Lotus Flower Wireframe Decorator ── */
+
 function LotusDecor({ size = 120, className = "", light = false }: { size?: number; className?: string; light?: boolean }) {
   const c = light ? "rgba(212,167,74,0.22)" : "rgba(58,92,58,0.18)";
   return (
@@ -677,29 +632,7 @@ function App() {
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
-      <section className="intro-temple-section" id="intro">
-        <div className="intro-temple-decor">
-          <VineDecor light={false} className="intro-vine-left" />
-          <MandalaDecor size={200} className="intro-mandala-right" />
-        </div>
-        <div className="intro-temple-drawing">
-          <TempleWireframe />
-        </div>
-        <div className="intro-below-temple section-pad">
-          <div className="intro-content">
-            <p className="eyebrow">THE DASARI WAY</p>
-            <h2>Authentic flavors.<br /><i>Modern fusion.</i></h2>
-            <p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p>
-            <a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a>
-          </div>
-          <div className="intro-flowers">
-            <LotusDecor size={110} />
-            <KolamDecor size={90} />
-            <LotusDecor size={80} />
-          </div>
-          <div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div>
-        </div>
-      </section>
+      <section className="intro section-pad" id="intro"><div className="intro-mark"><TempleWireframe /></div><div className="intro-content"><p className="eyebrow">THE DASARI WAY</p><h2>Authentic flavors.<br /><i>Modern fusion.</i></h2><p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p><a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a></div><div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div></section>
 
       <section className="popular section-pad section-dark" id="popular"><div className="section-head"><SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." /><div className="section-number">01 <span>/ 04</span></div></div><PlateCarousel items={popular} /></section>
 
