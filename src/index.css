@@ -667,8 +667,8 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 
 .loading-art-wrapper {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 320px;
+  height: 320px;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -679,7 +679,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 30px rgba(201, 95, 53, 0.45));
+  filter: drop-shadow(0 14px 35px rgba(201, 154, 72, 0.45));
   animation: floatDiamond 3.5s ease-in-out infinite alternate;
 }
 
