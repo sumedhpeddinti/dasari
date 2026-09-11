@@ -39,18 +39,12 @@ button { font: inherit; }
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .98; filter: saturate(1.15) contrast(1.08); }
 .hero-overlay { background: linear-gradient(90deg, rgba(7, 24, 13, 0.60) 0%, rgba(14, 42, 24, 0.35) 45%, rgba(20, 50, 30, 0.12) 75%, rgba(0, 0, 0, 0.04) 100%); }
 .hero:after { display: none; }
-.hero-content { position: relative; z-index: 1; max-width: 1320px; width: 100%; margin: 0 auto; padding: 150px 40px 80px; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65); }
+.hero-content { position: relative; z-index: 1; max-width: 1320px; width: 100%; margin: 0 auto; padding: 150px 40px 80px; }
 .eyebrow { margin: 0 0 22px; color: var(--terracotta); font-size: 10px; font-weight: 700; letter-spacing: .22em; }
 .hero-eyebrow { color: #e7b477; margin-bottom: 27px; }
 h1, h2, h3, p { margin-top: 0; }
-h1 { display: flex; flex-direction: column; margin-bottom: 30px; font-size: clamp(62px, 9vw, 140px); letter-spacing: -.07em; line-height: .78; font-weight: 700; }
-h1 span {
-  color: var(--gold);
-  background: linear-gradient(135deg, #fceda2 0%, #d4a74a 35%, #b68230 70%, #f6d98d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 20px rgba(201, 154, 72, 0.4));
-}
+h1 { display: flex; flex-direction: column; margin-bottom: 30px; font-size: clamp(62px, 9vw, 140px); letter-spacing: -.07em; line-height: .78; font-weight: 700; color: #fff8ef; }
+h1 span { color: #fff8ef; }
 h1 em { color: var(--terracotta); font-size: .57em; font-style: normal; letter-spacing: -.06em; margin-left: 8px; margin-top: 17px; }
 .hero-subtitle { font-size: 16px; line-height: 1.35; font-weight: 700; letter-spacing: .11em; margin-bottom: 18px; }
 .hero-body { color: rgba(255,248,239,.68); font-size: 14px; margin-bottom: 32px; }
@@ -923,10 +917,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 
   /* Hero */
   .hero { min-height: 100svh; background: #07180d; }
-  .hero-content {
-    padding: 130px 24px 70px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.95);
-  }
+  .hero-content { padding: 130px 24px 70px; }
   .hero-overlay {
     background: linear-gradient(
       180deg,
