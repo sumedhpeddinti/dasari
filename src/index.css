@@ -679,10 +679,10 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 /* Floating Halal Trust Badge (Top Right, position absolute to scroll with content) */
 .floating-halal-badge {
   position: absolute;
-  top: 96px;
+  top: 115px;
   right: 40px;
   bottom: auto;
-  z-index: 95;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -982,7 +982,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .footer-nav { gap: 16px; flex-wrap: wrap; }
   .floating-halal-badge {
     position: absolute;
-    top: 72px;
+    top: 85px;
     right: 16px;
     bottom: auto;
     left: auto;
