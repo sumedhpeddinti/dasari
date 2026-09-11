@@ -243,6 +243,16 @@ function PlateCarousel({ items, id }: { items: FoodItem[]; id?: string }) {
   const dragStart = useRef(0);
   const scrollStart = useRef(0);
 
+  if (items.length <= 1) {
+    return (
+      <div className="single-plate-wrapper" id={id}>
+        {items.map((item, idx) => (
+          <PlateCard key={`${item.name}-${idx}`} item={item} active={false} />
+        ))}
+      </div>
+    );
+  }
+
   // Repeat items to create a seamless infinite loop (at least 18 cards)
   const totalCopies = Math.max(6, Math.ceil(18 / (items.length || 1)));
   const displayItems = Array.from({ length: totalCopies }, () => items).flat();

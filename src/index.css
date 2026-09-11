@@ -142,6 +142,11 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 .plate-track::-webkit-scrollbar { display: none; }
 .plate-track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
 .plate-track:not(.is-dragging) { cursor: grab; }
+.single-plate-wrapper {
+  display: flex;
+  padding: 20px max(40px, calc((100vw - 1240px) / 2)) 32px;
+  width: 100vw;
+}
 .plate-card { flex: 0 0 310px; max-width: 310px; min-width: 0; scroll-snap-align: start; opacity: 1; transition: transform .35s, opacity .35s; }
 .plate-card:hover { transform: translateY(-8px); }
 .plate { aspect-ratio: 1; margin: 0 auto 20px; max-width: 310px; width: 100%; padding: 14px; border-radius: 50%; background: #e9dfd1; box-shadow: 0 16px 28px rgba(12,6,4,.24), inset 0 0 0 2px rgba(111,73,48,.2), inset 0 0 0 10px rgba(255,255,255,.35); transition: transform .35s, box-shadow .35s; }
