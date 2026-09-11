@@ -676,13 +676,13 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 }
 .footer-nav { display: flex; gap: 25px; }
 
-/* Floating Halal Trust Badge (Top Right, position absolute to scroll with content) */
+/* Floating Halal Trust Badge (Fixed top-right to scroll along continuously across all pages) */
 .floating-halal-badge {
-  position: absolute;
-  top: 170px;
-  right: 40px;
+  position: fixed;
+  top: 108px;
+  right: 28px;
   bottom: auto;
-  z-index: 5;
+  z-index: 95;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -831,10 +831,11 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .hero-overlay { background: linear-gradient(160deg, rgba(26,15,11,.96) 0%, rgba(26,15,11,.7) 100%); }
   .hero-mark { display: none; }
   .floating-halal-badge {
-    top: 130px;
-    right: 24px;
-    width: 115px;
-    height: 115px;
+    position: fixed;
+    top: 92px;
+    right: 20px;
+    width: 110px;
+    height: 110px;
   }
 
   /* Sections */
@@ -987,14 +988,14 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .footer-bottom { font-size: 9px; gap: 12px; flex-direction: column; align-items: flex-start; }
   .footer-nav { gap: 16px; flex-wrap: wrap; }
   .floating-halal-badge {
-    position: absolute;
-    top: 110px;
-    right: 16px;
+    position: fixed;
+    top: 84px;
+    right: 14px;
     bottom: auto;
     left: auto;
-    width: 100px;
-    height: 100px;
-    padding: 6px;
+    width: 95px;
+    height: 95px;
+    padding: 5px;
   }
 
   /* Bowl builder card styles */
