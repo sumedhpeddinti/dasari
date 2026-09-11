@@ -1,3 +1,104 @@
+function TempleWireframe({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const strokeColor = light ? "#d4a74a" : "#3a5c3a";
+  return (
+    <svg
+      className={`temple-wireframe-svg ${className}`}
+      viewBox="0 0 400 650"
+      fill="none"
+      stroke={strokeColor}
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {/* Blueprint Construction Grid */}
+      <g strokeDasharray="3 3" opacity="0.25" strokeWidth="0.75">
+        <line x1="200" y1="10" x2="200" y2="620" />
+        <line x1="10" y1="575" x2="390" y2="575" />
+        <line x1="30" y1="480" x2="370" y2="480" />
+        <line x1="60" y1="360" x2="340" y2="360" />
+        <line x1="100" y1="220" x2="300" y2="220" />
+        <line x1="130" y1="120" x2="270" y2="120" />
+      </g>
+
+      {/* 1. SACRED DHVAJA (TEMPLE FLAG) & KALASH FINIAL */}
+      <path d="M200 8 L200 45 M200 12 L235 22 L200 32 Z" strokeWidth="1.4" />
+      <path d="M200 45 C212 52 212 62 200 70 C188 62 188 52 200 45 Z" strokeWidth="1.3" />
+      <path d="M192 70 L208 70 M190 60 L210 60" />
+
+      {/* 2. AMALAKA (RIBBED CROWN WHEEL) */}
+      <ellipse cx="200" cy="76" rx="28" ry="8" strokeWidth="1.4" />
+      <ellipse cx="200" cy="80" rx="34" ry="10" strokeWidth="1.4" />
+      <path d="M172 80 Q200 72 228 80 M176 77 L176 83 M188 74 L188 84 M200 72 L200 85 M212 74 L212 84 M224 77 L224 83" opacity="0.8" />
+
+      {/* 3. NAGARA SHIKHARA TOWER SPIRE */}
+      <path d="M166 80 C130 180 115 250 110 320 L290 320 C285 250 270 180 234 80 Z" strokeWidth="1.6" />
+      <path d="M180 120 C165 170 155 220 150 280 L250 280 C245 220 235 170 220 120 Z" strokeWidth="1.1" />
+      <path d="M188 150 C180 190 175 230 170 280 L230 280 C225 230 220 190 212 150 Z" strokeWidth="0.9" />
+
+      {/* Horizontal Bhumi Stepped Tiers */}
+      <path d="M156 120 L244 120 M150 145 L250 145 M144 170 L256 170 M138 195 L262 195 M132 220 L268 220 M126 245 L274 245 M120 270 L280 270 M114 295 L286 295" opacity="0.85" />
+
+      {/* Vertical Lattice Mesh */}
+      <path d="M200 80 L200 320" strokeWidth="1.3" />
+      <path d="M180 80 C160 170 150 240 145 320 M220 80 C240 170 250 240 255 320" opacity="0.75" />
+
+      {/* Gavaksha Arch Windows on Shikhara */}
+      <path d="M190 145 Q200 130 210 145 Q200 142 190 145 Z" />
+      <path d="M185 195 Q200 175 215 195 Q200 190 185 195 Z" />
+      <path d="M180 245 Q200 220 220 245 Q200 238 180 245 Z" />
+      <path d="M175 295 Q200 268 225 295 Q200 286 175 295 Z" />
+
+      {/* 4. CORNICE / SHIKHARA BASE MOLDING */}
+      <rect x="95" y="320" width="210" height="18" rx="3" strokeWidth="1.5" />
+      <path d="M95 329 L305 329" />
+      <path d="M105 338 L105 342 M125 338 L125 342 M145 338 L145 342 M165 338 L165 342 M185 338 L185 342 M205 338 L205 342 M225 338 L225 342 M245 338 L245 342 M265 338 L265 342 M285 338 L285 342" />
+
+      {/* 5. MAIN MANDAPAM (PILLARED HALL & SANCTUM) */}
+      <path d="M85 338 L315 338 L330 460 L70 460 Z" strokeWidth="1.4" />
+      <path d="M95 338 L88 460 M105 338 L98 460" />
+      <rect x="91" y="348" width="18" height="10" rx="1" />
+      <circle cx="100" cy="400" r="5" />
+      <path d="M135 338 L130 460 M145 338 L140 460" />
+      <rect x="133" y="348" width="14" height="10" rx="1" />
+      <path d="M255 338 L260 460 M265 338 L270 460" />
+      <rect x="253" y="348" width="14" height="10" rx="1" />
+      <path d="M295 338 L302 460 M305 338 L312 460" />
+      <rect x="291" y="348" width="18" height="10" rx="1" />
+      <circle cx="300" cy="400" r="5" />
+      <path d="M82 352 L112 352 M124 352 L154 352 M246 352 L276 352 M286 352 L316 352" strokeWidth="1.3" />
+
+      {/* 6. MAKAR TORANA (ORNATE TEMPLE ARCH) & HANGING BELL */}
+      <path d="M150 460 L150 395 C150 355 250 355 250 395 L250 460 Z" strokeWidth="1.8" />
+      <path d="M158 460 L158 400 C158 367 242 367 242 400 L242 460 Z" strokeWidth="1.2" />
+      <path d="M200 365 L200 380 M194 380 Q200 376 206 380 M192 388 C192 380 208 380 208 388 L210 394 L190 394 Z M200 394 L200 398" strokeWidth="1.3" />
+      <circle cx="200" cy="399" r="1.8" />
+      <line x1="200" y1="400" x2="200" y2="460" strokeWidth="1.4" />
+      <rect x="166" y="405" width="28" height="55" rx="1" opacity="0.85" />
+      <rect x="206" y="405" width="28" height="55" rx="1" opacity="0.85" />
+      <circle cx="180" cy="420" r="1.5" />
+      <circle cx="180" cy="435" r="1.5" />
+      <circle cx="180" cy="450" r="1.5" />
+      <circle cx="220" cy="420" r="1.5" />
+      <circle cx="220" cy="435" r="1.5" />
+      <circle cx="220" cy="450" r="1.5" />
+
+      {/* 7. ADHISTHANA (PLINTH & LOTUS PATTERN BASE) */}
+      <rect x="60" y="460" width="280" height="22" rx="2" strokeWidth="1.5" />
+      <path d="M60 471 L340 471" />
+      <path d="M55 482 Q65 470 75 482 Q85 470 95 482 Q105 470 115 482 Q125 470 135 482 Q145 470 155 482 Q165 470 175 482 Q185 470 195 482 Q205 470 215 482 Q225 470 235 482 Q245 470 255 482 Q265 470 275 482 Q285 470 295 482 Q305 470 315 482 Q325 470 335 482 Q345 470 355 482" strokeWidth="1.1" opacity="0.85" />
+      <rect x="45" y="482" width="310" height="28" rx="3" strokeWidth="1.6" />
+      <path d="M45 496 L355 496" />
+      <rect x="30" y="510" width="340" height="30" rx="4" strokeWidth="1.8" />
+      <path d="M30 525 L370 525" />
+      <rect x="15" y="540" width="370" height="35" rx="5" strokeWidth="2" />
+      <path d="M15 558 L385 558" />
+      <line x1="0" y1="575" x2="400" y2="575" strokeWidth="2.8" />
+      <line x1="0" y1="582" x2="400" y2="582" strokeWidth="1.2" opacity="0.5" />
+    </svg>
+  );
+}
+
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight, Flame, Leaf, MapPin, Menu, X } from 'lucide-react';
 
@@ -599,10 +700,100 @@ function ElephantFloralArt({ className = "", light = false }: { className?: stri
   );
 }
 
-const TempleWireframe = ElephantFloralArt;
 
 /* ── Lotus Flower Wireframe Decorator ── */
 
+
+function LotusBorderTop({ className = "" }: { className?: string }) {
+  return (
+    <div className={`lotus-border-top ${className}`} aria-hidden="true">
+      <svg viewBox="0 0 760 44" fill="none" stroke="#3a5c3a" strokeLinecap="round" strokeLinejoin="round">
+        {/* Center Grand Lotus */}
+        <g transform="translate(380, 26)" strokeWidth="1.2">
+          <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
+          <circle cx="0" cy="0" r="2" fill="#3a5c3a" />
+          {/* Inner Petals */}
+          <path d="M 0 -5 C -5 -14 5 -14 0 -5 Z" />
+          <path d="M 4 -3 C 12 -8 14 -1 4 -3 Z" />
+          <path d="M -4 -3 C -12 -8 -14 -1 -4 -3 Z" />
+          {/* Outer Petals */}
+          <path d="M 0 -8 C -8 -22 8 -22 0 -8 Z" strokeWidth="1.3" />
+          <path d="M 6 -5 C 20 -15 22 -4 6 -5 Z" />
+          <path d="M -6 -5 C -20 -15 -22 -4 -6 -5 Z" />
+          <path d="M 8 0 C 24 -4 24 6 8 0 Z" strokeWidth="1" opacity="0.8" />
+          <path d="M -8 0 C -24 -4 -24 6 -8 0 Z" strokeWidth="1" opacity="0.8" />
+          {/* Base Calyx */}
+          <path d="M -12 4 Q 0 9 12 4" strokeWidth="1.3" />
+        </g>
+
+        {/* Left Garland Swag */}
+        <path d="M 350 26 C 280 26 240 14 170 20 C 110 26 60 18 10 22" strokeWidth="1.1" />
+        <path d="M 320 23 Q 290 32 260 21" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 230 19 Q 200 28 170 19" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 140 21 Q 110 30 80 20" strokeWidth="0.8" opacity="0.7" />
+        {/* Buds & Leaves along left */}
+        <circle cx="260" cy="20" r="2.5" />
+        <path d="M 260 14 C 257 17 263 17 260 14 Z" strokeWidth="0.9" />
+        <circle cx="170" cy="18" r="2.5" />
+        <circle cx="80" cy="19" r="2" />
+        <circle cx="10" cy="22" r="2.5" />
+
+        {/* Right Garland Swag (Mirrored) */}
+        <path d="M 410 26 C 480 26 520 14 590 20 C 650 26 700 18 750 22" strokeWidth="1.1" />
+        <path d="M 440 23 Q 470 32 500 21" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 530 19 Q 560 28 590 19" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 620 21 Q 650 30 680 20" strokeWidth="0.8" opacity="0.7" />
+        {/* Buds & Leaves along right */}
+        <circle cx="500" cy="20" r="2.5" />
+        <path d="M 500 14 C 497 17 503 17 500 14 Z" strokeWidth="0.9" />
+        <circle cx="590" cy="18" r="2.5" />
+        <circle cx="680" cy="19" r="2" />
+        <circle cx="750" cy="22" r="2.5" />
+      </svg>
+    </div>
+  );
+}
+
+function LotusBorderBottom({ className = "" }: { className?: string }) {
+  return (
+    <div className={`lotus-border-bottom ${className}`} aria-hidden="true">
+      <svg viewBox="0 0 760 44" fill="none" stroke="#3a5c3a" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'scaleY(-1)' }}>
+        <g transform="translate(380, 26)" strokeWidth="1.2">
+          <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
+          <circle cx="0" cy="0" r="2" fill="#3a5c3a" />
+          <path d="M 0 -5 C -5 -14 5 -14 0 -5 Z" />
+          <path d="M 4 -3 C 12 -8 14 -1 4 -3 Z" />
+          <path d="M -4 -3 C -12 -8 -14 -1 -4 -3 Z" />
+          <path d="M 0 -8 C -8 -22 8 -22 0 -8 Z" strokeWidth="1.3" />
+          <path d="M 6 -5 C 20 -15 22 -4 6 -5 Z" />
+          <path d="M -6 -5 C -20 -15 -22 -4 -6 -5 Z" />
+          <path d="M 8 0 C 24 -4 24 6 8 0 Z" strokeWidth="1" opacity="0.8" />
+          <path d="M -8 0 C -24 -4 -24 6 -8 0 Z" strokeWidth="1" opacity="0.8" />
+          <path d="M -12 4 Q 0 9 12 4" strokeWidth="1.3" />
+        </g>
+        <path d="M 350 26 C 280 26 240 14 170 20 C 110 26 60 18 10 22" strokeWidth="1.1" />
+        <path d="M 320 23 Q 290 32 260 21" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 230 19 Q 200 28 170 19" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 140 21 Q 110 30 80 20" strokeWidth="0.8" opacity="0.7" />
+        <circle cx="260" cy="20" r="2.5" />
+        <path d="M 260 14 C 257 17 263 17 260 14 Z" strokeWidth="0.9" />
+        <circle cx="170" cy="18" r="2.5" />
+        <circle cx="80" cy="19" r="2" />
+        <circle cx="10" cy="22" r="2.5" />
+
+        <path d="M 410 26 C 480 26 520 14 590 20 C 650 26 700 18 750 22" strokeWidth="1.1" />
+        <path d="M 440 23 Q 470 32 500 21" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 530 19 Q 560 28 590 19" strokeWidth="0.8" opacity="0.7" />
+        <path d="M 620 21 Q 650 30 680 20" strokeWidth="0.8" opacity="0.7" />
+        <circle cx="500" cy="20" r="2.5" />
+        <path d="M 500 14 C 497 17 503 17 500 14 Z" strokeWidth="0.9" />
+        <circle cx="590" cy="18" r="2.5" />
+        <circle cx="680" cy="19" r="2" />
+        <circle cx="750" cy="22" r="2.5" />
+      </svg>
+    </div>
+  );
+}
 
 function IndianFloralDivider({ className = "", light = false }: { className?: string; light?: boolean }) {
   const c = light ? "#d4a74a" : "#3a5c3a";
@@ -773,11 +964,70 @@ function App() {
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
-      <section className="intro section-pad" id="intro"><div className="intro-mark"><TempleWireframe /></div><div className="intro-content"><p className="eyebrow">THE DASARI WAY</p><h2>Authentic flavors.<br /><i>Modern fusion.</i></h2><p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p><a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a></div><div className="intro-stamp"><span>FRESH</span><span>SPICED</span><span>DAILY</span></div></section>
+      <section className="intro section-pad" id="intro">
+        <div className="intro-mark" title="Sacred Indian Temple Architecture">
+          <TempleWireframe />
+        </div>
+        <div className="intro-content">
+          <p className="eyebrow">THE DASARI WAY</p>
+          <h2>Authentic flavors.<br /><i>Modern fusion.</i></h2>
+          <p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p>
+          <a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a>
+        </div>
+        <div className="intro-right" title="Royal Indian Ceremonial Elephant">
+          <ElephantFloralArt />
+        </div>
+      </section>
 
       <section className="popular section-pad section-dark" id="popular"><div className="section-head"><SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." /><div className="section-number">01 <span>/ 04</span></div></div><PlateCarousel items={popular} /></section>
 
-      <section className="bowl-section section-pad" id="menu"><div className="bowl-heading"><div><p className="eyebrow">THE SIGNATURE FORMAT</p><h2>Build your <i>bowl.</i></h2></div><div className="price-callout"><span>STARTING AT</span><strong>$10.99<span>+</span></strong></div></div><p className="bowl-lede">Choose your base, protein, masala, sauce, heat &amp; garnishes. Work your way down — we'll handle the rest.</p><IndianFloralDivider /><div className="bowl-steps">{bowlSteps.map((step) => <div className="bowl-step" key={step.number}><div className="step-number">{step.number}</div><div className="step-content"><div className="step-title"><h3>{step.title}</h3><span>{step.note}</span></div><div className="ingredient-grid">{step.items.map(([name, desc]) => <div className="ingredient" key={name}><strong>{name}</strong><span>{desc}</span></div>)}</div>{step.price && <div className="step-price">{step.price}</div>}</div></div>)}</div></section>
+      <section className="bowl-section section-pad" id="menu">
+        <div className="bowl-edge-decor-left">
+          <LotusDecor size={130} />
+        </div>
+        <div className="bowl-edge-decor-right">
+          <LotusDecor size={130} />
+        </div>
+
+        <LotusBorderTop />
+
+        <div className="bowl-heading">
+          <div>
+            <p className="eyebrow">THE SIGNATURE FORMAT</p>
+            <h2>Build your <i>bowl.</i></h2>
+          </div>
+          <div className="price-callout">
+            <span>STARTING AT</span>
+            <strong>$10.99<span>+</span></strong>
+          </div>
+        </div>
+        <p className="bowl-lede">Choose your base, protein, masala, sauce, heat &amp; garnishes. Work your way down — we'll handle the rest.</p>
+        
+        <div className="bowl-steps">
+          {bowlSteps.map((step) => (
+            <div className="bowl-step" key={step.number}>
+              <div className="step-number">{step.number}</div>
+              <div className="step-content">
+                <div className="step-title">
+                  <h3>{step.title}</h3>
+                  <span>{step.note}</span>
+                </div>
+                <div className="ingredient-grid">
+                  {step.items.map(([name, desc]) => (
+                    <div className="ingredient" key={name}>
+                      <strong>{name}</strong>
+                      <span>{desc}</span>
+                    </div>
+                  ))}
+                </div>
+                {step.price && <div className="step-price">{step.price}</div>}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <LotusBorderBottom />
+      </section>
 
       <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
         <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><span>DASARI FUSION GRILL</span></div></div>
