@@ -516,10 +516,47 @@ function MenuRows({ items }: { items: MenuItem[] }) {
   );
 }
 
-function Header({ scrolled }: { scrolled: boolean }) {
+function Header({ scrolled, onMenuToggle }: { scrolled: boolean; onMenuToggle?: (open: boolean) => void }) {
   const [open, setOpen] = useState(false);
   const links = [['MENU', '#menu'], ['POPULAR', '#popular'], ['ABOUT', '#about'], ['LOCATION', '#location']];
-  return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><Logo light /><nav>{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a><a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a></div><button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div>{open && <div className="mobile-nav">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowRight size={18} /></a>)}<a href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS<ArrowRight size={18} /></a></div>}</header>;
+  const toggleMenu = () => {
+    const next = !open;
+    setOpen(next);
+    onMenuToggle?.(next);
+  };
+  const closeMenu = () => {
+    setOpen(false);
+    onMenuToggle?.(false);
+  };
+  return (
+    <header className={`site-header ${scrolled ? 'header-scrolled' : ''} ${open ? 'header-menu-open' : ''}`}>
+      <div className="header-inner">
+        <Logo light />
+        <nav>
+          {links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+        </nav>
+        <div className="header-actions">
+          <a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS</a>
+          <a className="button button-small" href="#menu">VIEW MENU <ArrowRight size={15} /></a>
+        </div>
+        <button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} onClick={toggleMenu}>
+          {open ? <X /> : <Menu />}
+        </button>
+      </div>
+      {open && (
+        <div className="mobile-nav">
+          {links.map(([label, href]) => (
+            <a key={href} href={href} onClick={closeMenu}>
+              {label}<ArrowRight size={18} />
+            </a>
+          ))}
+          <a href={mapsUrl} target="_blank" rel="noreferrer" onClick={closeMenu}>
+            GET DIRECTIONS<ArrowRight size={18} />
+          </a>
+        </div>
+      )}
+    </header>
+  );
 }
 
 function ElephantFloralArt({ className = "", light = false }: { className?: string; light?: boolean }) {
@@ -1156,6 +1193,7 @@ function SectionIntro({ eyebrow, title, copy, light = false }: { eyebrow?: strin
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [selectedMap, setSelectedMap] = useState<'google' | 'apple'>('google');
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -1163,7 +1201,7 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  return <div id="top" className="app"><LoadingScreen /><Header scrolled={scrolled} />
+  return <div id="top" className="app"><LoadingScreen /><Header scrolled={scrolled} onMenuToggle={setMenuOpen} />
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
@@ -1472,14 +1510,16 @@ function App() {
         <span>GF = Gluten Free · V = Vegetarian · VE = Vegan</span>
       </div>
     </footer>
-    {/* Floating Halal badge on right side - clean badge only */}
-    <a href="#about" className="floating-halal-badge" title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
-      <img
-        src="/assets/images/halal-certified-badge.png"
-        alt="Halal Food Certified"
-        className="floating-halal-img"
-      />
-    </a>
+    {/* Floating Halal badge on right side - clean badge only, hidden when mobile menu is open */}
+    {!menuOpen && (
+      <a href="#about" className="floating-halal-badge" title="100% Halal Food Certified" aria-label="100% Halal Food Certified">
+        <img
+          src="/assets/images/halal-certified-badge.png"
+          alt="Halal Food Certified"
+          className="floating-halal-img"
+        />
+      </a>
+    )}
   </div>;
 }
 

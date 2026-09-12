@@ -17,7 +17,7 @@ button { font: inherit; }
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 200;
   color: var(--cream);
   background: var(--espresso);
   transition: background .3s, color .3s, box-shadow .3s;
@@ -974,7 +974,11 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .logo .brand-banner-logo { height: 78px; max-width: 180px; }
   .mobile-nav {
     display: flex; flex-direction: column; gap: 0;
-    padding: 8px 20px 22px; background: var(--bark);
+    padding: 8px 20px 22px;
+    background: var(--espresso);
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(212, 167, 74, 0.25);
   }
   .mobile-nav a {
     display: flex; justify-content: space-between;
