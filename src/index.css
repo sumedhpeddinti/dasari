@@ -996,7 +996,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .hero-mark { display: none; }
   .floating-halal-badge {
     position: fixed;
-    top: 92px;
+    top: 104px;
     right: 20px;
     width: 110px;
     height: 110px;
@@ -1197,7 +1197,7 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   .footer-nav { gap: 16px; flex-wrap: wrap; }
   .floating-halal-badge {
     position: fixed;
-    top: 84px;
+    top: 98px;
     right: 14px;
     bottom: auto;
     left: auto;
