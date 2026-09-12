@@ -101,6 +101,12 @@ function TempleWireframe({ className = "", light = false }: { className?: string
 
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight, Flame, Leaf, MapPin, Menu, X } from 'lucide-react';
+import {
+  PuneFloralBorder,
+  FloralFleuronDivider,
+  FloralCornerAccent,
+  SerlioArabesqueTailpiece
+} from './components/FloralMotifs';
 
 function AppleIcon({ size = 14 }: { size?: number }) {
   return (
@@ -1137,8 +1143,15 @@ function VineDecor({ className = "", light = false, flip = false }: { className?
   );
 }
 
-function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title: string; copy?: string }) {
-  return <div className="section-intro">{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h2>{title}</h2>{copy && <p className="section-copy">{copy}</p>}</div>;
+function SectionIntro({ eyebrow, title, copy, light = false }: { eyebrow?: string; title: string; copy?: string; light?: boolean }) {
+  return (
+    <div className="section-intro">
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <h2>{title}</h2>
+      <FloralFleuronDivider color={light ? "#d4a74a" : "#3a5c3a"} size={36} opacity={light ? 0.75 : 0.65} />
+      {copy && <p className="section-copy">{copy}</p>}
+    </div>
+  );
 }
 
 function App() {
@@ -1162,6 +1175,9 @@ function App() {
           <p className="eyebrow">THE DASARI WAY</p>
           <h2>Authentic flavors.<br /><i>Modern fusion.</i></h2>
           <p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p>
+          <div style={{ margin: '14px 0 16px 0' }}>
+            <FloralFleuronDivider color="#3a5c3a" size={42} opacity={0.6} />
+          </div>
           <a className="underlined-link" href="#about">OUR STORY <ArrowRight size={16} /></a>
         </div>
         <div className="intro-right" title="Royal Indian Ceremonial Elephant">
@@ -1169,9 +1185,17 @@ function App() {
         </div>
       </section>
 
-      <section className="popular section-pad section-dark" id="popular"><div className="section-head"><SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." /><div className="section-number">01 <span>/ 04</span></div></div><PlateCarousel items={popular} /></section>
+      <section className="popular section-pad section-dark" id="popular">
+        <div className="section-head">
+          <SectionIntro eyebrow="THE CROWD FAVORITES" title="Popular picks" copy="The plates people come back for." light />
+          <div className="section-number">01 <span>/ 04</span></div>
+        </div>
+        <PlateCarousel items={popular} />
+      </section>
 
       <section className="bowl-section section-pad" id="menu">
+        <FloralCornerAccent position="top-left" size={64} color="#d4a74a" opacity={0.35} />
+        <FloralCornerAccent position="top-right" size={64} color="#d4a74a" opacity={0.35} />
         <div className="bowl-edge-decor-left">
           <EdgeFiligreeDecor />
         </div>
@@ -1180,6 +1204,7 @@ function App() {
         </div>
 
         <LotusBorderTop />
+        <PuneFloralBorder color="#3a5c3a" opacity={0.28} className="pune-rim-top" />
 
         <div className="bowl-heading">
           <div>
@@ -1216,11 +1241,14 @@ function App() {
           ))}
         </div>
 
+        <PuneFloralBorder color="#3a5c3a" opacity={0.28} flipY className="pune-rim-bottom" />
         <LotusBorderBottom />
+        <FloralCornerAccent position="bottom-left" size={64} color="#d4a74a" opacity={0.35} />
+        <FloralCornerAccent position="bottom-right" size={64} color="#d4a74a" opacity={0.35} />
       </section>
 
       <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
-        <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><span>DASARI FUSION GRILL</span></div></div>
+        <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><FloralFleuronDivider color="#d4a74a" size={38} opacity={0.75} /><span>DASARI FUSION GRILL</span></div></div>
         <section className="menu-block" id="naan-wraps"><div className="menu-block-head"><SectionIntro eyebrow="FRESH-BAKED · ROLLED TO ORDER" title="Naan wraps" copy="House-made naan, white basmati rice, our signature wrap sauce and red onions, wrapped around your choice of protein." /><span className="menu-index">03</span></div><PlateCarousel items={wrapItems} /></section>
         <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">04</span></div><PlateCarousel items={snackItems} /></section>
         <section className="rotisserie-showcase-section" id="rotisserie">
@@ -1393,6 +1421,7 @@ function App() {
       </section>
     </main>
     <footer className="footer">
+      <PuneFloralBorder color="#d4a74a" opacity={0.3} className="footer-pune-border" />
       <div className="footer-top">
         <div className="footer-brand-col">
           <Logo light />
@@ -1422,6 +1451,9 @@ function App() {
         <a className="button button-cream" href={mapsUrl} target="_blank" rel="noreferrer">
           GET DIRECTIONS <ArrowRight size={16} />
         </a>
+      </div>
+      <div className="footer-arabesque">
+        <SerlioArabesqueTailpiece size={64} color="#d4a74a" opacity={0.65} />
       </div>
       <div className="footer-bottom">
         <div className="footer-halal-inline">

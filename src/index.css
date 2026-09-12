@@ -208,11 +208,27 @@ h2 i { color: var(--terracotta); font-weight: 600; }
 .bowl-edge-decor-left { position: absolute; left: 0px; top: 48%; transform: translateY(-50%); pointer-events: none; opacity: 0.35; z-index: 0; }
 .bowl-edge-decor-right { position: absolute; right: 0px; top: 48%; transform: translateY(-50%); pointer-events: none; opacity: 0.35; z-index: 0; }
 .lotus-border-top, .lotus-border-bottom, .royal-floral-frieze { width: 100%; max-width: 900px; margin: 0 auto; display: flex; justify-content: center; align-items: center; opacity: 0.9; }
-.lotus-border-top { margin-top: 10px; margin-bottom: 35px; }
-.lotus-border-bottom { margin-top: 40px; margin-bottom: 10px; }
+.lotus-border-top { margin-top: 10px; margin-bottom: 20px; }
+.lotus-border-bottom { margin-top: 25px; margin-bottom: 10px; }
 .lotus-border-top svg, .lotus-border-bottom svg, .royal-floral-frieze svg { width: 100%; height: auto; filter: drop-shadow(0 2px 8px rgba(58,92,58,0.15)); }
+.pune-rim-top { max-width: 850px; margin: -10px auto 30px auto; }
+.pune-rim-bottom { max-width: 850px; margin: 30px auto -10px auto; }
+.footer-pune-border { max-width: 1100px; margin: 0 auto 35px auto; }
+.footer-arabesque { display: flex; justify-content: center; align-items: center; margin: 30px 0 15px 0; }
 .edge-filigree-decor { width: 200px; max-width: 22vw; height: auto; }
 .edge-filigree-decor svg { width: 100%; height: auto; }
+
+/* Floral Corner Accents */
+.floral-corner-accent { position: absolute; z-index: 1; pointer-events: none; transition: opacity 0.3s ease; }
+.floral-corner-top-left { top: 14px; left: 14px; }
+.floral-corner-top-right { top: 14px; right: 14px; }
+.floral-corner-bottom-left { bottom: 14px; left: 14px; }
+.floral-corner-bottom-right { bottom: 14px; right: 14px; }
+
+/* Section Intro Floral Fleuron Divider */
+.floral-fleuron-divider { margin: 6px 0 10px 0; }
+.section-intro .floral-fleuron-divider { margin: 8px 0 12px 0; }
+.section-dark .section-intro .floral-fleuron-divider { opacity: 0.8; }
 .menu-section { background: var(--cream); position: relative; z-index: 2; padding-top: 55px; }
 .bowl-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .bowl-heading h2 { margin-bottom: 0; }
