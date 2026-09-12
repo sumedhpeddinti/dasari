@@ -19,31 +19,33 @@ button { font: inherit; }
   right: 0;
   z-index: 10;
   color: var(--cream);
-  background: linear-gradient(
-    180deg,
-    rgba(7, 19, 11, 0.82) 0%,
-    rgba(7, 19, 11, 0.65) 50%,
-    rgba(7, 19, 11, 0.90) 100%
-  ), url('/assets/images/indian_skyline_mural_dark.jpg');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  background: var(--espresso);
   transition: background .3s, color .3s, box-shadow .3s;
+  overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(212, 167, 74, 0.3);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/white_indian_skyline.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  pointer-events: none;
+  transform: scaleX(-1);
 }
 .header-scrolled {
   color: var(--cream);
-  background: linear-gradient(
-    180deg,
-    rgba(5, 15, 9, 0.95) 0%,
-    rgba(7, 19, 11, 0.90) 100%
-  ), url('/assets/images/indian_skyline_mural_dark.jpg');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  background: rgba(5, 15, 9, 0.96);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(212, 167, 74, 0.4);
 }
-.header-inner { max-width: 1320px; margin: auto; padding: 12px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.header-scrolled::before {
+  opacity: 0.35;
+}
+.header-inner { max-width: 1320px; margin: auto; padding: 12px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; z-index: 1; }
 .logo { display: inline-flex; align-items: center; text-decoration: none; border: none; background: transparent; }
 .logo .brand-banner-logo { height: 96px; width: auto; max-width: 220px; object-fit: contain; border: none; border-radius: 0; box-shadow: none; filter: drop-shadow(0 6px 18px rgba(201, 154, 72, 0.55)); transition: transform 0.25s ease, filter 0.25s ease; }
 .logo:hover .brand-banner-logo { transform: scale(1.06); filter: drop-shadow(0 8px 22px rgba(201, 95, 53, 0.7)); }
