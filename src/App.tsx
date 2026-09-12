@@ -704,145 +704,335 @@ function ElephantFloralArt({ className = "", light = false }: { className?: stri
 /* ── Lotus Flower Wireframe Decorator ── */
 
 
-function LotusBorderTop({ className = "" }: { className?: string }) {
+/* ── Royal Indian Floral Scroll Frieze (Directly modeled on the reference wireframe) ── */
+function RoyalFloralFrieze({
+  className = "",
+  light = false,
+  color,
+  flipY = false
+}: {
+  className?: string;
+  light?: boolean;
+  color?: string;
+  flipY?: boolean;
+}) {
+  const strokeColor = color || (light ? "#d4a74a" : "#2d4e30");
   return (
-    <div className={`lotus-border-top ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 760 44" fill="none" stroke="#3a5c3a" strokeLinecap="round" strokeLinejoin="round">
-        {/* Center Grand Lotus */}
-        <g transform="translate(380, 26)" strokeWidth="1.2">
-          <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
-          <circle cx="0" cy="0" r="2" fill="#3a5c3a" />
-          {/* Inner Petals */}
-          <path d="M 0 -5 C -5 -14 5 -14 0 -5 Z" />
-          <path d="M 4 -3 C 12 -8 14 -1 4 -3 Z" />
-          <path d="M -4 -3 C -12 -8 -14 -1 -4 -3 Z" />
-          {/* Outer Petals */}
-          <path d="M 0 -8 C -8 -22 8 -22 0 -8 Z" strokeWidth="1.3" />
-          <path d="M 6 -5 C 20 -15 22 -4 6 -5 Z" />
-          <path d="M -6 -5 C -20 -15 -22 -4 -6 -5 Z" />
-          <path d="M 8 0 C 24 -4 24 6 8 0 Z" strokeWidth="1" opacity="0.8" />
-          <path d="M -8 0 C -24 -4 -24 6 -8 0 Z" strokeWidth="1" opacity="0.8" />
-          {/* Base Calyx */}
-          <path d="M -12 4 Q 0 9 12 4" strokeWidth="1.3" />
+    <div
+      className={`royal-floral-frieze ${className}`}
+      aria-hidden="true"
+      style={{ transform: flipY ? 'scaleY(-1)' : undefined }}
+    >
+      <svg
+        viewBox="0 0 1000 220"
+        fill="none"
+        stroke={strokeColor}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* 1. HORIZONTAL BEADED SPINES */}
+        <g opacity="0.6" strokeWidth="1">
+          <line x1="20" y1="115" x2="330" y2="115" strokeWidth="0.8" />
+          <line x1="20" y1="115" x2="330" y2="115" strokeDasharray="2 8" strokeWidth="2.5" />
+          <line x1="670" y1="115" x2="980" y2="115" strokeWidth="0.8" />
+          <line x1="670" y1="115" x2="980" y2="115" strokeDasharray="2 8" strokeWidth="2.5" />
         </g>
 
-        {/* Left Garland Swag */}
-        <path d="M 350 26 C 280 26 240 14 170 20 C 110 26 60 18 10 22" strokeWidth="1.1" />
-        <path d="M 320 23 Q 290 32 260 21" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 230 19 Q 200 28 170 19" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 140 21 Q 110 30 80 20" strokeWidth="0.8" opacity="0.7" />
-        {/* Buds & Leaves along left */}
-        <circle cx="260" cy="20" r="2.5" />
-        <path d="M 260 14 C 257 17 263 17 260 14 Z" strokeWidth="0.9" />
-        <circle cx="170" cy="18" r="2.5" />
-        <circle cx="80" cy="19" r="2" />
-        <circle cx="10" cy="22" r="2.5" />
+        {/* 2. UPPER FLOATING FLORAL BRANCH SWAGS */}
+        <g transform="translate(190, 68)" strokeWidth="1.1">
+          <path d="M -130 15 C -90 -10 -40 -15 0 0 C 40 -15 90 -10 130 15" strokeWidth="1.3" />
+          <path d="M -90 -4 C -70 -25 -50 -15 -40 2" />
+          <path d="M 90 -4 C 70 -25 50 -15 40 2" />
+          <path d="M 0 0 C -12 -18 -4 -30 0 -32 C 4 -30 12 -18 0 0 Z" strokeWidth="1.2" />
+          <path d="M 0 0 C -22 -10 -25 -25 -10 -28 C -4 -25 -2 -14 0 0 Z" strokeWidth="1" />
+          <path d="M 0 0 C 22 -10 25 -25 10 -28 C 4 -25 2 -14 0 0 Z" strokeWidth="1" />
+          <circle cx="0" cy="-35" r="2" fill={strokeColor} />
+          <path d="M -70 -8 C -85 -22 -100 -12 -92 2 C -85 2 -78 -2 -70 -8 Z" />
+          <path d="M -115 10 C -130 0 -140 12 -125 20 C -120 18 -118 12 -115 10 Z" />
+          <path d="M 70 -8 C 85 -22 100 -12 92 2 C 85 2 78 -2 70 -8 Z" />
+          <path d="M 115 10 C 130 0 140 12 125 20 C 120 18 118 12 115 10 Z" />
+          <path d="M -130 15 C -145 22 -150 15 -142 8" />
+          <path d="M 130 15 C 145 22 150 15 142 8" />
+        </g>
 
-        {/* Right Garland Swag (Mirrored) */}
-        <path d="M 410 26 C 480 26 520 14 590 20 C 650 26 700 18 750 22" strokeWidth="1.1" />
-        <path d="M 440 23 Q 470 32 500 21" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 530 19 Q 560 28 590 19" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 620 21 Q 650 30 680 20" strokeWidth="0.8" opacity="0.7" />
-        {/* Buds & Leaves along right */}
-        <circle cx="500" cy="20" r="2.5" />
-        <path d="M 500 14 C 497 17 503 17 500 14 Z" strokeWidth="0.9" />
-        <circle cx="590" cy="18" r="2.5" />
-        <circle cx="680" cy="19" r="2" />
-        <circle cx="750" cy="22" r="2.5" />
+        <g transform="translate(810, 68)" strokeWidth="1.1">
+          <path d="M -130 15 C -90 -10 -40 -15 0 0 C 40 -15 90 -10 130 15" strokeWidth="1.3" />
+          <path d="M -90 -4 C -70 -25 -50 -15 -40 2" />
+          <path d="M 90 -4 C 70 -25 50 -15 40 2" />
+          <path d="M 0 0 C -12 -18 -4 -30 0 -32 C 4 -30 12 -18 0 0 Z" strokeWidth="1.2" />
+          <path d="M 0 0 C -22 -10 -25 -25 -10 -28 C -4 -25 -2 -14 0 0 Z" strokeWidth="1" />
+          <path d="M 0 0 C 22 -10 25 -25 10 -28 C 4 -25 2 -14 0 0 Z" strokeWidth="1" />
+          <circle cx="0" cy="-35" r="2" fill={strokeColor} />
+          <path d="M -70 -8 C -85 -22 -100 -12 -92 2 C -85 2 -78 -2 -70 -8 Z" />
+          <path d="M -115 10 C -130 0 -140 12 -125 20 C -120 18 -118 12 -115 10 Z" />
+          <path d="M 70 -8 C 85 -22 100 -12 92 2 C 85 2 78 -2 70 -8 Z" />
+          <path d="M 115 10 C 130 0 140 12 125 20 C 120 18 118 12 115 10 Z" />
+          <path d="M -130 15 C -145 22 -150 15 -142 8" />
+          <path d="M 130 15 C 145 22 150 15 142 8" />
+        </g>
+
+        {/* 3. LOWER OUTER FLOURISH WINGS */}
+        <g strokeWidth="1.2">
+          <path d="M 15 180 C 40 150 80 165 120 175 C 160 185 210 155 250 145 C 280 138 310 135 340 142" strokeWidth="1.6" />
+          <path d="M 25 185 C 55 160 95 175 130 182 C 170 190 215 165 250 152" strokeWidth="0.8" opacity="0.7" />
+          
+          <g transform="translate(65, 168)" strokeWidth="1">
+            <circle cx="0" cy="0" r="4" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="1.5" fill={strokeColor} />
+            <path d="M 0 -4 C -3 -9 3 -9 0 -4 Z" />
+            <path d="M 3.5 -2 C 8 -5 9 1 3.5 -2 Z" />
+            <path d="M 3.5 2 C 9 -1 8 5 3.5 2 Z" />
+            <path d="M 0 4 C 3 9 -3 9 0 4 Z" />
+            <path d="M -3.5 2 C -8 5 -9 -1 -3.5 2 Z" />
+            <path d="M -3.5 -2 C -9 1 -8 -5 -3.5 -2 Z" />
+          </g>
+
+          <g transform="translate(145, 172)" strokeWidth="1">
+            <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="2" fill={strokeColor} />
+            <path d="M 0 -5 C -4 -12 4 -12 0 -5 Z" />
+            <path d="M 4 -3 C 11 -7 12 1 4 -3 Z" />
+            <path d="M 4 3 C 12 -1 11 7 4 3 Z" />
+            <path d="M 0 5 C 4 12 -4 12 0 5 Z" />
+            <path d="M -4 3 C -11 7 -12 -1 -4 3 Z" />
+            <path d="M -4 -3 C -12 1 -11 -7 -4 -3 Z" />
+          </g>
+
+          <g transform="translate(275, 142)" strokeWidth="1.1">
+            <circle cx="0" cy="0" r="7" strokeWidth="1.3" />
+            <circle cx="0" cy="0" r="3" />
+            <circle cx="0" cy="0" r="1.2" fill={strokeColor} />
+            <path d="M 0 -7 C -4 -16 4 -16 0 -7 Z" strokeWidth="1.2" />
+            <path d="M 5 -5 C 13 -13 16 -4 5 -5 Z" />
+            <path d="M 7 0 C 16 -4 16 4 7 0 Z" strokeWidth="1.2" />
+            <path d="M 5 5 C 16 4 13 13 5 5 Z" />
+            <path d="M 0 7 C 4 16 -4 16 0 7 Z" strokeWidth="1.2" />
+            <path d="M -5 5 C -13 13 -16 4 -5 5 Z" />
+            <path d="M -7 0 C -16 4 -16 -4 -7 0 Z" strokeWidth="1.2" />
+            <path d="M -5 -5 C -16 -4 -13 -13 -5 -5 Z" />
+          </g>
+
+          <path d="M 15 180 C 2 188 -6 178 0 168 C 6 158 18 162 14 172 C 10 178 2 174 4 168" strokeWidth="1.3" />
+          <path d="M 100 168 C 95 152 80 148 85 162 C 90 170 95 168 100 168 Z" />
+          <path d="M 180 178 C 175 162 160 160 168 174" />
+          <path d="M 215 168 C 225 150 240 152 232 165" />
+        </g>
+
+        <g strokeWidth="1.2">
+          <path d="M 985 180 C 960 150 920 165 880 175 C 840 185 790 155 750 145 C 720 138 690 135 660 142" strokeWidth="1.6" />
+          <path d="M 975 185 C 945 160 905 175 870 182 C 830 190 785 165 750 152" strokeWidth="0.8" opacity="0.7" />
+
+          <g transform="translate(935, 168)" strokeWidth="1">
+            <circle cx="0" cy="0" r="4" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="1.5" fill={strokeColor} />
+            <path d="M 0 -4 C -3 -9 3 -9 0 -4 Z" />
+            <path d="M 3.5 -2 C 8 -5 9 1 3.5 -2 Z" />
+            <path d="M 3.5 2 C 9 -1 8 5 3.5 2 Z" />
+            <path d="M 0 4 C 3 9 -3 9 0 4 Z" />
+            <path d="M -3.5 2 C -8 5 -9 -1 -3.5 2 Z" />
+            <path d="M -3.5 -2 C -9 1 -8 -5 -3.5 -2 Z" />
+          </g>
+
+          <g transform="translate(855, 172)" strokeWidth="1">
+            <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="2" fill={strokeColor} />
+            <path d="M 0 -5 C -4 -12 4 -12 0 -5 Z" />
+            <path d="M 4 -3 C 11 -7 12 1 4 -3 Z" />
+            <path d="M 4 3 C 12 -1 11 7 4 3 Z" />
+            <path d="M 0 5 C 4 12 -4 12 0 5 Z" />
+            <path d="M -4 3 C -11 7 -12 -1 -4 3 Z" />
+            <path d="M -4 -3 C -12 1 -11 -7 -4 -3 Z" />
+          </g>
+
+          <g transform="translate(725, 142)" strokeWidth="1.1">
+            <circle cx="0" cy="0" r="7" strokeWidth="1.3" />
+            <circle cx="0" cy="0" r="3" />
+            <circle cx="0" cy="0" r="1.2" fill={strokeColor} />
+            <path d="M 0 -7 C -4 -16 4 -16 0 -7 Z" strokeWidth="1.2" />
+            <path d="M 5 -5 C 13 -13 16 -4 5 -5 Z" />
+            <path d="M 7 0 C 16 -4 16 4 7 0 Z" strokeWidth="1.2" />
+            <path d="M 5 5 C 16 4 13 13 5 5 Z" />
+            <path d="M 0 7 C 4 16 -4 16 0 7 Z" strokeWidth="1.2" />
+            <path d="M -5 5 C -13 13 -16 4 -5 5 Z" />
+            <path d="M -7 0 C -16 4 -16 -4 -7 0 Z" strokeWidth="1.2" />
+            <path d="M -5 -5 C -16 -4 -13 -13 -5 -5 Z" />
+          </g>
+
+          <path d="M 985 180 C 998 188 1006 178 1000 168 C 994 158 982 162 986 172 C 990 178 998 174 996 168" strokeWidth="1.3" />
+          <path d="M 900 168 C 905 152 920 148 915 162 C 910 170 905 168 900 168 Z" />
+          <path d="M 820 178 C 825 162 840 160 832 174" />
+          <path d="M 785 168 C 775 150 760 152 768 165" />
+        </g>
+
+        {/* 4. CENTERPIECE: ORNATE ROYAL DAMASK CREST */}
+        <g transform="translate(500, 95)">
+          <g strokeWidth="1.3">
+            <path d="M 0 -88 C -8 -75 -12 -65 0 -45 C 12 -65 8 -75 0 -88 Z" strokeWidth="1.5" />
+            <path d="M 0 -88 L 0 -45" strokeWidth="0.9" />
+            <circle cx="0" cy="-92" r="2.5" fill={strokeColor} />
+            <circle cx="0" cy="-98" r="1.5" />
+
+            <path d="M 0 -65 C -16 -62 -22 -50 -12 -40 C -6 -44 0 -46 0 -65 Z" strokeWidth="1.2" />
+            <path d="M 0 -65 C 16 -62 22 -50 12 -40 C 6 -44 0 -46 0 -65 Z" strokeWidth="1.2" />
+            <path d="M -12 -40 C -28 -38 -34 -25 -20 -15 C -12 -22 -6 -28 -12 -40 Z" />
+            <path d="M 12 -40 C 28 -38 34 -25 20 -15 C 12 -22 6 -28 12 -40 Z" />
+            <path d="M -20 -15 C -36 -12 -42 4 -26 15 C -18 7 -14 0 -20 -15 Z" />
+            <path d="M 20 -15 C 36 -12 42 4 26 15 C 18 7 14 0 20 -15 Z" />
+          </g>
+
+          <g strokeWidth="1.2">
+            <ellipse cx="0" cy="0" rx="14" ry="18" strokeWidth="1.5" />
+            <ellipse cx="0" cy="0" rx="8" ry="11" strokeWidth="1" />
+            <circle cx="0" cy="0" r="3.5" fill={strokeColor} />
+            <path d="M 0 -18 L 0 18 M -14 0 L 14 0" strokeWidth="0.8" opacity="0.7" />
+
+            <path d="M 0 -18 C -18 -32 18 -32 0 -18 Z" strokeWidth="1.2" />
+            <path d="M -14 0 C -28 -14 -28 14 -14 0 Z" strokeWidth="1.1" />
+            <path d="M 14 0 C 28 -14 28 14 14 0 Z" strokeWidth="1.1" />
+            <path d="M 0 18 C -18 32 18 32 0 18 Z" strokeWidth="1.2" />
+
+            <path d="M -14 -12 C -24 -24 -36 -16 -32 -2 C -24 -4 -18 -8 -14 -12 Z" />
+            <path d="M 14 -12 C 24 -24 36 -16 32 -2 C 24 -4 18 -8 14 -12 Z" />
+            <path d="M -14 12 C -24 24 -36 16 -32 2 C -24 4 -18 8 -14 12 Z" />
+            <path d="M 14 12 C 24 24 36 16 32 2 C 24 4 18 8 14 12 Z" />
+          </g>
+
+          <g strokeWidth="1.4">
+            <path d="M -10 25 C -50 35 -110 40 -160 22 C -185 14 -210 -2 -225 -25" strokeWidth="1.8" />
+            <path d="M -20 32 C -60 42 -115 45 -155 30" strokeWidth="0.9" opacity="0.75" />
+            <path d="M 10 25 C 50 35 110 40 160 22 C 185 14 210 -2 225 -25" strokeWidth="1.8" />
+            <path d="M 20 32 C 60 42 115 45 155 30" strokeWidth="0.9" opacity="0.75" />
+            <path d="M -30 20 C -45 12 -52 24 -44 32 C -36 40 -20 30 -28 18 C -32 12 -40 15 -38 22" strokeWidth="1.2" />
+            <path d="M 30 20 C 45 12 52 24 44 32 C 36 40 20 30 28 18 C 32 12 40 15 38 22" strokeWidth="1.2" />
+          </g>
+
+          <g transform="translate(-115, 12) rotate(-22)" strokeWidth="1.1">
+            <circle cx="0" cy="0" r="7" strokeWidth="1.3" />
+            <circle cx="0" cy="0" r="3" fill={strokeColor} />
+            <path d="M 0 -7 C -4 -15 4 -15 0 -7 Z" />
+            <path d="M 5 -5 C 13 -13 15 -4 5 -5 Z" />
+            <path d="M 7 0 C 15 -4 15 4 7 0 Z" />
+            <path d="M 5 5 C 15 4 13 13 5 5 Z" />
+            <path d="M 0 7 C 4 15 -4 15 0 7 Z" />
+            <path d="M -5 5 C -13 13 -15 4 -5 5 Z" />
+            <path d="M -7 0 C -15 4 -15 -4 -7 0 Z" />
+            <path d="M -5 -5 C -15 -4 -13 -13 -5 -5 Z" />
+            <path d="M -10 -10 C -18 -22 -6 -24 -4 -12" />
+            <path d="M 10 -10 C 18 -22 6 -24 4 -12" />
+          </g>
+
+          <g transform="translate(115, 12) rotate(22)" strokeWidth="1.1">
+            <circle cx="0" cy="0" r="7" strokeWidth="1.3" />
+            <circle cx="0" cy="0" r="3" fill={strokeColor} />
+            <path d="M 0 -7 C -4 -15 4 -15 0 -7 Z" />
+            <path d="M 5 -5 C 13 -13 15 -4 5 -5 Z" />
+            <path d="M 7 0 C 15 -4 15 4 7 0 Z" />
+            <path d="M 5 5 C 15 4 13 13 5 5 Z" />
+            <path d="M 0 7 C 4 15 -4 15 0 7 Z" />
+            <path d="M -5 5 C -13 13 -15 4 -5 5 Z" />
+            <path d="M -7 0 C -15 4 -15 -4 -7 0 Z" />
+            <path d="M -5 -5 C -15 -4 -13 -13 -5 -5 Z" />
+            <path d="M -10 -10 C -18 -22 -6 -24 -4 -12" />
+            <path d="M 10 -10 C 18 -22 6 -24 4 -12" />
+          </g>
+
+          <g transform="translate(0, 68)" strokeWidth="1.1">
+            <line x1="0" y1="-36" x2="0" y2="-8" strokeWidth="1.3" />
+            <circle cx="0" cy="-22" r="1.5" />
+            <circle cx="0" cy="-14" r="2" />
+            <circle cx="0" cy="0" r="6" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="2" fill={strokeColor} />
+            <path d="M 0 -6 C -3 -12 3 -12 0 -6 Z" />
+            <path d="M 4 -4 C 10 -10 12 -2 4 -4 Z" />
+            <path d="M 6 0 C 12 -3 12 3 6 0 Z" />
+            <path d="M 4 4 C 12 2 10 10 4 4 Z" />
+            <path d="M 0 6 C 3 12 -3 12 0 6 Z" />
+            <path d="M -4 4 C -10 10 -12 2 -4 4 Z" />
+            <path d="M -6 0 C -12 3 -12 -3 -6 0 Z" />
+            <path d="M -4 -4 C -12 -2 -10 -10 -4 -4 Z" />
+            <path d="M 0 6 L 0 16 M -3 12 Q 0 18 3 12" strokeWidth="1.1" />
+            <circle cx="0" cy="18" r="1.5" fill={strokeColor} />
+
+            <path d="M -8 -4 C -25 -12 -38 0 -48 10 C -38 8 -22 5 -8 -4 Z" />
+            <path d="M -30 2 C -42 -5 -50 5 -40 10" />
+            <path d="M 8 -4 C 25 -12 38 0 48 10 C 38 8 22 5 8 -4 Z" />
+            <path d="M 30 2 C 42 -5 50 5 40 10" />
+          </g>
+        </g>
       </svg>
     </div>
   );
+}
+
+function LotusBorderTop({ className = "" }: { className?: string }) {
+  return <RoyalFloralFrieze className={`lotus-border-top ${className}`} color="#3a5c3a" />;
 }
 
 function LotusBorderBottom({ className = "" }: { className?: string }) {
-  return (
-    <div className={`lotus-border-bottom ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 760 44" fill="none" stroke="#3a5c3a" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'scaleY(-1)' }}>
-        <g transform="translate(380, 26)" strokeWidth="1.2">
-          <circle cx="0" cy="0" r="5" strokeWidth="1.2" />
-          <circle cx="0" cy="0" r="2" fill="#3a5c3a" />
-          <path d="M 0 -5 C -5 -14 5 -14 0 -5 Z" />
-          <path d="M 4 -3 C 12 -8 14 -1 4 -3 Z" />
-          <path d="M -4 -3 C -12 -8 -14 -1 -4 -3 Z" />
-          <path d="M 0 -8 C -8 -22 8 -22 0 -8 Z" strokeWidth="1.3" />
-          <path d="M 6 -5 C 20 -15 22 -4 6 -5 Z" />
-          <path d="M -6 -5 C -20 -15 -22 -4 -6 -5 Z" />
-          <path d="M 8 0 C 24 -4 24 6 8 0 Z" strokeWidth="1" opacity="0.8" />
-          <path d="M -8 0 C -24 -4 -24 6 -8 0 Z" strokeWidth="1" opacity="0.8" />
-          <path d="M -12 4 Q 0 9 12 4" strokeWidth="1.3" />
-        </g>
-        <path d="M 350 26 C 280 26 240 14 170 20 C 110 26 60 18 10 22" strokeWidth="1.1" />
-        <path d="M 320 23 Q 290 32 260 21" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 230 19 Q 200 28 170 19" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 140 21 Q 110 30 80 20" strokeWidth="0.8" opacity="0.7" />
-        <circle cx="260" cy="20" r="2.5" />
-        <path d="M 260 14 C 257 17 263 17 260 14 Z" strokeWidth="0.9" />
-        <circle cx="170" cy="18" r="2.5" />
-        <circle cx="80" cy="19" r="2" />
-        <circle cx="10" cy="22" r="2.5" />
-
-        <path d="M 410 26 C 480 26 520 14 590 20 C 650 26 700 18 750 22" strokeWidth="1.1" />
-        <path d="M 440 23 Q 470 32 500 21" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 530 19 Q 560 28 590 19" strokeWidth="0.8" opacity="0.7" />
-        <path d="M 620 21 Q 650 30 680 20" strokeWidth="0.8" opacity="0.7" />
-        <circle cx="500" cy="20" r="2.5" />
-        <path d="M 500 14 C 497 17 503 17 500 14 Z" strokeWidth="0.9" />
-        <circle cx="590" cy="18" r="2.5" />
-        <circle cx="680" cy="19" r="2" />
-        <circle cx="750" cy="22" r="2.5" />
-      </svg>
-    </div>
-  );
+  return <RoyalFloralFrieze className={`lotus-border-bottom ${className}`} color="#3a5c3a" flipY />;
 }
 
 function IndianFloralDivider({ className = "", light = false }: { className?: string; light?: boolean }) {
-  const c = light ? "#d4a74a" : "#3a5c3a";
+  return <RoyalFloralFrieze className={`indian-floral-divider ${className}`} light={light} />;
+}
+
+function EdgeFiligreeDecor({ className = "", light = false, flip = false }: { className?: string; light?: boolean; flip?: boolean }) {
+  const strokeColor = light ? "#d4a74a" : "#3a5c3a";
   return (
-    <div className={`indian-floral-divider ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 600 64" fill="none" stroke={c} strokeLinecap="round" strokeLinejoin="round">
+    <div
+      className={`edge-filigree-decor ${className}`}
+      aria-hidden="true"
+      style={{ transform: flip ? 'scaleX(-1)' : undefined }}
+    >
+      <svg viewBox="0 0 280 130" fill="none" stroke={strokeColor} strokeLinecap="round" strokeLinejoin="round">
+        {/* Horizontal beaded line */}
+        <line x1="10" y1="65" x2="270" y2="65" strokeWidth="0.8" opacity="0.6" />
+        <line x1="10" y1="65" x2="270" y2="65" strokeDasharray="2 6" strokeWidth="2.2" opacity="0.6" />
+
+        {/* Upper branch */}
+        <g strokeWidth="1.1">
+          <path d="M 20 65 C 60 40 120 30 180 45 C 220 55 250 45 270 30" strokeWidth="1.3" />
+          <path d="M 120 38 C 105 20 125 10 135 25" />
+          <path d="M 180 45 C 170 25 190 15 205 32" />
+          {/* Small Rosette */}
+          <g transform="translate(155, 32)">
+            <circle cx="0" cy="0" r="4" strokeWidth="1.2" />
+            <circle cx="0" cy="0" r="1.5" fill={strokeColor} />
+            <path d="M 0 -4 C -2 -8 2 -8 0 -4 Z" />
+            <path d="M 3.5 -2 C 7 -4 8 1 3.5 -2 Z" />
+            <path d="M 3.5 2 C 8 -1 7 4 3.5 2 Z" />
+            <path d="M 0 4 C 2 8 -2 8 0 4 Z" />
+            <path d="M -3.5 2 C -7 4 -8 -1 -3.5 2 Z" />
+            <path d="M -3.5 -2 C -7 1 -8 -4 -3.5 -2 Z" />
+          </g>
+        </g>
+
+        {/* Lower sweeping main flourish */}
         <g strokeWidth="1.2">
-          <path d="M 300 48 C 294 36 294 22 300 14 C 306 22 306 36 300 48 Z" strokeWidth="1.4" />
-          <path d="M 300 48 C 286 42 282 28 290 20 C 295 28 298 38 300 48 Z" />
-          <path d="M 300 48 C 314 42 318 28 310 20 C 305 28 302 38 300 48 Z" />
-          <path d="M 300 48 C 274 46 270 36 278 28 C 285 36 292 42 300 48 Z" strokeWidth="1" opacity="0.8" />
-          <path d="M 300 48 C 326 46 330 36 322 28 C 315 36 308 42 300 48 Z" strokeWidth="1" opacity="0.8" />
-          <path d="M 288 50 Q 300 56 312 50" strokeWidth="1.3" />
-          <circle cx="300" cy="54" r="1.5" />
+          <path d="M 10 65 C 40 95 90 110 140 100 C 190 90 230 105 260 120" strokeWidth="1.5" />
+          <path d="M 25 72 C 55 98 100 108 145 96" strokeWidth="0.8" opacity="0.7" />
+
+          {/* Main Rosette at (110, 95) */}
+          <g transform="translate(110, 92)" strokeWidth="1.1">
+            <circle cx="0" cy="0" r="6" strokeWidth="1.3" />
+            <circle cx="0" cy="0" r="2.5" />
+            <circle cx="0" cy="0" r="1" fill={strokeColor} />
+            <path d="M 0 -6 C -3 -13 3 -13 0 -6 Z" />
+            <path d="M 4 -3 C 11 -7 12 1 4 -3 Z" />
+            <path d="M 4 3 C 12 -1 11 7 4 3 Z" />
+            <path d="M 0 6 C 3 13 -3 13 0 6 Z" />
+            <path d="M -4 3 C -11 7 -12 -1 -4 3 Z" />
+            <path d="M -4 -3 C -12 1 -11 -7 -4 -3 Z" />
+          </g>
+
+          {/* Acanthus Leaves */}
+          <path d="M 70 85 C 62 70 48 72 54 84 Z" />
+          <path d="M 170 95 C 160 80 178 75 182 88 Z" />
+          <path d="M 220 102 C 215 88 232 85 235 98 Z" />
+
+          {/* Terminal spiral flourish at tip */}
+          <path d="M 260 120 C 272 126 278 118 272 110 C 266 102 254 106 258 114" strokeWidth="1.3" />
         </g>
-        <g strokeWidth="1" opacity="0.9" transform="translate(230, 20)">
-          <path d="M 12 16 C 18 10 28 10 34 16 C 38 20 40 26 42 34" strokeWidth="1.2" />
-          <path d="M 34 16 C 38 12 44 8 46 3 C 48 0 44 -3 40 -1 C 36 2 34 7 35 11" strokeWidth="1.3" />
-          <path d="M 36 18 C 42 17 45 15 44 12" strokeWidth="1.1" />
-          <circle cx="30" cy="15" r="1" fill="currentColor" />
-          <path d="M 24 14 C 20 16 18 22 22 26 C 26 28 28 24 26 18" strokeWidth="1.1" />
-          <path d="M 12 16 C 2 18 -4 24 -6 34" strokeWidth="1.2" />
-          <path d="M 8 18 C 16 17 22 18 26 21 L 24 28 C 18 30 10 30 6 28 Z" strokeWidth="0.9" />
-          <line x1="8" y1="30" x2="8" y2="38" strokeWidth="1.3" />
-          <line x1="22" y1="30" x2="22" y2="38" strokeWidth="1.3" />
-          <line x1="38" y1="30" x2="38" y2="38" strokeWidth="1.3" />
-        </g>
-        <g strokeWidth="1" opacity="0.9" transform="translate(370, 20) scale(-1, 1)">
-          <path d="M 12 16 C 18 10 28 10 34 16 C 38 20 40 26 42 34" strokeWidth="1.2" />
-          <path d="M 34 16 C 38 12 44 8 46 3 C 48 0 44 -3 40 -1 C 36 2 34 7 35 11" strokeWidth="1.3" />
-          <path d="M 36 18 C 42 17 45 15 44 12" strokeWidth="1.1" />
-          <circle cx="30" cy="15" r="1" fill="currentColor" />
-          <path d="M 24 14 C 20 16 18 22 22 26 C 26 28 28 24 26 18" strokeWidth="1.1" />
-          <path d="M 12 16 C 2 18 -4 24 -6 34" strokeWidth="1.2" />
-          <path d="M 8 18 C 16 17 22 18 26 21 L 24 28 C 18 30 10 30 6 28 Z" strokeWidth="0.9" />
-          <line x1="8" y1="30" x2="8" y2="38" strokeWidth="1.3" />
-          <line x1="22" y1="30" x2="22" y2="38" strokeWidth="1.3" />
-          <line x1="38" y1="30" x2="38" y2="38" strokeWidth="1.3" />
-        </g>
-        <path d="M 215 38 C 170 38 140 22 95 36 C 65 44 35 34 10 36" strokeWidth="1.1" />
-        <path d="M 170 34 C 164 24 150 26 156 34 C 162 42 174 40 170 34 Z" strokeWidth="0.9" />
-        <path d="M 120 32 C 114 22 100 24 106 32 C 112 40 124 38 120 32 Z" strokeWidth="0.9" />
-        <path d="M 60 38 C 55 28 42 30 47 38 C 52 46 64 44 60 38 Z" strokeWidth="0.9" />
-        <circle cx="10" cy="36" r="2" />
-        <path d="M 385 38 C 430 38 460 22 505 36 C 535 44 565 34 590 36" strokeWidth="1.1" />
-        <path d="M 430 34 C 436 24 450 26 444 34 C 438 42 426 40 430 34 Z" strokeWidth="0.9" />
-        <path d="M 480 32 C 486 22 500 24 494 32 C 488 40 476 38 480 32 Z" strokeWidth="0.9" />
-        <path d="M 540 38 C 545 28 558 30 553 38 C 548 46 536 44 540 38 Z" strokeWidth="0.9" />
-        <circle cx="590" cy="36" r="2" />
       </svg>
     </div>
   );
@@ -983,10 +1173,10 @@ function App() {
 
       <section className="bowl-section section-pad" id="menu">
         <div className="bowl-edge-decor-left">
-          <LotusDecor size={130} />
+          <EdgeFiligreeDecor />
         </div>
         <div className="bowl-edge-decor-right">
-          <LotusDecor size={130} />
+          <EdgeFiligreeDecor flip />
         </div>
 
         <LotusBorderTop />
