@@ -1154,35 +1154,6 @@ function SectionIntro({ eyebrow, title, copy, light = false }: { eyebrow?: strin
   );
 }
 
-function SkylineMuralSection() {
-  return (
-    <section className="skyline-mural-section section-pad" id="skyline-mural">
-      <div className="skyline-mural-container">
-        <div className="skyline-mural-header">
-          <p className="eyebrow">SIGNATURE RESTAURANT WALL ART</p>
-          <h2>Landmarks of India &amp; Skyline Mural</h2>
-          <FloralFleuronDivider color="#3a5c3a" size={42} opacity={0.7} />
-          <p className="skyline-mural-desc">
-            Featuring the iconic <strong>Charminar</strong>, <strong>Taj Mahal</strong>, <strong>Qutub Minar</strong>, and city skyline in our signature watercolor splash artwork.
-          </p>
-        </div>
-        <div className="skyline-mural-frame">
-          <div className="skyline-mural-badge-tag">AUTHENTIC ATMOSPHERE</div>
-          <img
-            src="/assets/images/indian_skyline_mural_light.jpg"
-            alt="Signature Wall Mural with Charminar, Taj Mahal, Qutub Minar and city skyline in watercolor splash style"
-            className="skyline-mural-img"
-            loading="lazy"
-          />
-          <div className="skyline-mural-overlay-caption">
-            <span>CHARMINAR · TAJ MAHAL · QUTUB MINAR · RED FORT · CITY SKYLINE</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [selectedMap, setSelectedMap] = useState<'google' | 'apple'>('google');
@@ -1213,8 +1184,6 @@ function App() {
           <ElephantFloralArt />
         </div>
       </section>
-
-      <SkylineMuralSection />
 
       <section className="popular section-pad section-dark" id="popular">
         <div className="section-head">
@@ -1279,7 +1248,7 @@ function App() {
       </section>
 
       <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
-        <div className="visual-break"><img src="/assets/images/indian_skyline_mural_dark.jpg" alt="Dasari Fusion Grill landmark skyline mural with Charminar, Taj Mahal, and Qutub Minar" loading="lazy" /><div><p>Charminar &amp; Taj Mahal.<br /><i>Authentic Flavors.</i><br />Modern Fusion.</p><FloralFleuronDivider color="#d4a74a" size={38} opacity={0.75} /><span>DASARI FUSION GRILL · SIGNATURE HERITAGE SKYLINE</span></div></div>
+        <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><FloralFleuronDivider color="#d4a74a" size={38} opacity={0.75} /><span>DASARI FUSION GRILL</span></div></div>
         <section className="menu-block" id="naan-wraps"><div className="menu-block-head"><SectionIntro eyebrow="FRESH-BAKED · ROLLED TO ORDER" title="Naan wraps" copy="House-made naan, white basmati rice, our signature wrap sauce and red onions, wrapped around your choice of protein." /><span className="menu-index">03</span></div><PlateCarousel items={wrapItems} /></section>
         <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">04</span></div><PlateCarousel items={snackItems} /></section>
         <section className="rotisserie-showcase-section" id="rotisserie">
