@@ -7,15 +7,30 @@ function getSvgData(filename) {
   const file = path.join(floralDir, filename);
   if (!fs.existsSync(file)) return null;
   const content = fs.readFileSync(file, 'utf8');
-  const vb = content.match(/viewBox="([^"]+)"/)?.[1] || '0 0 100 100';
-  const paths = [...content.matchAll(/<path[^>]+d="([^"]+)"/g)].map(m => m[1]);
-  return { viewBox: vb, paths };
+  const viewBoxMatch = content.match(/viewBox="([^"]+)"/);
+  const viewBox = viewBoxMatch ? viewBoxMatch[1] : '0 0 100 100';
+
+  // Extract transform on <g>
+  const gMatch = content.match(/<g[^>]*transform="([^"]+)"[^>]*>/);
+  const transform = gMatch ? gMatch[1] : '';
+
+  // Extract all valid <path> d attributes (must start with M or m)
+  const paths = [...content.matchAll(/<path[\s\S]*?\sd="([\s\S]*?)"/g)]
+    .map(m => m[1].replace(/\s+/g, ' ').trim())
+    .filter(d => d.startsWith('M') || d.startsWith('m'));
+
+  return { viewBox, transform, paths };
 }
 
 const pune = getSvgData('pune_border.svg');
 const chappell = getSvgData('chappell_fleuron.svg');
 const corner = getSvgData('floral_corner.svg');
 const serlio = getSvgData('serlio_tailpiece.svg');
+
+console.log('Pune paths:', pune.paths.length);
+console.log('Chappell paths:', chappell.paths.length);
+console.log('Corner paths:', corner.paths.length, 'transform:', corner.transform);
+console.log('Serlio paths:', serlio.paths.length, 'transform:', serlio.transform);
 
 const code = `// Authentic Open-Source & Public-Domain Floral Motifs
 // Sourced from Wikimedia Commons & Historical Archives
@@ -156,7 +171,9 @@ export function FloralCornerAccent({
         fill={color}
         style={{ width: '100%', height: '100%', display: 'block' }}
       >
-        <path d="${corner.paths[0]}" />
+        <g transform="${corner.transform}">
+          <path d="${corner.paths[0]}" />
+        </g>
       </svg>
     </div>
   );
@@ -188,7 +205,9 @@ export function SerlioArabesqueTailpiece({
         fill={color}
         style={{ width: \`\${size}px\`, height: 'auto', display: 'block' }}
       >
-        ${serlio.paths.map(p => `<path d="${p}" />`).join('\n        ')}
+        <g transform="${serlio.transform}">
+          ${serlio.paths.map(p => `<path d="${p}" />`).join('\n          ')}
+        </g>
       </svg>
     </div>
   );
@@ -197,4 +216,4 @@ export function SerlioArabesqueTailpiece({
 `;
 
 fs.writeFileSync(path.join(__dirname, '..', 'src', 'components', 'FloralMotifs.tsx'), code);
-console.log('Generated src/components/FloralMotifs.tsx successfully!');
+console.log('Regenerated src/components/FloralMotifs.tsx with valid M/m path commands!');
