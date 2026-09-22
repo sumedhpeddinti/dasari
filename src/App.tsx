@@ -107,6 +107,7 @@ import {
   FloralCornerAccent,
   SerlioArabesqueTailpiece
 } from './components/FloralMotifs';
+import { TopHeroCarousel } from './components/TopHeroCarousel';
 
 function AppleIcon({ size = 14 }: { size?: number }) {
   return (
@@ -132,7 +133,6 @@ const photos = {
   paneer: '/assets/images/paneer_bowl.jpg',
   vegan: '/assets/images/vegan_bowl.jpg',
   samosaChaat: '/assets/images/samosa_chaat.jpg',
-  naanWrap: '/assets/images/naan_wrap.jpg',
   pavBhaji: '/assets/images/pav_bhaji.jpg',
   samosa: '/assets/images/samosas_plate.jpg',
   rotisserie: '/assets/images/rotisserie_chicken_dish.jpg',
@@ -1204,6 +1204,9 @@ function App() {
   return <div id="top" className="app"><LoadingScreen /><Header scrolled={scrolled} onMenuToggle={setMenuOpen} />
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p><div className="hero-actions"><a className="button" href="#menu">EXPLORE MENU <ArrowRight size={17} /></a><a className="button button-ghost" href={mapsUrl} target="_blank" rel="noreferrer">GET DIRECTIONS <MapPin size={16} /></a></div></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
+
+      {/* Section 2: Featured Banners Infinite Carousel */}
+      <TopHeroCarousel />
 
       <section className="intro section-pad" id="intro">
         <div className="intro-mark" title="Sacred Indian Temple Architecture">
