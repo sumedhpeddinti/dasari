@@ -129,10 +129,9 @@ const photos = {
   feast: '/assets/images/curry_masala_bowls.jpg',
   tikka: '/assets/images/tikka_masala_bowl.jpg',
   butterChicken: '/assets/images/butter_chicken_bowl.jpg',
-  rotisserieBowl: '/assets/images/rotisserie_chicken_bowl.jpg',
+  lambBowl: '/assets/images/lamb_bowl.jpg',
   paneer: '/assets/images/paneer_bowl.jpg',
   vegan: '/assets/images/vegan_bowl.jpg',
-  samosaChaat: '/assets/images/samosa_chaat.jpg',
   pavBhaji: '/assets/images/pav_bhaji.jpg',
   samosa: '/assets/images/samosas_plate.jpg',
   rotisserie: '/assets/images/rotisserie_chicken_dish.jpg',
@@ -142,19 +141,9 @@ const photos = {
 const popular: FoodItem[] = [
   { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Chicken tikka, tikka masala, white basmati, spicy mango and hot sauce.', image: photos.tikka },
   { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Chicken in butter masala over white basmati, with DASARI ranch and hot sauce.', image: photos.butterChicken },
-  { name: 'Rotisserie Chicken Bowl', price: '$11.99', calories: '610 cal', description: 'DASARI rotisserie chicken, white basmati, roasted vegetables and mint yogurt.', image: photos.rotisserieBowl },
+  { name: 'Spiced Lamb Bowl', price: '$12.99', calories: '690 cal', description: 'Tender spiced lamb, white basmati, roasted vegetables, chickpea masala and mint yogurt.', image: photos.lambBowl },
   { name: 'Vegetarian Paneer Bowl', price: '$10.99', calories: '640 cal', description: 'Paneer, butter masala, chickpea masala, white basmati and mint yogurt.', image: photos.paneer, badge: 'V' },
   { name: 'Vegan Bowl', price: '$10.99', calories: '540 cal', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils and brown basmati.', image: photos.vegan, badge: 'VE' },
-  { name: 'Samosa Chaat', price: '$8.99', calories: '450 cal', description: 'Samosas topped with chickpea masala, sweet yogurt and signature sauces.', image: photos.samosaChaat, badge: 'V' },
-];
-
-const wrapItems: FoodItem[] = [
-  { name: 'Rotisserie Chicken Wrap', price: '$9.99', calories: '670 cal', description: 'Slow-roasted chicken, rice, sauce and red onions.', image: '/assets/images/rotisserie_wrap.jpg' },
-  { name: 'Chicken Wrap', price: '$8.99', calories: '630 cal', description: 'Chicken, rice, sauce and red onions.', image: '/assets/images/grilled_chicken_wrap.jpg' },
-  { name: 'Spicy Chicken Wrap', price: '$8.99', calories: '640 cal', description: 'Spicy chicken, rice, sauce and red onions.', image: '/assets/images/spicy_chicken_wrap.jpg' },
-  { name: 'Lamb Wrap', price: '$9.99', calories: '720 cal', description: 'Lamb, rice, sauce and red onions.', image: '/assets/images/lamb_wrap.jpg' },
-  { name: 'Paneer Wrap', price: '$8.99', calories: '680 cal', description: 'Paneer, rice, sauce and red onions.', image: '/assets/images/paneer_wrap.jpg', badge: 'V' },
-  { name: 'Broccoli-Chickpea Wrap 🥦', price: '$8.99', calories: '560 cal', description: 'Roasted broccoli, chickpea masala, rice and sauce.', image: '/assets/images/cauli_chickpea_wrap.jpg', badge: 'VE' },
 ];
 
 const snackItems: FoodItem[] = [
@@ -177,7 +166,7 @@ const lentilItems: FoodItem[] = [
   { name: 'Veggie Bhaji', price: '$13.95 | $21.90', calories: '160 cal / 8 oz', description: 'Flavorful vegetable bhaji.', image: photos.pavBhaji, badge: 'VE' },
 ];
 
-const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'NAAN WRAPS', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
+const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
 
 const bowlSteps = [
   {
@@ -261,7 +250,7 @@ const bowlSteps = [
 const chefBowls: MenuItem[] = [
   { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Chicken tikka and tikka masala over white basmati, finished with spicy mango drizzle and hot sauce.' },
   { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Chicken in butter masala over white basmati, with DASARI ranch drizzle and hot sauce.' },
-  { name: 'Rotisserie Chicken Bowl', price: '$11.99', calories: '610 cal', description: 'DASARI rotisserie chicken, white basmati, roasted vegetables, mint yogurt, hot sauce.' },
+  { name: 'Spiced Lamb Bowl', price: '$12.99', calories: '690 cal', description: 'Tender spiced lamb, white basmati, roasted vegetables, chickpea masala, mint yogurt, hot sauce.' },
   { name: 'Vegetarian Paneer Bowl', price: '$10.99', calories: '640 cal', description: 'Paneer, butter masala, chickpea masala, white basmati, mint yogurt, hot sauce.', badge: 'V' },
   { name: 'Vegan Bowl', price: '$10.99', calories: '540 cal', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils, brown basmati, spicy mango, hot sauce.', badge: 'VE' },
   { name: 'Pro Bowl', price: '$13.77', calories: '820 cal', description: 'Double roasted vegetables, your choice of protein, signature sauce, and hot stuff. Lamb +$3 · Salmon +$4.' },
@@ -1215,7 +1204,7 @@ function App() {
         <div className="intro-content">
           <p className="eyebrow">THE DASARI WAY</p>
           <h2>Authentic flavors.<br /><i>Modern fusion.</i></h2>
-          <p>Indian classics meet a fast, fresh fusion format. Build a bowl, grab a naan wrap, share street snacks or bring home a family meal.</p>
+          <p>Indian classics meet a fast, fresh fusion format. Build a bowl, savor hot tandoori naan, share street snacks or bring home a family meal.</p>
           <div style={{ margin: '14px 0 16px 0' }}>
             <FloralFleuronDivider color="#3a5c3a" size={42} opacity={0.6} />
           </div>
@@ -1290,8 +1279,7 @@ function App() {
 
       <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
         <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><FloralFleuronDivider color="#d4a74a" size={38} opacity={0.75} /><span>DASARI FUSION GRILL</span></div></div>
-        <section className="menu-block" id="naan-wraps"><div className="menu-block-head"><SectionIntro eyebrow="FRESH-BAKED · ROLLED TO ORDER" title="Naan wraps" copy="House-made naan, white basmati rice, our signature wrap sauce and red onions, wrapped around your choice of protein." /><span className="menu-index">03</span></div><PlateCarousel items={wrapItems} /></section>
-        <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">04</span></div><PlateCarousel items={snackItems} /></section>
+        <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">03</span></div><PlateCarousel items={snackItems} /></section>
         <section className="rotisserie-showcase-section" id="rotisserie">
           <div className="rotisserie-showcase-bg">
             <img src="/assets/images/rotisserie_farm_bg.jpg" alt="Dasari farm feast background" className="rotisserie-bg-img" />
@@ -1342,10 +1330,10 @@ function App() {
           </div>
           <PlateCarousel items={rotisserieItems} />
         </section>
-        <section className="menu-block compact-block" id="family-meals"><div className="menu-block-head"><SectionIntro eyebrow="SERVES THE TABLE · SOLD BY THE PINT OR QUART" title="Family meals" /><span className="menu-index">06</span></div><MenuRows items={familyItems} /></section>
-        <section className="menu-block compact-block" id="lentils-and-masalas"><div className="menu-block-head"><SectionIntro eyebrow="PINT OR QUART · ON THEIR OWN OR PILED OVER RICE" title="Lentils & masalas" /><span className="menu-index">07</span></div><MenuRows items={lentilItems} /></section>
-        <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">08</span></div><MenuRows items={sideItems} /></section>
-        <section className="menu-block compact-block" id="beverages"><div className="menu-block-head"><SectionIntro eyebrow="FOUNTAIN & CRAFT BREWED BEVERAGES" title="Beverages" copy="Refreshing fountain sodas, fresh brewed iced teas, and craft lemonades." /><span className="menu-index">09</span></div><MenuRows items={beverageItems} /></section>
+        <section className="menu-block compact-block" id="family-meals"><div className="menu-block-head"><SectionIntro eyebrow="SERVES THE TABLE · SOLD BY THE PINT OR QUART" title="Family meals" /><span className="menu-index">04</span></div><MenuRows items={familyItems} /></section>
+        <section className="menu-block compact-block" id="lentils-and-masalas"><div className="menu-block-head"><SectionIntro eyebrow="PINT OR QUART · ON THEIR OWN OR PILED OVER RICE" title="Lentils & masalas" /><span className="menu-index">05</span></div><MenuRows items={lentilItems} /></section>
+        <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">06</span></div><MenuRows items={sideItems} /></section>
+        <section className="menu-block compact-block" id="beverages"><div className="menu-block-head"><SectionIntro eyebrow="FOUNTAIN & CRAFT BREWED BEVERAGES" title="Beverages" copy="Refreshing fountain sodas, fresh brewed iced teas, and craft lemonades." /><span className="menu-index">07</span></div><MenuRows items={beverageItems} /></section>
       </section>
 
       <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span><span>100% HALAL</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>

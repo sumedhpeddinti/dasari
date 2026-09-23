@@ -32,7 +32,7 @@ const HERO_SLIDES: HeroSlide[] = [
     alt: 'Dasari Fusion Grill rotisserie oven with flame-roasted chickens and freshly baked tandoori naan',
     badge: 'FRESH-BAKED DAILY',
     ctaText: 'EXPLORE MENU',
-    ctaLink: '#naan-wraps'
+    ctaLink: '#chef-select'
   },
   {
     id: 'feast-spread',
@@ -48,8 +48,8 @@ const HERO_SLIDES: HeroSlide[] = [
     id: 'flavor-fire-fresh',
     image: '/assets/images/hero_banner_4.png',
     title: 'Flavor · Fire · Fresh',
-    subtitle: 'Bowls, Naan Wraps, Succulent Carved Chicken Plates',
-    alt: 'Dasari Fusion Grill Rotisserie Chicken platter, sliced roasted chicken and handcrafted naan wrap',
+    subtitle: 'Bowls, Fresh Tandoori Naan, Succulent Carved Chicken Plates',
+    alt: 'Dasari Fusion Grill Rotisserie Chicken platter, sliced roasted chicken and fresh tandoori naan',
     badge: 'CHEF PICKS',
     ctaText: 'SEE POPULAR PICKS',
     ctaLink: '#popular'
