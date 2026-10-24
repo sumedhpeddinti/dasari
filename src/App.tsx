@@ -255,130 +255,96 @@ const sauceOptions = [
   },
 ];
 
-function BuildYourBowlInteractive() {
-  const [selectedBowl, setSelectedBowl] = useState<string>('chicken-tikka');
-  const [selectedSauces, setSelectedSauces] = useState<string[]>(['mint', 'tamarind']);
-  const [selectedSoda, setSelectedSoda] = useState<string | null>(null);
-
-  const activeBowl = signatureBowls.find((b) => b.id === selectedBowl) || signatureBowls[0];
-
-  const toggleSauce = (id: string) => {
-    setSelectedSauces((prev) =>
-      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
-    );
-  };
-
-  const calculateTotal = () => {
-    let total = 10.99;
-    if (selectedSauces.includes('garlic-mayo')) total += 1.25;
-    if (selectedSoda === 'medium') total += 2.99;
-    if (selectedSoda === 'large') total += 3.25;
-    return total.toFixed(2);
-  };
-
+function BuildYourBowlShowcase() {
   return (
-    <div className="bowl-builder-app">
-      {/* Step 1: Choose Your Bowl */}
-      <div className="builder-step-block">
-        <div className="builder-step-header">
-          <span className="step-badge">STEP 01</span>
-          <h3>Choose Your Signature Bowl</h3>
-          <span className="step-rule">ALL BOWLS $10.99</span>
+    <div className="bowl-showcase-container">
+      {/* 5 Signature Bowls */}
+      <div className="showcase-block">
+        <div className="showcase-block-header">
+          <div>
+            <span className="showcase-badge">SIGNATURE BOWLS</span>
+            <h3>5 Classic Indian Bowls</h3>
+          </div>
+          <span className="showcase-price-pill">ALL BOWLS $10.99</span>
         </div>
-        <div className="signature-bowls-grid">
-          {signatureBowls.map((bowl) => {
-            const isSelected = selectedBowl === bowl.id;
-            return (
-              <button
-                type="button"
-                key={bowl.id}
-                onClick={() => setSelectedBowl(bowl.id)}
-                className={`signature-bowl-card ${isSelected ? 'selected-bowl-card' : ''}`}
-                aria-pressed={isSelected}
-              >
-                <div className="bowl-card-img-wrap">
-                  <img src={bowl.image} alt={bowl.name} loading="lazy" />
-                  {bowl.badge && <span className={`card-badge badge-${bowl.badge.toLowerCase()}`}>{bowl.badge}</span>}
-                  {isSelected && <span className="selected-check-pill">✓ SELECTED</span>}
-                </div>
-                <div className="bowl-card-info">
-                  <div className="bowl-card-title-row">
-                    <h4>{bowl.name}</h4>
-                    <span className="bowl-card-price">{bowl.price}</span>
-                  </div>
-                  <p>{bowl.description}</p>
+
+        <div className="signature-bowls-showcase-grid">
+          {signatureBowls.map((bowl) => (
+            <div key={bowl.id} className="signature-bowl-card-display">
+              <div className="bowl-card-img-wrap">
+                <img src={bowl.image} alt={bowl.name} loading="lazy" />
+                {bowl.badge && (
+                  <span className={`card-badge badge-${bowl.badge.toLowerCase()}`}>
+                    {bowl.badge}
+                  </span>
+                )}
+                <span className="bowl-card-price-badge">{bowl.price}</span>
+              </div>
+              <div className="bowl-card-info">
+                <div className="bowl-card-title-row">
+                  <h4>{bowl.name}</h4>
                   <span className="card-cal">{bowl.calories}</span>
                 </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Step 2: Inclusions Banner */}
-      <div className="builder-step-block">
-        <div className="builder-step-header">
-          <span className="step-badge">STEP 02</span>
-          <h3>Included Free With Every Bowl</h3>
-          <span className="step-rule green-rule">AUTOMATICALLY INCLUDED</span>
-        </div>
-        <div className="inclusions-showcase-card">
-          <div className="inclusions-media-wrap">
-            <img
-              src="/assets/images/rice_and_tandoor_bread.jpg"
-              alt="Included White Basmati Rice and Fresh Tandoor Bread"
-              loading="lazy"
-            />
-            <div className="inclusions-media-badge">
-              <span>✦ ALL BOWLS COME WITH ✦</span>
-              <strong>White Basmati Rice + Tandoor Bread</strong>
-            </div>
-          </div>
-          <div className="inclusions-items-grid">
-            <div className="inclusion-item-card">
-              <div className="inclusion-icon-circle">🍚</div>
-              <div className="inclusion-text">
-                <strong>White Basmati Rice</strong>
-                <span>Slow-steamed aromatic long-grain basmati</span>
-              </div>
-              <span className="included-tag">INCLUDED FREE</span>
-            </div>
-            <div className="inclusion-item-card">
-              <div className="inclusion-icon-circle">🫓</div>
-              <div className="inclusion-text">
-                <strong>Fresh Tandoor Bread</strong>
-                <span>Baked to order in our clay tandoor oven</span>
-              </div>
-              <span className="included-tag">INCLUDED FREE</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Step 3: Choose Sauces */}
-      <div className="builder-step-block">
-        <div className="builder-step-header">
-          <span className="step-badge">STEP 03</span>
-          <h3>Choose Your Sauces</h3>
-          <span className="step-rule">SELECT YOUR FAVORITES</span>
-        </div>
-        <div className="sauces-grid">
-          {sauceOptions.map((sauce) => {
-            const isSelected = selectedSauces.includes(sauce.id);
-            return (
-              <button
-                type="button"
-                key={sauce.id}
-                onClick={() => toggleSauce(sauce.id)}
-                className={`sauce-select-card ${isSelected ? 'selected-sauce-card' : ''}`}
-                aria-pressed={isSelected}
-              >
-                <div className="sauce-img-wrap">
-                  <img src={sauce.image} alt={sauce.name} loading="lazy" />
-                  {isSelected && <span className="sauce-check-circle">✓</span>}
+                <p>{bowl.description}</p>
+                <div className="bowl-card-foot">
+                  <span>Includes White Basmati Rice + Tandoor Bread</span>
                 </div>
-                <div className="sauce-info">
-                  <div className="sauce-title-row">
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Inclusions Banner */}
+      <div className="showcase-inclusions-card">
+        <div className="inclusions-photo-wrap">
+          <img
+            src="/assets/images/rice_and_tandoor_bread.jpg"
+            alt="Included White Basmati Rice and Fresh Tandoor Bread"
+            loading="lazy"
+          />
+        </div>
+        <div className="inclusions-info-col">
+          <span className="inclusions-eyebrow">✦ ALL BOWLS COME WITH ✦</span>
+          <h3>White Basmati Rice + Fresh Tandoor Bread</h3>
+          <p className="inclusions-desc">
+            Every signature bowl is served complete with our slow-steamed aromatic long-grain white basmati rice and blistered, hot tandoor bread baked fresh to order in our clay tandoor oven.
+          </p>
+          <div className="inclusions-tags-row">
+            <div className="inclusion-tag-item">
+              <span className="tag-icon">🍚</span>
+              <div>
+                <strong>White Basmati Rice</strong>
+                <small>Slow-steamed & aromatic</small>
+              </div>
+            </div>
+            <div className="inclusion-tag-item">
+              <span className="tag-icon">🫓</span>
+              <div>
+                <strong>Fresh Tandoor Bread</strong>
+                <small>Baked in clay tandoor oven</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Sauces & Fountain Soda Side-by-Side Showcase */}
+      <div className="showcase-extras-grid">
+        {/* Sauces Showcase */}
+        <div className="showcase-extra-card sauces-card">
+          <div className="extra-card-head">
+            <h4>Fresh Sauces & Chutneys</h4>
+            <span className="extra-badge">CHUTNEYS</span>
+          </div>
+          <div className="sauces-showcase-list">
+            {sauceOptions.map((sauce) => (
+              <div key={sauce.id} className="sauce-display-item">
+                <div className="sauce-display-thumb">
+                  <img src={sauce.image} alt={sauce.name} loading="lazy" />
+                </div>
+                <div className="sauce-display-info">
+                  <div className="sauce-display-title">
                     <strong>{sauce.name}</strong>
                     <span className={sauce.included ? 'sauce-included-pill' : 'sauce-extra-pill'}>
                       {sauce.price}
@@ -386,81 +352,41 @@ function BuildYourBowlInteractive() {
                   </div>
                   <p>{sauce.description}</p>
                 </div>
-              </button>
-            );
-          })}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Step 4: Add Fountain Soda */}
-      <div className="builder-step-block">
-        <div className="builder-step-header">
-          <span className="step-badge">STEP 04</span>
-          <h3>Add Any Fountain Soda (Optional)</h3>
-          <span className="step-rule">PEPSI · DIET COKE · SPRITE · DR PEPPER</span>
-        </div>
-        <div className="soda-options-container">
-          <div className="soda-visual-card">
-            <img src="/assets/images/fountain_sodas.jpg" alt="Ice cold fountain sodas" loading="lazy" />
+        {/* Fountain Soda Showcase */}
+        <div className="showcase-extra-card soda-card">
+          <div className="extra-card-head">
+            <h4>Fountain Soda</h4>
+            <span className="extra-badge">FOUNTAIN DRINKS</span>
           </div>
-          <div className="soda-buttons-group">
-            <button
-              type="button"
-              className={`soda-choice-btn ${selectedSoda === null ? 'active-soda-btn' : ''}`}
-              onClick={() => setSelectedSoda(null)}
-            >
-              <span>No Drink</span>
-              <strong>$0.00</strong>
-            </button>
-            <button
-              type="button"
-              className={`soda-choice-btn ${selectedSoda === 'medium' ? 'active-soda-btn' : ''}`}
-              onClick={() => setSelectedSoda('medium')}
-            >
-              <span>Medium Soda (20 oz)</span>
-              <strong>+$2.99</strong>
-            </button>
-            <button
-              type="button"
-              className={`soda-choice-btn ${selectedSoda === 'large' ? 'active-soda-btn' : ''}`}
-              onClick={() => setSelectedSoda('large')}
-            >
-              <span>Large Soda (32 oz)</span>
-              <strong>+$3.25</strong>
-            </button>
+          <div className="soda-showcase-body">
+            <div className="soda-showcase-img">
+              <img
+                src="/assets/images/fountain_sodas.jpg"
+                alt="Ice cold fountain sodas: Pepsi, Diet Coke, Sprite, Dr Pepper"
+                loading="lazy"
+              />
+            </div>
+            <div className="soda-showcase-info">
+              <p className="soda-flavors-line">
+                Any Fountain Soda: Pepsi · Diet Coke · Sprite · Dr Pepper
+              </p>
+              <div className="soda-sizes-row">
+                <div className="soda-size-badge">
+                  <span>Medium (20 oz)</span>
+                  <strong>$2.99</strong>
+                </div>
+                <div className="soda-size-badge">
+                  <span>Large (32 oz)</span>
+                  <strong>$3.25</strong>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* Live Order Summary Dock */}
-      <div className="builder-summary-dock">
-        <div className="summary-left">
-          <div className="summary-bowl-name">
-            <span>YOUR CUSTOM BOWL:</span>
-            <strong>{activeBowl.name}</strong>
-          </div>
-          <div className="summary-chips">
-            <span className="chip">White Basmati Rice</span>
-            <span className="chip">Tandoor Bread</span>
-            {selectedSauces.map((sId) => {
-              const s = sauceOptions.find((o) => o.id === sId);
-              return s ? <span className="chip chip-sauce" key={s.id}>{s.name}</span> : null;
-            })}
-            {selectedSoda && (
-              <span className="chip chip-soda">
-                {selectedSoda === 'medium' ? 'Medium Soda (+$2.99)' : 'Large Soda (+$3.25)'}
-              </span>
-            )}
-          </div>
-        </div>
-        <div className="summary-right">
-          <div className="summary-total-price">
-            <small>ESTIMATED TOTAL</small>
-            <strong>${calculateTotal()}</strong>
-          </div>
-          <a href={`tel:${storePhone.replace(/\s/g, '')}`} className="button button-order">
-            CALL TO ORDER · {storePhone}
-          </a>
         </div>
       </div>
     </div>
@@ -1467,7 +1393,7 @@ function App() {
           Pick your signature bowl, enjoy included tandoor bread and fragrant white basmati rice, select your sauces, and add a refreshing fountain soda.
         </p>
 
-        <BuildYourBowlInteractive />
+        <BuildYourBowlShowcase />
 
         <PuneFloralBorder color="#3a5c3a" opacity={0.28} flipY className="pune-rim-bottom" />
         <LotusBorderBottom />
