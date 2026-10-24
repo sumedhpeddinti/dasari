@@ -15,6 +15,26 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
+    id: 'build-your-bowl-menu',
+    image: '/assets/images/hero_banner_build_your_bowl_menu.jpg',
+    title: 'Build Your Bowl: 5 Signature Bowls',
+    subtitle: 'Chicken Tikka · Butter Chicken · Paneer Tikka · Chana Masala · Saag Paneer · $10.99',
+    alt: 'Dasari Fusion Grill Build Your Bowl Menu Poster - All bowls come with Tandoor Bread and White Basmati Rice - $10.99',
+    badge: 'ALL BOWLS $10.99 · TANDOOR BREAD INCLUDED',
+    ctaText: 'EXPLORE MENU',
+    ctaLink: '#menu'
+  },
+  {
+    id: 'chicken-tikka-bowl',
+    image: '/assets/images/hero_banner_chicken_tikka.jpg',
+    title: 'Build Your Bowl: Chicken Tikka Masala',
+    subtitle: 'Creamy tomato sauce with aromatic spices · Includes White Basmati Rice + Tandoor Bread',
+    alt: 'Dasari Fusion Grill Build Your Bowl Chicken Tikka Masala with White Basmati Rice and Tandoor Bread - $10.99',
+    badge: 'BUILD YOUR BOWL · $10.99',
+    ctaText: 'BUILD YOUR BOWL',
+    ctaLink: '#menu'
+  },
+  {
     id: 'rotisserie-order',
     image: '/assets/images/hero_banner_1.png',
     title: 'Rotisserie Chicken',
@@ -241,6 +261,11 @@ export function TopHeroCarousel() {
                 tabIndex={idx === currentIndex ? 0 : -1}
                 aria-label={`${slide.title}: ${slide.subtitle}`}
               >
+                <div 
+                  className="top-hero-slide-bg-glow" 
+                  style={{ backgroundImage: `url(${slide.image})` }} 
+                  aria-hidden="true" 
+                />
                 <img 
                   src={slide.image} 
                   alt={slide.alt}

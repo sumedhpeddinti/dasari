@@ -127,10 +127,13 @@ const storePhone = '+1 (234) 208-8523';
 const storeEmail = 'info@dasarifusiongrill.com';
 const photos = {
   feast: '/assets/images/curry_masala_bowls.jpg',
-  tikka: '/assets/images/tikka_masala_bowl.jpg',
-  butterChicken: '/assets/images/butter_chicken_bowl.jpg',
+  tikka: '/assets/images/bowl_chicken_tikka_masala.jpg',
+  butterChicken: '/assets/images/bowl_butter_chicken.jpg',
+  paneerTikka: '/assets/images/bowl_paneer_tikka_masala.jpg',
+  chanaMasala: '/assets/images/bowl_chana_masala.jpg',
+  saagPaneer: '/assets/images/bowl_saag_paneer.jpg',
   lambBowl: '/assets/images/lamb_bowl.jpg',
-  paneer: '/assets/images/paneer_bowl.jpg',
+  paneer: '/assets/images/bowl_paneer_tikka_masala.jpg',
   vegan: '/assets/images/vegan_bowl.jpg',
   pavBhaji: '/assets/images/pav_bhaji.jpg',
   samosa: '/assets/images/samosas_plate.jpg',
@@ -139,11 +142,12 @@ const photos = {
 };
 
 const popular: FoodItem[] = [
-  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Chicken tikka, tikka masala, white basmati, spicy mango and hot sauce.', image: photos.tikka },
-  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Chicken in butter masala over white basmati, with DASARI ranch and hot sauce.', image: photos.butterChicken },
+  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Creamy tomato sauce with aromatic spices. Includes tandoor bread & white basmati rice.', image: photos.tikka },
+  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Rich & flavorful creamy curry. Includes tandoor bread & white basmati rice.', image: photos.butterChicken },
+  { name: 'Paneer Tikka Masala Bowl', price: '$10.99', calories: '640 cal', description: 'Grilled paneer in spiced tomato sauce. Includes tandoor bread & white basmati rice.', image: photos.paneer, badge: 'V' },
+  { name: 'Chana Masala Bowl', price: '$10.99', calories: '560 cal', description: 'Classic chickpea curry with Indian spices. Includes tandoor bread & white basmati rice.', image: photos.chanaMasala, badge: 'VE' },
+  { name: 'Saag Paneer Bowl', price: '$10.99', calories: '620 cal', description: 'Fresh spinach curry with paneer. Includes tandoor bread & white basmati rice.', image: photos.saagPaneer, badge: 'V' },
   { name: 'Spiced Lamb Bowl', price: '$12.99', calories: '690 cal', description: 'Tender spiced lamb, white basmati, roasted vegetables, chickpea masala and mint yogurt.', image: photos.lambBowl },
-  { name: 'Vegetarian Paneer Bowl', price: '$10.99', calories: '640 cal', description: 'Paneer, butter masala, chickpea masala, white basmati and mint yogurt.', image: photos.paneer, badge: 'V' },
-  { name: 'Vegan Bowl', price: '$10.99', calories: '540 cal', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils and brown basmati.', image: photos.vegan, badge: 'VE' },
 ];
 
 const snackItems: FoodItem[] = [
@@ -168,91 +172,308 @@ const lentilItems: FoodItem[] = [
 
 const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
 
-const bowlSteps = [
+interface SignatureBowlOption {
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+  badge?: 'V' | 'VE';
+  calories: string;
+}
+
+const signatureBowls: SignatureBowlOption[] = [
   {
-    number: '01',
-    title: 'Base',
-    note: 'Pick one or two',
-    items: [
-      ['White Basmati Rice', 'Fragrant basmati rice (210 cal).'],
-      ['Brown Basmati Rice', 'Whole-grain basmati rice (190 cal).'],
-      ['Field Greens', 'Fresh greens (25 cal).'],
-      ['Roasted Vegetables', 'Seasoned roasted vegetables (90 cal).'],
-    ],
-    price: '+$2.50 | $5',
+    id: 'chicken-tikka',
+    name: 'Chicken Tikka Masala',
+    price: '$10.99',
+    description: 'Creamy tomato sauce with aromatic spices',
+    calories: '680 cal',
+    image: '/assets/images/bowl_chicken_tikka_masala.jpg',
   },
   {
-    number: '02',
-    title: 'Proteins',
-    note: 'Pick one or two',
-    items: [
-      ['Rotisserie Chicken', 'DASARI-style slow-roasted chicken (240 cal, +$2).'],
-      ['Chicken Tikka', 'Marinated chicken with authentic Indian spices (220 cal).'],
-      ['Spicy Chicken', 'Bold, spicy grilled chicken (230 cal).'],
-      ['Lamb Meatballs', 'Seasoned lamb meatballs (280 cal, +$1.50 | $3).'],
-      ['Paneer', 'Indian cheese, grilled and seasoned (260 cal, V).'],
-      ['Tofu', 'Seasoned plant-based protein (170 cal, VE).'],
-      ['Roasted Vegetables', 'Seasoned roasted vegetables (90 cal).'],
-    ],
-    price: '+$2 / +$1.50 | $3',
+    id: 'butter-chicken',
+    name: 'Butter Chicken',
+    price: '$10.99',
+    description: 'Rich & flavorful creamy curry',
+    calories: '710 cal',
+    image: '/assets/images/bowl_butter_chicken.jpg',
   },
   {
-    number: '03',
-    title: 'Lentils & Masalas',
-    note: 'Pick one or two',
-    items: [
-      ['Butter Masala', 'Creamy tomato-based masala (220 cal, V).'],
-      ['Tikka Masala', 'Classic Indian spiced tomato masala (200 cal).'],
-      ['Chickpea Masala', 'Chickpeas simmered in aromatic spices (160 cal, VE).'],
-      ['Black Lentil', 'Rich, slow-cooked lentils (170 cal, VE).'],
-      ['Yellow Lentil', 'Comforting yellow lentil dal (140 cal, VE).'],
-    ],
+    id: 'paneer-tikka',
+    name: 'Paneer Tikka Masala',
+    price: '$10.99',
+    description: 'Grilled paneer in spiced tomato sauce',
+    calories: '640 cal',
+    image: '/assets/images/bowl_paneer_tikka_masala.jpg',
+    badge: 'V',
   },
   {
-    number: '04',
-    title: 'Sauces',
-    note: 'Pick one to drizzle',
-    items: [
-      ['Spicy Mango', 'Sweet heat with mango (60 cal).'],
-      ['Mint Yogurt', 'Cool, fresh and creamy (50 cal).'],
-      ['Sweet Tango', 'Sweet signature sauce (70 cal).'],
-      ['DASARI Ranch', 'Creamy house ranch (110 cal).'],
-      ['Tamarind Ginger', 'Tangy tamarind with ginger (65 cal).'],
-      ['Raita', 'Cool yogurt sauce (45 cal).'],
-    ],
+    id: 'chana-masala',
+    name: 'Chana Masala',
+    price: '$10.99',
+    description: 'Classic chickpea curry with Indian spices',
+    calories: '560 cal',
+    image: '/assets/images/bowl_chana_masala.jpg',
+    badge: 'VE',
   },
   {
-    number: '05',
-    title: 'Hot Stuff',
-    note: 'Pick one',
-    items: [
-      ['WHOA (5/10)', 'A little kick (10 cal).'],
-      ['OMG (10/10)', 'Bring the heat (15 cal).'],
-      ['OUCH (8/10)', 'For serious heat lovers (10 cal).'],
-      ['Serrano Peppers (10/10)', 'Fresh serrano heat (5 cal).'],
-    ],
-  },
-  {
-    number: '06',
-    title: 'Garnishes',
-    note: 'Choose all, a few or none',
-    items: [
-      ['Romaine Lettuce', 'Fresh crunchy romaine (5 cal).'],
-      ['Purple Slaw', 'Crispy spiced purple slaw (35 cal).'],
-      ['Pickled Onions', 'Tangy house-pickled onions (20 cal).'],
-      ['Roasted Corn', 'Sweet fire-roasted corn (45 cal).'],
-      ['Diced Onions', 'Fresh diced red onions (10 cal).'],
-      ['Fresh Herbs', 'Chipped mint & coriander (5 cal).'],
-    ],
+    id: 'saag-paneer',
+    name: 'Saag Paneer',
+    price: '$10.99',
+    description: 'Fresh spinach curry with paneer',
+    calories: '620 cal',
+    image: '/assets/images/bowl_saag_paneer.jpg',
+    badge: 'V',
   },
 ];
 
+const sauceOptions = [
+  {
+    id: 'mint',
+    name: 'Mint Sauce',
+    price: 'Included',
+    description: 'Cool, herbaceous fresh mint and cilantro chutney',
+    image: '/assets/images/sauce_mint.jpg',
+    included: true,
+  },
+  {
+    id: 'tamarind',
+    name: 'Tamarind Sauce',
+    price: 'Included',
+    description: 'Sweet & tangy spiced tamarind chutney',
+    image: '/assets/images/sauce_tamarind.jpg',
+    included: true,
+  },
+  {
+    id: 'garlic-mayo',
+    name: 'Garlic Mayonnaise',
+    price: '+$1.25 Extra',
+    description: 'Rich, velvety roasted garlic crema dip',
+    image: '/assets/images/sauce_garlic_mayo.jpg',
+    included: false,
+  },
+];
+
+function BuildYourBowlInteractive() {
+  const [selectedBowl, setSelectedBowl] = useState<string>('chicken-tikka');
+  const [selectedSauces, setSelectedSauces] = useState<string[]>(['mint', 'tamarind']);
+  const [selectedSoda, setSelectedSoda] = useState<string | null>(null);
+
+  const activeBowl = signatureBowls.find((b) => b.id === selectedBowl) || signatureBowls[0];
+
+  const toggleSauce = (id: string) => {
+    setSelectedSauces((prev) =>
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+    );
+  };
+
+  const calculateTotal = () => {
+    let total = 10.99;
+    if (selectedSauces.includes('garlic-mayo')) total += 1.25;
+    if (selectedSoda === 'medium') total += 2.99;
+    if (selectedSoda === 'large') total += 3.25;
+    return total.toFixed(2);
+  };
+
+  return (
+    <div className="bowl-builder-app">
+      {/* Step 1: Choose Your Bowl */}
+      <div className="builder-step-block">
+        <div className="builder-step-header">
+          <span className="step-badge">STEP 01</span>
+          <h3>Choose Your Signature Bowl</h3>
+          <span className="step-rule">ALL BOWLS $10.99</span>
+        </div>
+        <div className="signature-bowls-grid">
+          {signatureBowls.map((bowl) => {
+            const isSelected = selectedBowl === bowl.id;
+            return (
+              <button
+                type="button"
+                key={bowl.id}
+                onClick={() => setSelectedBowl(bowl.id)}
+                className={`signature-bowl-card ${isSelected ? 'selected-bowl-card' : ''}`}
+                aria-pressed={isSelected}
+              >
+                <div className="bowl-card-img-wrap">
+                  <img src={bowl.image} alt={bowl.name} loading="lazy" />
+                  {bowl.badge && <span className={`card-badge badge-${bowl.badge.toLowerCase()}`}>{bowl.badge}</span>}
+                  {isSelected && <span className="selected-check-pill">✓ SELECTED</span>}
+                </div>
+                <div className="bowl-card-info">
+                  <div className="bowl-card-title-row">
+                    <h4>{bowl.name}</h4>
+                    <span className="bowl-card-price">{bowl.price}</span>
+                  </div>
+                  <p>{bowl.description}</p>
+                  <span className="card-cal">{bowl.calories}</span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Step 2: Inclusions Banner */}
+      <div className="builder-step-block">
+        <div className="builder-step-header">
+          <span className="step-badge">STEP 02</span>
+          <h3>Included Free With Every Bowl</h3>
+          <span className="step-rule green-rule">AUTOMATICALLY INCLUDED</span>
+        </div>
+        <div className="inclusions-showcase-card">
+          <div className="inclusions-media-wrap">
+            <img
+              src="/assets/images/rice_and_tandoor_bread.jpg"
+              alt="Included White Basmati Rice and Fresh Tandoor Bread"
+              loading="lazy"
+            />
+            <div className="inclusions-media-badge">
+              <span>✦ ALL BOWLS COME WITH ✦</span>
+              <strong>White Basmati Rice + Tandoor Bread</strong>
+            </div>
+          </div>
+          <div className="inclusions-items-grid">
+            <div className="inclusion-item-card">
+              <div className="inclusion-icon-circle">🍚</div>
+              <div className="inclusion-text">
+                <strong>White Basmati Rice</strong>
+                <span>Slow-steamed aromatic long-grain basmati</span>
+              </div>
+              <span className="included-tag">INCLUDED FREE</span>
+            </div>
+            <div className="inclusion-item-card">
+              <div className="inclusion-icon-circle">🫓</div>
+              <div className="inclusion-text">
+                <strong>Fresh Tandoor Bread</strong>
+                <span>Baked to order in our clay tandoor oven</span>
+              </div>
+              <span className="included-tag">INCLUDED FREE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3: Choose Sauces */}
+      <div className="builder-step-block">
+        <div className="builder-step-header">
+          <span className="step-badge">STEP 03</span>
+          <h3>Choose Your Sauces</h3>
+          <span className="step-rule">SELECT YOUR FAVORITES</span>
+        </div>
+        <div className="sauces-grid">
+          {sauceOptions.map((sauce) => {
+            const isSelected = selectedSauces.includes(sauce.id);
+            return (
+              <button
+                type="button"
+                key={sauce.id}
+                onClick={() => toggleSauce(sauce.id)}
+                className={`sauce-select-card ${isSelected ? 'selected-sauce-card' : ''}`}
+                aria-pressed={isSelected}
+              >
+                <div className="sauce-img-wrap">
+                  <img src={sauce.image} alt={sauce.name} loading="lazy" />
+                  {isSelected && <span className="sauce-check-circle">✓</span>}
+                </div>
+                <div className="sauce-info">
+                  <div className="sauce-title-row">
+                    <strong>{sauce.name}</strong>
+                    <span className={sauce.included ? 'sauce-included-pill' : 'sauce-extra-pill'}>
+                      {sauce.price}
+                    </span>
+                  </div>
+                  <p>{sauce.description}</p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Step 4: Add Fountain Soda */}
+      <div className="builder-step-block">
+        <div className="builder-step-header">
+          <span className="step-badge">STEP 04</span>
+          <h3>Add Any Fountain Soda (Optional)</h3>
+          <span className="step-rule">PEPSI · DIET COKE · SPRITE · DR PEPPER</span>
+        </div>
+        <div className="soda-options-container">
+          <div className="soda-visual-card">
+            <img src="/assets/images/fountain_sodas.jpg" alt="Ice cold fountain sodas" loading="lazy" />
+          </div>
+          <div className="soda-buttons-group">
+            <button
+              type="button"
+              className={`soda-choice-btn ${selectedSoda === null ? 'active-soda-btn' : ''}`}
+              onClick={() => setSelectedSoda(null)}
+            >
+              <span>No Drink</span>
+              <strong>$0.00</strong>
+            </button>
+            <button
+              type="button"
+              className={`soda-choice-btn ${selectedSoda === 'medium' ? 'active-soda-btn' : ''}`}
+              onClick={() => setSelectedSoda('medium')}
+            >
+              <span>Medium Soda (20 oz)</span>
+              <strong>+$2.99</strong>
+            </button>
+            <button
+              type="button"
+              className={`soda-choice-btn ${selectedSoda === 'large' ? 'active-soda-btn' : ''}`}
+              onClick={() => setSelectedSoda('large')}
+            >
+              <span>Large Soda (32 oz)</span>
+              <strong>+$3.25</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Live Order Summary Dock */}
+      <div className="builder-summary-dock">
+        <div className="summary-left">
+          <div className="summary-bowl-name">
+            <span>YOUR CUSTOM BOWL:</span>
+            <strong>{activeBowl.name}</strong>
+          </div>
+          <div className="summary-chips">
+            <span className="chip">White Basmati Rice</span>
+            <span className="chip">Tandoor Bread</span>
+            {selectedSauces.map((sId) => {
+              const s = sauceOptions.find((o) => o.id === sId);
+              return s ? <span className="chip chip-sauce" key={s.id}>{s.name}</span> : null;
+            })}
+            {selectedSoda && (
+              <span className="chip chip-soda">
+                {selectedSoda === 'medium' ? 'Medium Soda (+$2.99)' : 'Large Soda (+$3.25)'}
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="summary-right">
+          <div className="summary-total-price">
+            <small>ESTIMATED TOTAL</small>
+            <strong>${calculateTotal()}</strong>
+          </div>
+          <a href={`tel:${storePhone.replace(/\s/g, '')}`} className="button button-order">
+            CALL TO ORDER · {storePhone}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const chefBowls: MenuItem[] = [
-  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Chicken tikka and tikka masala over white basmati, finished with spicy mango drizzle and hot sauce.' },
-  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Chicken in butter masala over white basmati, with DASARI ranch drizzle and hot sauce.' },
+  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Creamy tomato sauce with aromatic spices. Includes tandoor bread & white basmati rice.' },
+  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Rich & flavorful creamy curry. Includes tandoor bread & white basmati rice.' },
+  { name: 'Paneer Tikka Masala Bowl', price: '$10.99', calories: '640 cal', description: 'Grilled paneer in spiced tomato sauce. Includes tandoor bread & white basmati rice.', badge: 'V' },
+  { name: 'Chana Masala Bowl', price: '$10.99', calories: '560 cal', description: 'Classic chickpea curry with Indian spices. Includes tandoor bread & white basmati rice.', badge: 'VE' },
+  { name: 'Saag Paneer Bowl', price: '$10.99', calories: '620 cal', description: 'Fresh spinach curry with paneer. Includes tandoor bread & white basmati rice.', badge: 'V' },
   { name: 'Spiced Lamb Bowl', price: '$12.99', calories: '690 cal', description: 'Tender spiced lamb, white basmati, roasted vegetables, chickpea masala, mint yogurt, hot sauce.' },
-  { name: 'Vegetarian Paneer Bowl', price: '$10.99', calories: '640 cal', description: 'Paneer, butter masala, chickpea masala, white basmati, mint yogurt, hot sauce.', badge: 'V' },
-  { name: 'Vegan Bowl', price: '$10.99', calories: '540 cal', description: 'Tofu, roasted vegetables, chickpea masala, yellow lentils, brown basmati, spicy mango, hot sauce.', badge: 'VE' },
   { name: 'Pro Bowl', price: '$13.77', calories: '820 cal', description: 'Double roasted vegetables, your choice of protein, signature sauce, and hot stuff. Lamb +$3 · Salmon +$4.' },
   { name: 'Dasari Salad', price: '$12.99', calories: '420 cal', description: 'Choice of protein over greens, roasted broccoli 🥦, tomatoes, roasted corn, chickpeas, cranberries, cheese, pickled onions, slaw and dressing.' },
 ];
@@ -279,18 +500,13 @@ const sideItems: MenuItem[] = [
 ];
 
 const beverageItems: MenuItem[] = [
-  { name: 'Pepsi', price: '', calories: '150 cal', description: 'Fountain soda' },
-  { name: 'Dr Pepper', price: '', calories: '150 cal', description: 'Fountain soda' },
-  { name: 'Mountain Dew', price: '', calories: '170 cal', description: 'Fountain soda' },
-  { name: 'Pink Lemonade', price: '', calories: '140 cal', description: 'Groves Best lemonade' },
-  { name: 'Water', price: '', calories: '0 cal', description: 'Filtered ice water' },
-  { name: 'Coca-Cola Zero Sugar', price: '', calories: '0 cal', description: 'Zero sugar fountain soda' },
-  { name: 'Orange Soda', price: '', calories: '160 cal', description: 'Groves Best orange' },
-  { name: 'Coca-Cola', price: '', calories: '140 cal', description: 'Original taste fountain soda' },
-  { name: 'Unsweetened Black Tea', price: '', calories: '0 cal', description: 'Groves Best fresh brewed black tea' },
-  { name: 'Sweet Black Tea', price: '', calories: '110 cal', description: 'Groves Best fresh brewed sweet tea' },
-  { name: 'Raspberry Tea', price: '', calories: '120 cal', description: 'Groves Best brewed raspberry tea' },
-  { name: 'Strawberry Lemonade', price: '', calories: '150 cal', description: 'Craft \'62 pure cane beverage' },
+  { name: 'Fountain Soda (Medium 20 oz)', price: '$2.99', calories: '150 cal', description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade' },
+  { name: 'Fountain Soda (Large 32 oz)', price: '$3.25', calories: '240 cal', description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade' },
+  { name: 'Unsweetened Black Tea', price: '$2.99', calories: '0 cal', description: 'Groves Best fresh brewed black tea' },
+  { name: 'Sweet Black Tea', price: '$2.99', calories: '110 cal', description: 'Groves Best fresh brewed sweet tea' },
+  { name: 'Raspberry Tea', price: '$2.99', calories: '120 cal', description: 'Groves Best brewed raspberry tea' },
+  { name: 'Strawberry Lemonade', price: '$3.49', calories: '150 cal', description: 'Craft \'62 pure cane beverage' },
+  { name: 'Filtered Ice Water', price: '$0.00', calories: '0 cal', description: 'Crisp filtered ice water' },
 ];
 
 function Logo({ light = false }: { light?: boolean }) {
@@ -1242,34 +1458,16 @@ function App() {
             <h2>Build your <i>bowl.</i></h2>
           </div>
           <div className="price-callout">
-            <span>STARTING AT</span>
-            <strong>$10.99<span>+</span></strong>
+            <span>ALL BOWLS</span>
+            <strong>$10.99</strong>
           </div>
         </div>
-        <p className="bowl-lede">Choose your base, protein, masala, sauce, heat &amp; garnishes. Work your way down — we'll handle the rest.</p>
-        
-        <div className="bowl-steps">
-          {bowlSteps.map((step) => (
-            <div className="bowl-step" key={step.number}>
-              <div className="step-number">{step.number}</div>
-              <div className="step-content">
-                <div className="step-title">
-                  <h3>{step.title}</h3>
-                  <span>{step.note}</span>
-                </div>
-                <div className="ingredient-grid">
-                  {step.items.map(([name, desc]) => (
-                    <div className="ingredient" key={name}>
-                      <strong>{name}</strong>
-                      <span>{desc}</span>
-                    </div>
-                  ))}
-                </div>
-                {step.price && <div className="step-price">{step.price}</div>}
-              </div>
-            </div>
-          ))}
-        </div>
+
+        <p className="bowl-lede">
+          Pick your signature bowl, enjoy included tandoor bread and fragrant white basmati rice, select your sauces, and add a refreshing fountain soda.
+        </p>
+
+        <BuildYourBowlInteractive />
 
         <PuneFloralBorder color="#3a5c3a" opacity={0.28} flipY className="pune-rim-bottom" />
         <LotusBorderBottom />
