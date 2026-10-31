@@ -129,6 +129,7 @@ const photos = {
   feast: '/assets/images/curry_masala_bowls.jpg',
   tikka: '/assets/images/bowl_chicken_tikka_masala.jpg',
   butterChicken: '/assets/images/bowl_butter_chicken.jpg',
+  chickenKorma: '/assets/images/bowl_chicken_korma.jpg',
   paneerTikka: '/assets/images/bowl_paneer_tikka_masala.jpg',
   chanaMasala: '/assets/images/bowl_chana_masala.jpg',
   saagPaneer: '/assets/images/bowl_saag_paneer.jpg',
@@ -142,12 +143,12 @@ const photos = {
 };
 
 const popular: FoodItem[] = [
-  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Creamy tomato sauce with aromatic spices. Includes tandoor bread & white basmati rice.', image: photos.tikka },
-  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Rich & flavorful creamy curry. Includes tandoor bread & white basmati rice.', image: photos.butterChicken },
-  { name: 'Paneer Tikka Masala Bowl', price: '$10.99', calories: '640 cal', description: 'Grilled paneer in spiced tomato sauce. Includes tandoor bread & white basmati rice.', image: photos.paneer, badge: 'V' },
-  { name: 'Chana Masala Bowl', price: '$10.99', calories: '560 cal', description: 'Classic chickpea curry with Indian spices. Includes tandoor bread & white basmati rice.', image: photos.chanaMasala, badge: 'VE' },
-  { name: 'Saag Paneer Bowl', price: '$10.99', calories: '620 cal', description: 'Fresh spinach curry with paneer. Includes tandoor bread & white basmati rice.', image: photos.saagPaneer, badge: 'V' },
-  { name: 'Spiced Lamb Bowl', price: '$12.99', calories: '690 cal', description: 'Tender spiced lamb, white basmati, roasted vegetables, chickpea masala and mint yogurt.', image: photos.lambBowl },
+  { name: 'Chicken Tikka Masala Bowl', price: '$12.99', calories: '680 cal', description: 'Creamy tomato sauce with aromatic spices. Includes fresh tandoori bread & white basmati rice.', image: photos.tikka },
+  { name: 'Butter Chicken Bowl', price: '$12.99', calories: '710 cal', description: 'Rich & flavorful creamy curry. Includes fresh tandoori bread & white basmati rice.', image: photos.butterChicken },
+  { name: 'Chicken Korma Bowl', price: '$12.99', calories: '650 cal', description: 'Mild & creamy curry with cashews and aromatic spices. Includes fresh tandoori bread & white basmati rice.', image: photos.chickenKorma },
+  { name: 'Paneer Tikka Masala Bowl', price: '$12.99', calories: '640 cal', description: 'Grilled paneer in spiced tomato sauce. Includes fresh tandoori bread & white basmati rice.', image: photos.paneer, badge: 'V' },
+  { name: 'Chana Masala Bowl', price: '$12.99', calories: '560 cal', description: 'Classic chickpea curry with Indian spices. Includes fresh tandoori bread & white basmati rice.', image: photos.chanaMasala, badge: 'VE' },
+  { name: 'Saag Paneer Bowl', price: '$12.99', calories: '620 cal', description: 'Fresh spinach curry with paneer. Includes fresh tandoori bread & white basmati rice.', image: photos.saagPaneer, badge: 'V' },
 ];
 
 const snackItems: FoodItem[] = [
@@ -170,7 +171,7 @@ const lentilItems: FoodItem[] = [
   { name: 'Veggie Bhaji', price: '$13.95 | $21.90', calories: '160 cal / 8 oz', description: 'Flavorful vegetable bhaji.', image: photos.pavBhaji, badge: 'VE' },
 ];
 
-const categories = ['BUILD YOUR BOWL', 'CHEF SELECT', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
+const categories = ['INDIAN CURRY BOWLS', 'CRISPY CHICKEN COMBOS', 'CHEF SELECT', 'STREET SNACKS', 'ROTISSERIE', 'FAMILY MEALS', 'LENTILS & MASALAS', 'SIDES & EXTRAS', 'BEVERAGES'];
 
 interface SignatureBowlOption {
   id: string;
@@ -186,7 +187,7 @@ const signatureBowls: SignatureBowlOption[] = [
   {
     id: 'chicken-tikka',
     name: 'Chicken Tikka Masala',
-    price: '$10.99',
+    price: '$12.99',
     description: 'Creamy tomato sauce with aromatic spices',
     calories: '680 cal',
     image: '/assets/images/bowl_chicken_tikka_masala.jpg',
@@ -194,15 +195,23 @@ const signatureBowls: SignatureBowlOption[] = [
   {
     id: 'butter-chicken',
     name: 'Butter Chicken',
-    price: '$10.99',
+    price: '$12.99',
     description: 'Rich & flavorful creamy curry',
     calories: '710 cal',
     image: '/assets/images/bowl_butter_chicken.jpg',
   },
   {
+    id: 'chicken-korma',
+    name: 'Chicken Korma',
+    price: '$12.99',
+    description: 'Mild & creamy curry with cashews and aromatic spices',
+    calories: '650 cal',
+    image: '/assets/images/bowl_chicken_korma.jpg',
+  },
+  {
     id: 'paneer-tikka',
     name: 'Paneer Tikka Masala',
-    price: '$10.99',
+    price: '$12.99',
     description: 'Grilled paneer in spiced tomato sauce',
     calories: '640 cal',
     image: '/assets/images/bowl_paneer_tikka_masala.jpg',
@@ -211,7 +220,7 @@ const signatureBowls: SignatureBowlOption[] = [
   {
     id: 'chana-masala',
     name: 'Chana Masala',
-    price: '$10.99',
+    price: '$12.99',
     description: 'Classic chickpea curry with Indian spices',
     calories: '560 cal',
     image: '/assets/images/bowl_chana_masala.jpg',
@@ -220,7 +229,7 @@ const signatureBowls: SignatureBowlOption[] = [
   {
     id: 'saag-paneer',
     name: 'Saag Paneer',
-    price: '$10.99',
+    price: '$12.99',
     description: 'Fresh spinach curry with paneer',
     calories: '620 cal',
     image: '/assets/images/bowl_saag_paneer.jpg',
@@ -255,17 +264,27 @@ const sauceOptions = [
   },
 ];
 
-function BuildYourBowlShowcase() {
+function IndianCurryBowlsShowcase() {
   return (
     <div className="bowl-showcase-container">
-      {/* 5 Signature Bowls */}
+      {/* Indian Curry Bowls Menu Poster Banner */}
+      <div className="curry-bowls-poster-card">
+        <img
+          src="/assets/images/hero_banner_indian_curry_bowls.jpg"
+          alt="Dasari Fusion Grill Indian Curry Bowls With Fresh Tandoori Bread Included - All Bowls $12.99"
+          className="curry-bowls-poster-img"
+          loading="lazy"
+        />
+      </div>
+
+      {/* 6 Signature Curry Bowls */}
       <div className="showcase-block">
         <div className="showcase-block-header">
           <div>
-            <span className="showcase-badge">SIGNATURE BOWLS</span>
-            <h3>5 Classic Indian Bowls</h3>
+            <span className="showcase-badge">INDIAN CURRY BOWLS</span>
+            <h3>6 Classic Indian Curry Bowls</h3>
           </div>
-          <span className="showcase-price-pill">ALL BOWLS $10.99</span>
+          <span className="showcase-price-pill">ALL BOWLS $12.99</span>
         </div>
 
         <div className="signature-bowls-showcase-grid">
@@ -287,7 +306,7 @@ function BuildYourBowlShowcase() {
                 </div>
                 <p>{bowl.description}</p>
                 <div className="bowl-card-foot">
-                  <span>Includes White Basmati Rice + Tandoor Bread</span>
+                  <span>Includes Tandoori Bread & White Basmati Rice</span>
                 </div>
               </div>
             </div>
@@ -300,29 +319,29 @@ function BuildYourBowlShowcase() {
         <div className="inclusions-photo-wrap">
           <img
             src="/assets/images/rice_and_tandoor_bread.jpg"
-            alt="Included White Basmati Rice and Fresh Tandoor Bread"
+            alt="Included Fresh Tandoori Bread and White Basmati Rice"
             loading="lazy"
           />
         </div>
         <div className="inclusions-info-col">
           <span className="inclusions-eyebrow">✦ ALL BOWLS COME WITH ✦</span>
-          <h3>White Basmati Rice + Fresh Tandoor Bread</h3>
+          <h3>Fresh Tandoori Bread & White Basmati Rice</h3>
           <p className="inclusions-desc">
-            Every signature bowl is served complete with our slow-steamed aromatic long-grain white basmati rice and blistered, hot tandoor bread baked fresh to order in our clay tandoor oven.
+            Every signature Indian curry bowl is served complete with blistered, fresh-baked tandoori bread from our clay tandoor oven and slow-steamed aromatic long-grain white basmati rice.
           </p>
           <div className="inclusions-tags-row">
+            <div className="inclusion-tag-item">
+              <span className="tag-icon">🫓</span>
+              <div>
+                <strong>Fresh Tandoori Bread</strong>
+                <small>Baked fresh in clay tandoor oven</small>
+              </div>
+            </div>
             <div className="inclusion-tag-item">
               <span className="tag-icon">🍚</span>
               <div>
                 <strong>White Basmati Rice</strong>
                 <small>Slow-steamed & aromatic</small>
-              </div>
-            </div>
-            <div className="inclusion-tag-item">
-              <span className="tag-icon">🫓</span>
-              <div>
-                <strong>Fresh Tandoor Bread</strong>
-                <small>Baked in clay tandoor oven</small>
               </div>
             </div>
           </div>
@@ -357,32 +376,105 @@ function BuildYourBowlShowcase() {
           </div>
         </div>
 
-        {/* Fountain Soda Showcase */}
+        {/* Drinks Showcase - Pure Text Style */}
         <div className="showcase-extra-card soda-card">
           <div className="extra-card-head">
-            <h4>Fountain Soda</h4>
-            <span className="extra-badge">FOUNTAIN DRINKS</span>
+            <h4>Fountain &amp; Brewed Drinks</h4>
+            <span className="extra-badge">BEVERAGES</span>
           </div>
-          <div className="soda-showcase-body">
-            <div className="soda-showcase-img">
-              <img
-                src="/assets/images/fountain_sodas.jpg"
-                alt="Ice cold fountain sodas: Pepsi, Diet Coke, Sprite, Dr Pepper"
-                loading="lazy"
-              />
-            </div>
-            <div className="soda-showcase-info">
-              <p className="soda-flavors-line">
-                Any Fountain Soda: Pepsi · Diet Coke · Sprite · Dr Pepper
-              </p>
+          <div className="soda-showcase-text-body">
+            {/* Fountain Sizes & Flavors */}
+            <div className="drinks-text-section">
+              <div className="drinks-text-sec-head">
+                <span className="drinks-sec-title">FOUNTAIN SODAS</span>
+                <span className="drinks-sec-sub">Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade</span>
+              </div>
+              <div className="fountain-flavor-tags-wrap">
+                <span className="flavor-tag-pill">Pepsi</span>
+                <span className="flavor-tag-pill">Diet Coke</span>
+                <span className="flavor-tag-pill">Sprite</span>
+                <span className="flavor-tag-pill">Dr Pepper</span>
+                <span className="flavor-tag-pill">Mountain Dew</span>
+                <span className="flavor-tag-pill">Orange Soda</span>
+                <span className="flavor-tag-pill">Pink Lemonade</span>
+              </div>
               <div className="soda-sizes-row">
                 <div className="soda-size-badge">
-                  <span>Medium (20 oz)</span>
-                  <strong>$2.99</strong>
+                  <div className="size-label-col">
+                    <strong>Fountain Soda (Medium 20 oz)</strong>
+                    <small>150 cal</small>
+                  </div>
+                  <strong className="size-price">$2.99</strong>
                 </div>
                 <div className="soda-size-badge">
-                  <span>Large (32 oz)</span>
-                  <strong>$3.25</strong>
+                  <div className="size-label-col">
+                    <strong>Fountain Soda (Large 32 oz)</strong>
+                    <small>240 cal</small>
+                  </div>
+                  <strong className="size-price">$3.25</strong>
+                </div>
+              </div>
+            </div>
+
+            {/* Fresh Brewed Teas & Lemonade */}
+            <div className="drinks-text-section">
+              <span className="drinks-sec-title">FRESH BREWED TEAS &amp; CRAFT LEMONADE</span>
+              <div className="brewed-drinks-text-list">
+                <div className="brewed-drink-row">
+                  <div>
+                    <strong>Unsweetened Black Tea</strong>
+                    <small>Groves Best fresh brewed black tea · 0 cal</small>
+                  </div>
+                  <span className="drink-row-price">$2.99</span>
+                </div>
+                <div className="brewed-drink-row">
+                  <div>
+                    <strong>Sweet Black Tea</strong>
+                    <small>Groves Best fresh brewed sweet tea · 110 cal</small>
+                  </div>
+                  <span className="drink-row-price">$2.99</span>
+                </div>
+                <div className="brewed-drink-row">
+                  <div>
+                    <strong>Raspberry Tea</strong>
+                    <small>Groves Best brewed raspberry tea · 120 cal</small>
+                  </div>
+                  <span className="drink-row-price">$2.99</span>
+                </div>
+                <div className="brewed-drink-row">
+                  <div>
+                    <strong>Strawberry Lemonade</strong>
+                    <small>Craft '62 pure cane beverage · 150 cal</small>
+                  </div>
+                  <span className="drink-row-price">$3.49</span>
+                </div>
+                <div className="brewed-drink-row">
+                  <div>
+                    <strong>Filtered Ice Water</strong>
+                    <small>Crisp filtered ice water · 0 cal</small>
+                  </div>
+                  <span className="drink-row-free">Free</span>
+                </div>
+              </div>
+            </div>
+
+            {/* House Specialty Lassis */}
+            <div className="drinks-text-section lassi-section">
+              <span className="drinks-sec-title">HOUSE SPECIALTY LASSIS</span>
+              <div className="lassi-drinks-row">
+                <div className="lassi-drink-pill">
+                  <div>
+                    <strong>Mango Lassi</strong>
+                    <small>Sweet Alphonso mango &amp; yogurt · 210 cal</small>
+                  </div>
+                  <span className="lassi-price">$3.99</span>
+                </div>
+                <div className="lassi-drink-pill">
+                  <div>
+                    <strong>Rose Lassi</strong>
+                    <small>Fragrant rose syrup &amp; yogurt · 200 cal</small>
+                  </div>
+                  <span className="lassi-price">$3.99</span>
                 </div>
               </div>
             </div>
@@ -393,15 +485,150 @@ function BuildYourBowlShowcase() {
   );
 }
 
+const crispyCombosList = [
+  {
+    pieces: '4 Piece Combo',
+    price: '$10.99',
+    badge: 'VALUE COMBO',
+    description: '4 pieces of golden crispy chicken tossed in your choice of signature flavor. Includes crispy fries, any cold drink, and house garlic mayo dip.',
+    includes: ['4 Pcs Crispy Chicken', 'Crispy Golden Fries', 'Any Ice-Cold Drink', 'Garlic Mayonnaise Dip']
+  },
+  {
+    pieces: '6 Piece Combo',
+    price: '$14.99',
+    badge: 'MOST POPULAR',
+    description: '6 pieces of golden crispy chicken tossed in your choice of signature flavor. Includes crispy fries, any cold drink, and house garlic mayo dip.',
+    includes: ['6 Pcs Crispy Chicken', 'Crispy Golden Fries', 'Any Ice-Cold Drink', 'Garlic Mayonnaise Dip']
+  },
+  {
+    pieces: '8 Piece Combo',
+    price: '$18.99',
+    badge: 'HUNGRY FEAST',
+    description: '8 pieces of golden crispy chicken tossed in your choice of signature flavor. Includes crispy fries, any cold drink, and house garlic mayo dip.',
+    includes: ['8 Pcs Crispy Chicken', 'Crispy Golden Fries', 'Any Ice-Cold Drink', 'Garlic Mayonnaise Dip']
+  },
+];
+
+const crispyFlavorsList = [
+  {
+    name: 'Garlic Parmesan',
+    icon: '🧄',
+    tag: 'SAVORY & HERBED',
+    description: 'Rich roasted garlic butter crema tossed with savory aged parmesan cheese.'
+  },
+  {
+    name: 'Honey Hot',
+    icon: '🍯',
+    tag: 'SWEET & SPICY',
+    description: 'Pure sweet clover honey blended with fiery red chili glaze for the perfect kick.'
+  },
+  {
+    name: 'Buffalo',
+    icon: '🔥',
+    tag: 'ZESTY CLASSIC',
+    description: 'Classic tangy, zesty cayenne buffalo pepper sauce with signature vinegary heat.'
+  },
+  {
+    name: 'Spicy Tandoori',
+    icon: '🌶️',
+    tag: 'SIGNATURE FUSION',
+    description: 'Fiery tandoori dry rub with crushed cumin, coriander, fenugreek & Indian aromatics.'
+  },
+];
+
+function CrazyCrispyChickenShowcase() {
+  return (
+    <div className="crispy-showcase-container">
+      {/* Visual Banner */}
+      <div className="crispy-banner-card">
+        <img
+          src="/assets/images/hero_banner_crazy_crispy_chicken.jpg"
+          alt="Dasari Fusion Grill Crazy Crispy Chicken Combos: 4pc $10.99, 6pc $14.99, 8pc $18.99"
+          className="crispy-banner-img"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Every Combo Includes Ribbon */}
+      <div className="crispy-inclusions-ribbon">
+        <div className="crispy-ribbon-title">
+          <span>EVERY COMBO INCLUDES</span>
+        </div>
+        <div className="crispy-ribbon-items">
+          <div className="crispy-ribbon-item">
+            <span className="ribbon-item-icon">🍗</span>
+            <strong>Crispy Chicken</strong>
+          </div>
+          <span className="ribbon-plus">+</span>
+          <div className="crispy-ribbon-item">
+            <span className="ribbon-item-icon">🍟</span>
+            <strong>Crispy Fries</strong>
+          </div>
+          <span className="ribbon-plus">+</span>
+          <div className="crispy-ribbon-item">
+            <span className="ribbon-item-icon">🥤</span>
+            <strong>Any Drink</strong>
+          </div>
+          <span className="ribbon-plus">+</span>
+          <div className="crispy-ribbon-item">
+            <span className="ribbon-item-icon">🥣</span>
+            <strong>Garlic Mayonnaise</strong>
+          </div>
+        </div>
+      </div>
+
+      {/* 3 Combo Cards */}
+      <div className="crispy-combos-grid">
+        {crispyCombosList.map((combo) => (
+          <div key={combo.pieces} className="crispy-combo-card">
+            <div className="crispy-card-top">
+              <span className="crispy-combo-badge">{combo.badge}</span>
+              <div className="crispy-combo-price">{combo.price}</div>
+            </div>
+            <h3 className="crispy-combo-name">{combo.pieces}</h3>
+            <p className="crispy-combo-desc">{combo.description}</p>
+            <ul className="crispy-combo-includes-list">
+              {combo.includes.map((inc, i) => (
+                <li key={i}>
+                  <span className="check-bullet">✓</span> {inc}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Flavors Section */}
+      <div className="crispy-flavors-block">
+        <div className="crispy-flavors-head">
+          <span className="flavors-eyebrow">CHOOSE YOUR FLAVOR</span>
+          <h4>4 Signature Tossed Flavors</h4>
+          <p>Every combo comes tossed in your choice of our scratch-made bold seasonings.</p>
+        </div>
+        <div className="crispy-flavors-grid">
+          {crispyFlavorsList.map((flavor) => (
+            <div key={flavor.name} className="crispy-flavor-card">
+              <div className="flavor-icon-circle">{flavor.icon}</div>
+              <div className="flavor-info">
+                <span className="flavor-tag">{flavor.tag}</span>
+                <h5>{flavor.name}</h5>
+                <p>{flavor.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const chefBowls: MenuItem[] = [
-  { name: 'Chicken Tikka Masala Bowl', price: '$10.99', calories: '680 cal', description: 'Creamy tomato sauce with aromatic spices. Includes tandoor bread & white basmati rice.' },
-  { name: 'Butter Chicken Bowl', price: '$10.99', calories: '710 cal', description: 'Rich & flavorful creamy curry. Includes tandoor bread & white basmati rice.' },
-  { name: 'Paneer Tikka Masala Bowl', price: '$10.99', calories: '640 cal', description: 'Grilled paneer in spiced tomato sauce. Includes tandoor bread & white basmati rice.', badge: 'V' },
-  { name: 'Chana Masala Bowl', price: '$10.99', calories: '560 cal', description: 'Classic chickpea curry with Indian spices. Includes tandoor bread & white basmati rice.', badge: 'VE' },
-  { name: 'Saag Paneer Bowl', price: '$10.99', calories: '620 cal', description: 'Fresh spinach curry with paneer. Includes tandoor bread & white basmati rice.', badge: 'V' },
-  { name: 'Spiced Lamb Bowl', price: '$12.99', calories: '690 cal', description: 'Tender spiced lamb, white basmati, roasted vegetables, chickpea masala, mint yogurt, hot sauce.' },
-  { name: 'Pro Bowl', price: '$13.77', calories: '820 cal', description: 'Double roasted vegetables, your choice of protein, signature sauce, and hot stuff. Lamb +$3 · Salmon +$4.' },
-  { name: 'Dasari Salad', price: '$12.99', calories: '420 cal', description: 'Choice of protein over greens, roasted broccoli 🥦, tomatoes, roasted corn, chickpeas, cranberries, cheese, pickled onions, slaw and dressing.' },
+  { name: 'Chicken Tikka Masala Bowl', price: '$12.99', calories: '680 cal', description: 'Creamy tomato sauce with aromatic spices. Includes fresh tandoori bread & white basmati rice.' },
+  { name: 'Butter Chicken Bowl', price: '$12.99', calories: '710 cal', description: 'Rich & flavorful creamy curry. Includes fresh tandoori bread & white basmati rice.' },
+  { name: 'Chicken Korma Bowl', price: '$12.99', calories: '650 cal', description: 'Mild & creamy curry with cashews and aromatic spices. Includes fresh tandoori bread & white basmati rice.' },
+  { name: 'Paneer Tikka Masala Bowl', price: '$12.99', calories: '640 cal', description: 'Grilled paneer in spiced tomato sauce. Includes fresh tandoori bread & white basmati rice.', badge: 'V' },
+  { name: 'Chana Masala Bowl', price: '$12.99', calories: '560 cal', description: 'Classic chickpea curry with Indian spices. Includes fresh tandoori bread & white basmati rice.', badge: 'VE' },
+  { name: 'Saag Paneer Bowl', price: '$12.99', calories: '620 cal', description: 'Fresh spinach curry with paneer. Includes fresh tandoori bread & white basmati rice.', badge: 'V' },
 ];
 
 const familyItems: MenuItem[] = [
@@ -426,13 +653,60 @@ const sideItems: MenuItem[] = [
 ];
 
 const beverageItems: MenuItem[] = [
-  { name: 'Fountain Soda (Medium 20 oz)', price: '$2.99', calories: '150 cal', description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade' },
-  { name: 'Fountain Soda (Large 32 oz)', price: '$3.25', calories: '240 cal', description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade' },
-  { name: 'Unsweetened Black Tea', price: '$2.99', calories: '0 cal', description: 'Groves Best fresh brewed black tea' },
-  { name: 'Sweet Black Tea', price: '$2.99', calories: '110 cal', description: 'Groves Best fresh brewed sweet tea' },
-  { name: 'Raspberry Tea', price: '$2.99', calories: '120 cal', description: 'Groves Best brewed raspberry tea' },
-  { name: 'Strawberry Lemonade', price: '$3.49', calories: '150 cal', description: 'Craft \'62 pure cane beverage' },
-  { name: 'Filtered Ice Water', price: '$0.00', calories: '0 cal', description: 'Crisp filtered ice water' },
+  {
+    name: 'Fountain Soda (Medium 20 oz)',
+    price: '$2.99',
+    calories: '150 cal',
+    description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade',
+  },
+  {
+    name: 'Fountain Soda (Large 32 oz)',
+    price: '$3.25',
+    calories: '240 cal',
+    description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade',
+  },
+  {
+    name: 'Unsweetened Black Tea',
+    price: '$2.99',
+    calories: '0 cal',
+    description: 'Groves Best fresh brewed black tea',
+  },
+  {
+    name: 'Sweet Black Tea',
+    price: '$2.99',
+    calories: '110 cal',
+    description: 'Groves Best fresh brewed sweet tea',
+  },
+  {
+    name: 'Raspberry Tea',
+    price: '$2.99',
+    calories: '120 cal',
+    description: 'Groves Best brewed raspberry tea',
+  },
+  {
+    name: 'Strawberry Lemonade',
+    price: '$3.49',
+    calories: '150 cal',
+    description: "Craft '62 pure cane beverage",
+  },
+  {
+    name: 'Filtered Ice Water',
+    price: '$0.00',
+    calories: '0 cal',
+    description: 'Crisp filtered ice water',
+  },
+  {
+    name: 'Mango Lassi',
+    price: '$3.99',
+    calories: '210 cal',
+    description: 'Traditional creamy sweet yogurt drink blended with ripe Alphonso mango.',
+  },
+  {
+    name: 'Rose Lassi',
+    price: '$3.99',
+    calories: '200 cal',
+    description: 'Fragrant chilled sweet yogurt drink infused with delicate rose syrup.',
+  },
 ];
 
 function Logo({ light = false }: { light?: boolean }) {
@@ -1311,6 +1585,96 @@ function VineDecor({ className = "", light = false, flip = false }: { className?
   );
 }
 
+function PromoPopupModal({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  if (!isOpen) return null;
+
+  const handleCopyCode = () => {
+    try {
+      navigator.clipboard?.writeText('JustDashIt');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2400);
+    } catch {
+      // fallback
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2400);
+    }
+  };
+
+  return (
+    <div
+      className="promo-popup-backdrop"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="DoorDash Special Offer: Get $5 Off your first delivery of $15 or more"
+    >
+      <div
+        className="promo-popup-card promo-doordash-card"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          className="promo-popup-close-btn"
+          onClick={onClose}
+          aria-label="Close special offer"
+          title="Close (Esc)"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="promo-popup-image-wrap">
+          <img
+            src="/assets/images/promo_doordash_offer.jpg"
+            alt="DoorDash Special Offer - Get $5 Off your first delivery of $15 or more. Use promo code JustDashIt at checkout."
+            className="promo-popup-img"
+          />
+        </div>
+
+        <div className="promo-popup-footer doordash-popup-footer">
+          <div className="doordash-promo-code-box">
+            <span className="code-label">PROMO CODE AT CHECKOUT:</span>
+            <div className="code-badge-wrap">
+              <span className="code-highlight">JustDashIt</span>
+              <button 
+                type="button" 
+                className="code-copy-btn" 
+                onClick={handleCopyCode}
+                title="Click to copy promo code"
+              >
+                {copied ? '✓ COPIED!' : 'COPY CODE'}
+              </button>
+            </div>
+          </div>
+          <div className="promo-popup-actions">
+            <a
+              href="https://www.doordash.com/search/store/dasari%20fusion%20grill/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="promo-popup-order-btn doordash-btn"
+              onClick={onClose}
+            >
+              ORDER ON DOORDASH <ArrowRight size={16} />
+            </a>
+            <button
+              className="promo-popup-dismiss-btn"
+              onClick={onClose}
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SectionIntro({ eyebrow, title, copy, light = false }: { eyebrow?: string; title: string; copy?: string; light?: boolean }) {
   return (
     <div className="section-intro">
@@ -1326,13 +1690,26 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedMap, setSelectedMap] = useState<'google' | 'apple'>('google');
+  // Instant DoorDash promo popup on website load
+  const [promoOpen, setPromoOpen] = useState(true);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  return <div id="top" className="app"><LoadingScreen /><Header scrolled={scrolled} onMenuToggle={setMenuOpen} />
+  // Close promo popup with Escape key
+  useEffect(() => {
+    if (!promoOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPromoOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [promoOpen]);
+
+  return <div id="top" className="app"><LoadingScreen /><PromoPopupModal isOpen={promoOpen} onClose={() => setPromoOpen(false)} /><Header scrolled={scrolled} onMenuToggle={setMenuOpen} />
     <main>
       <section className="hero"><div className="hero-bg"><img src="/assets/images/hero_farm_mountains_bg.jpg" alt="Dasari Fusion Grill farm feast with rotisserie machine, Indian mountains, and table spread" /></div><div className="hero-overlay" /><div className="hero-content"><p className="eyebrow hero-eyebrow">INDIAN FUSION · INDIAN FLAVORS · BOWLS · NAAN</p><h1><span>DASARI</span><em>FUSION GRILL</em></h1><p className="hero-subtitle">AUTHENTIC INDIAN FLAVORS.<br />BUILT YOUR WAY.</p><p className="hero-body">Slow-roasted and spice-simmered.</p></div><div className="hero-mark">EST. IN FLAVOR<br /><span>01</span></div></section>
 
@@ -1346,7 +1723,7 @@ function App() {
         <div className="intro-content">
           <p className="eyebrow">THE DASARI WAY</p>
           <h2>Authentic flavors.<br /><i>Modern fusion.</i></h2>
-          <p>Indian classics meet a fast, fresh fusion format. Build a bowl, savor hot tandoori naan, share street snacks or bring home a family meal.</p>
+          <p>Indian classics meet authentic homestyle cooking. Enjoy our $12.99 Indian curry bowls with fresh tandoori bread, savory rotisserie chicken, crazy crispy chicken combos, and street snacks.</p>
           <div style={{ margin: '14px 0 16px 0' }}>
             <FloralFleuronDivider color="#3a5c3a" size={42} opacity={0.6} />
           </div>
@@ -1380,20 +1757,20 @@ function App() {
 
         <div className="bowl-heading">
           <div>
-            <p className="eyebrow">THE SIGNATURE FORMAT</p>
-            <h2>Build your <i>bowl.</i></h2>
+            <p className="eyebrow">WITH FRESH TANDOORI BREAD &amp; WHITE BASMATI RICE</p>
+            <h2>Indian Curry <i>Bowls.</i></h2>
           </div>
           <div className="price-callout">
             <span>ALL BOWLS</span>
-            <strong>$10.99</strong>
+            <strong>$12.99</strong>
           </div>
         </div>
 
         <p className="bowl-lede">
-          Pick your signature bowl, enjoy included tandoor bread and fragrant white basmati rice, select your sauces, and add a refreshing fountain soda.
+          Choose your favorite Indian curry bowl, served complete with fresh-baked tandoori bread, fragrant white basmati rice, signature sauces, and a cold drink.
         </p>
 
-        <BuildYourBowlShowcase />
+        <IndianCurryBowlsShowcase />
 
         <PuneFloralBorder color="#3a5c3a" opacity={0.28} flipY className="pune-rim-bottom" />
         <LotusBorderBottom />
@@ -1401,9 +1778,21 @@ function App() {
         <FloralCornerAccent position="bottom-right" size={64} color="#d4a74a" opacity={0.35} />
       </section>
 
-      <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div><section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">02</span></div><MenuRows items={chefBowls} /></section>
+      <section className="menu-section section-pad"><div className="category-bar">{categories.map((category, index) => <a key={category} className={index === 0 ? 'active' : ''} href={index === 0 ? '#menu' : `#${category.toLowerCase().replace(/ /g, '-').replace('&', 'and')}`}>{category}</a>)}</div>
+        <section className="menu-block" id="crispy-chicken-combos">
+          <div className="menu-block-head">
+            <SectionIntro
+              eyebrow="EXTRA CRUNCHY · EXTRA BOLD"
+              title="Crazy Crispy Chicken Combos"
+              copy="Every combo includes golden crispy chicken tossed in your choice of signature flavor, crispy golden fries, any ice-cold drink, and our house garlic mayonnaise dip."
+            />
+            <span className="menu-index">02</span>
+          </div>
+          <CrazyCrispyChickenShowcase />
+        </section>
+        <section className="menu-block" id="chef-select"><div className="menu-block-head"><SectionIntro eyebrow="CHOOSE A DASARI FAVORITE" title="Chef select bowls" copy="Already built, already balanced. A Dasari favorite in one order." /><span className="menu-index">03</span></div><MenuRows items={chefBowls} /></section>
         <div className="visual-break"><img src={photos.feast} alt="Dasari Fusion Grill Indian food spread with curries, basmati rice and fresh tandoori naan" loading="lazy" /><div><p>Slow-roasted.<br /><i>Fresh-baked.</i><br />Spice-simmered.</p><FloralFleuronDivider color="#d4a74a" size={38} opacity={0.75} /><span>DASARI FUSION GRILL</span></div></div>
-        <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">03</span></div><PlateCarousel items={snackItems} /></section>
+        <section className="menu-block snack-block" id="street-snacks"><div className="menu-block-head"><SectionIntro eyebrow="SMALL PLATES FOR THE TABLE" title="Street snacks" copy="Or for one determined person." /><span className="menu-index">04</span></div><PlateCarousel items={snackItems} /></section>
         <section className="rotisserie-showcase-section" id="rotisserie">
           <div className="rotisserie-showcase-bg">
             <img src="/assets/images/rotisserie_farm_bg.jpg" alt="Dasari farm feast background" className="rotisserie-bg-img" />
@@ -1454,10 +1843,10 @@ function App() {
           </div>
           <PlateCarousel items={rotisserieItems} />
         </section>
-        <section className="menu-block compact-block" id="family-meals"><div className="menu-block-head"><SectionIntro eyebrow="SERVES THE TABLE · SOLD BY THE PINT OR QUART" title="Family meals" /><span className="menu-index">04</span></div><MenuRows items={familyItems} /></section>
-        <section className="menu-block compact-block" id="lentils-and-masalas"><div className="menu-block-head"><SectionIntro eyebrow="PINT OR QUART · ON THEIR OWN OR PILED OVER RICE" title="Lentils & masalas" /><span className="menu-index">05</span></div><MenuRows items={lentilItems} /></section>
-        <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">06</span></div><MenuRows items={sideItems} /></section>
-        <section className="menu-block compact-block" id="beverages"><div className="menu-block-head"><SectionIntro eyebrow="FOUNTAIN & CRAFT BREWED BEVERAGES" title="Beverages" copy="Refreshing fountain sodas, fresh brewed iced teas, and craft lemonades." /><span className="menu-index">07</span></div><MenuRows items={beverageItems} /></section>
+        <section className="menu-block compact-block" id="family-meals"><div className="menu-block-head"><SectionIntro eyebrow="SERVES THE TABLE · SOLD BY THE PINT OR QUART" title="Family meals" /><span className="menu-index">05</span></div><MenuRows items={familyItems} /></section>
+        <section className="menu-block compact-block" id="lentils-and-masalas"><div className="menu-block-head"><SectionIntro eyebrow="PINT OR QUART · ON THEIR OWN OR PILED OVER RICE" title="Lentils & masalas" /><span className="menu-index">06</span></div><MenuRows items={lentilItems} /></section>
+        <section className="menu-block compact-block" id="sides-and-extras"><div className="menu-block-head"><SectionIntro eyebrow="ROUND OUT ANY ORDER" title="Sides & extras" /><span className="menu-index">07</span></div><MenuRows items={sideItems} /></section>
+        <section className="menu-block compact-block" id="beverages"><div className="menu-block-head"><SectionIntro eyebrow="LASSI & CHILLED FOUNTAIN DRINKS" title="Beverages" copy="Refreshing Mango & Rose lassis, fountain sodas (Pepsi, Coca-Cola, Orange, Diet Coke, Sprite), brewed teas, and lemonade." /><span className="menu-index">08</span></div><MenuRows items={beverageItems} /></section>
       </section>
 
       <section className="about-section section-pad" id="about"><div className="about-art"><div className="art-circle"><img src="/assets/images/dasari-loading-art.png" alt="Dasari Fusion Grill brand artwork" loading="lazy" onError={(event) => { event.currentTarget.src = photos.feast; }} /></div><span className="art-label">AUTHENTIC<br />TASTE</span></div><div className="about-copy"><p className="eyebrow">MORE THAN A MEAL</p><h2>Authentic Indian taste,<br /><i>your way.</i></h2><p>We keep the classics close and give you room to make them yours. Fresh ingredients, slow-roasted meats, fresh-baked naan and masalas that take their time.</p><div className="service-list"><span>DINE IN</span><span>TAKE OUT</span><span>CATERING</span><span>100% HALAL</span></div><p className="small-note">Ask us about family meals, catering trays and party-size orders.</p></div></section>

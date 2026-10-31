@@ -15,24 +15,44 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    id: 'build-your-bowl-menu',
-    image: '/assets/images/hero_banner_build_your_bowl_menu.jpg',
-    title: 'Build Your Bowl: 5 Signature Bowls',
-    subtitle: 'Chicken Tikka · Butter Chicken · Paneer Tikka · Chana Masala · Saag Paneer · $10.99',
-    alt: 'Dasari Fusion Grill Build Your Bowl Menu Poster - All bowls come with Tandoor Bread and White Basmati Rice - $10.99',
-    badge: 'ALL BOWLS $10.99 · TANDOOR BREAD INCLUDED',
-    ctaText: 'EXPLORE MENU',
+    id: 'hyderabadi-biryani-coming-soon',
+    image: '/assets/images/hero_banner_hyderabadi_biryani.jpg',
+    title: 'Real Hyderabadi Fry Piece Biryani',
+    subtitle: 'Coming Soon · Straight from my Home · Hyderabad to Akron',
+    alt: 'Real Hyderabadi Fry Piece Biryani Coming Soon to Dasari Fusion Grill South Indian Restaurant Akron Ohio',
+    badge: 'COMING SOON · SPECIAL ANNOUNCEMENT',
+    ctaText: 'COMING SOON',
     ctaLink: '#menu'
   },
   {
-    id: 'chicken-tikka-bowl',
-    image: '/assets/images/hero_banner_chicken_tikka.jpg',
-    title: 'Build Your Bowl: Chicken Tikka Masala',
-    subtitle: 'Creamy tomato sauce with aromatic spices · Includes White Basmati Rice + Tandoor Bread',
-    alt: 'Dasari Fusion Grill Build Your Bowl Chicken Tikka Masala with White Basmati Rice and Tandoor Bread - $10.99',
-    badge: 'BUILD YOUR BOWL · $10.99',
-    ctaText: 'BUILD YOUR BOWL',
+    id: 'indian-curry-bowls-menu',
+    image: '/assets/images/hero_banner_indian_curry_bowls.jpg',
+    title: 'Indian Curry Bowls with Tandoori Bread',
+    subtitle: 'Chicken Tikka · Butter Chicken · Chicken Korma · Paneer Tikka · Chana Masala · Saag Paneer · $12.99',
+    alt: 'Dasari Fusion Grill Indian Curry Bowls with Fresh Tandoori Bread and White Basmati Rice - $12.99',
+    badge: 'ALL BOWLS $12.99 · TANDOORI BREAD INCLUDED',
+    ctaText: 'EXPLORE BOWLS',
     ctaLink: '#menu'
+  },
+  {
+    id: 'curry-bowl-combo-special',
+    image: '/assets/images/promo_curry_bowl_combo.jpg',
+    title: 'Indian Curry Bowl Combo · Only $14.99',
+    subtitle: 'Any Curry Bowl + Tandoor Bread + White Basmati Rice + Drink · Only $14.99',
+    alt: 'Dasari Fusion Grill Indian Curry Bowl Combo: Any Curry Bowl + Tandoor Bread + White Basmati Rice + Drink for Only $14.99',
+    badge: 'COMBO SPECIAL · $14.99',
+    ctaText: 'EXPLORE COMBO',
+    ctaLink: '#menu'
+  },
+  {
+    id: 'crazy-crispy-chicken-combos',
+    image: '/assets/images/hero_banner_crazy_crispy_chicken.jpg',
+    title: 'Crazy Crispy Chicken Combos',
+    subtitle: 'Includes Crispy Chicken + Crispy Fries + Any Drink + Garlic Mayonnaise · From $10.99',
+    alt: 'Dasari Fusion Grill Crazy Crispy Chicken Combos: 4 Piece $10.99, 6 Piece $14.99, 8 Piece $18.99 with Crispy Fries, Any Drink and Garlic Mayonnaise',
+    badge: 'NEW SPECIAL · CRISPY CHICKEN COMBOS',
+    ctaText: 'EXPLORE COMBOS',
+    ctaLink: '#crispy-chicken-combos'
   },
   {
     id: 'rotisserie-order',
@@ -61,7 +81,7 @@ const HERO_SLIDES: HeroSlide[] = [
     subtitle: 'Curry Bowls · Biryani · Dal Tadka · Family Feasts',
     alt: 'Dasari Fusion Grill Indian feast table spread with rotisserie chicken, biryani, curries, lentils and naan',
     badge: 'FAMILY & CATERING',
-    ctaText: 'BUILD YOUR BOWL',
+    ctaText: 'INDIAN CURRY BOWLS',
     ctaLink: '#menu'
   },
   {
@@ -330,8 +350,8 @@ export function TopHeroCarousel() {
           <a href="#menu" className="top-hero-ribbon-btn primary-btn">
             EXPLORE MENU <ArrowRight size={15} />
           </a>
-          <a href="#chef-select" className="top-hero-ribbon-btn secondary-btn">
-            BUILD YOUR BOWL
+          <a href="#menu" className="top-hero-ribbon-btn secondary-btn">
+            CURRY BOWLS ($12.99)
           </a>
           <a 
             href="https://maps.app.goo.gl/sFDW3pSq3YrCTpS77" 
