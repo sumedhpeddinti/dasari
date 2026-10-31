@@ -3205,3 +3205,58 @@ h2 i { color: var(--terracotta); font-weight: 600; }
   color: #d4a74a;
   white-space: nowrap;
 }
+
+/* Individual Separate Drinks Grid */
+.separate-drinks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 680px) {
+  .separate-drinks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.separate-drink-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 167, 74, 0.22);
+  border-radius: 10px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+.separate-drink-item:hover {
+  background: rgba(212, 167, 74, 0.07);
+  border-color: rgba(212, 167, 74, 0.45);
+}
+
+.separate-drink-info strong {
+  display: block;
+  font-size: 13.5px;
+  color: #f7e7c4;
+  font-weight: 700;
+}
+
+.separate-drink-info small {
+  display: block;
+  font-size: 11px;
+  color: rgba(247, 231, 196, 0.6);
+  margin-top: 1px;
+}
+
+.separate-drink-price {
+  font-size: 12px;
+  font-weight: 800;
+  color: #d4a74a;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 167, 74, 0.25);
+}

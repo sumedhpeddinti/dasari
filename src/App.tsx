@@ -376,49 +376,82 @@ function IndianCurryBowlsShowcase() {
           </div>
         </div>
 
-        {/* Drinks Showcase - Pure Text Style */}
+        {/* Drinks Showcase - Each Drink Listed Separately */}
         <div className="showcase-extra-card soda-card">
           <div className="extra-card-head">
-            <h4>Fountain &amp; Brewed Drinks</h4>
-            <span className="extra-badge">BEVERAGES</span>
+            <h4>Chilled Drinks &amp; Lassis</h4>
+            <span className="extra-badge">INDIVIDUAL DRINKS</span>
           </div>
           <div className="soda-showcase-text-body">
-            {/* Fountain Sizes & Flavors */}
+            {/* Chilled Sodas - Each Drink Separate */}
             <div className="drinks-text-section">
               <div className="drinks-text-sec-head">
-                <span className="drinks-sec-title">FOUNTAIN SODAS</span>
-                <span className="drinks-sec-sub">Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade</span>
+                <span className="drinks-sec-title">CHILLED SODAS (MED $2.99 · LRG $3.25)</span>
+                <span className="drinks-sec-sub">Each soda served crisp and chilled over ice:</span>
               </div>
-              <div className="fountain-flavor-tags-wrap">
-                <span className="flavor-tag-pill">Pepsi</span>
-                <span className="flavor-tag-pill">Diet Coke</span>
-                <span className="flavor-tag-pill">Sprite</span>
-                <span className="flavor-tag-pill">Dr Pepper</span>
-                <span className="flavor-tag-pill">Mountain Dew</span>
-                <span className="flavor-tag-pill">Orange Soda</span>
-                <span className="flavor-tag-pill">Pink Lemonade</span>
-              </div>
-              <div className="soda-sizes-row">
-                <div className="soda-size-badge">
-                  <div className="size-label-col">
-                    <strong>Fountain Soda (Medium 20 oz)</strong>
-                    <small>150 cal</small>
+              <div className="separate-drinks-grid">
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Sprite</strong>
+                    <small>Crisp lemon-lime sparkling soda · 140 cal</small>
                   </div>
-                  <strong className="size-price">$2.99</strong>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
                 </div>
-                <div className="soda-size-badge">
-                  <div className="size-label-col">
-                    <strong>Fountain Soda (Large 32 oz)</strong>
-                    <small>240 cal</small>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Coca-Cola</strong>
+                    <small>Classic crisp original formula · 140 cal</small>
                   </div>
-                  <strong className="size-price">$3.25</strong>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
+                </div>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Diet Coke</strong>
+                    <small>Crisp &amp; refreshing zero calorie · 0 cal</small>
+                  </div>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
+                </div>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Pepsi</strong>
+                    <small>Ice-cold bold fountain Pepsi · 150 cal</small>
+                  </div>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
+                </div>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Dr Pepper</strong>
+                    <small>23 signature distinct flavors · 150 cal</small>
+                  </div>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
+                </div>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Mountain Dew</strong>
+                    <small>Exhilarating citrus charged soda · 170 cal</small>
+                  </div>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
+                </div>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Orange Soda</strong>
+                    <small>Bright bubbly citrus orange soda · 160 cal</small>
+                  </div>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
+                </div>
+                <div className="separate-drink-item">
+                  <div className="separate-drink-info">
+                    <strong>Pink Lemonade</strong>
+                    <small>Groves Best refreshing pink lemonade · 140 cal</small>
+                  </div>
+                  <span className="separate-drink-price">$2.99 | $3.25</span>
                 </div>
               </div>
             </div>
 
             {/* Fresh Brewed Teas & Lemonade */}
             <div className="drinks-text-section">
-              <span className="drinks-sec-title">FRESH BREWED TEAS &amp; CRAFT LEMONADE</span>
+              <span className="drinks-sec-title">FRESH BREWED TEAS &amp; CRAFT DRINKS</span>
               <div className="brewed-drinks-text-list">
                 <div className="brewed-drink-row">
                   <div>
@@ -653,60 +686,21 @@ const sideItems: MenuItem[] = [
 ];
 
 const beverageItems: MenuItem[] = [
-  {
-    name: 'Fountain Soda (Medium 20 oz)',
-    price: '$2.99',
-    calories: '150 cal',
-    description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade',
-  },
-  {
-    name: 'Fountain Soda (Large 32 oz)',
-    price: '$3.25',
-    calories: '240 cal',
-    description: 'Any fountain flavor: Pepsi, Diet Coke, Sprite, Dr Pepper, Mountain Dew, Orange Soda, Pink Lemonade',
-  },
-  {
-    name: 'Unsweetened Black Tea',
-    price: '$2.99',
-    calories: '0 cal',
-    description: 'Groves Best fresh brewed black tea',
-  },
-  {
-    name: 'Sweet Black Tea',
-    price: '$2.99',
-    calories: '110 cal',
-    description: 'Groves Best fresh brewed sweet tea',
-  },
-  {
-    name: 'Raspberry Tea',
-    price: '$2.99',
-    calories: '120 cal',
-    description: 'Groves Best brewed raspberry tea',
-  },
-  {
-    name: 'Strawberry Lemonade',
-    price: '$3.49',
-    calories: '150 cal',
-    description: "Craft '62 pure cane beverage",
-  },
-  {
-    name: 'Filtered Ice Water',
-    price: '$0.00',
-    calories: '0 cal',
-    description: 'Crisp filtered ice water',
-  },
-  {
-    name: 'Mango Lassi',
-    price: '$3.99',
-    calories: '210 cal',
-    description: 'Traditional creamy sweet yogurt drink blended with ripe Alphonso mango.',
-  },
-  {
-    name: 'Rose Lassi',
-    price: '$3.99',
-    calories: '200 cal',
-    description: 'Fragrant chilled sweet yogurt drink infused with delicate rose syrup.',
-  },
+  { name: 'Sprite', price: '$2.99 | $3.25', calories: '140 cal', description: 'Crisp lemon-lime sparkling fountain soda served chilled over ice.' },
+  { name: 'Coca-Cola', price: '$2.99 | $3.25', calories: '140 cal', description: 'Classic crisp fountain Coca-Cola served chilled over ice.' },
+  { name: 'Diet Coke', price: '$2.99 | $3.25', calories: '0 cal', description: 'Crisp, refreshing zero-calorie Diet Coke served over ice.' },
+  { name: 'Pepsi', price: '$2.99 | $3.25', calories: '150 cal', description: 'Ice-cold refreshing fountain Pepsi served chilled over ice.' },
+  { name: 'Dr Pepper', price: '$2.99 | $3.25', calories: '150 cal', description: 'Authentic blend of 23 signature distinct flavors served over ice.' },
+  { name: 'Mountain Dew', price: '$2.99 | $3.25', calories: '170 cal', description: 'Exhilarating bold citrus fountain soda served over ice.' },
+  { name: 'Orange Soda', price: '$2.99 | $3.25', calories: '160 cal', description: 'Bright and bubbly sweet citrus orange fountain soda.' },
+  { name: 'Pink Lemonade', price: '$2.99 | $3.25', calories: '140 cal', description: 'Groves Best refreshing chilled pink lemonade served over ice.' },
+  { name: 'Unsweetened Black Tea', price: '$2.99', calories: '0 cal', description: 'Groves Best fresh brewed black tea' },
+  { name: 'Sweet Black Tea', price: '$2.99', calories: '110 cal', description: 'Groves Best fresh brewed sweet tea' },
+  { name: 'Raspberry Tea', price: '$2.99', calories: '120 cal', description: 'Groves Best brewed raspberry tea' },
+  { name: 'Strawberry Lemonade', price: '$3.49', calories: '150 cal', description: "Craft '62 pure cane beverage" },
+  { name: 'Filtered Ice Water', price: '$0.00', calories: '0 cal', description: 'Crisp filtered ice water' },
+  { name: 'Mango Lassi', price: '$3.99', calories: '210 cal', description: 'Traditional creamy sweet yogurt drink blended with ripe Alphonso mango.' },
+  { name: 'Rose Lassi', price: '$3.99', calories: '200 cal', description: 'Fragrant chilled sweet yogurt drink infused with delicate rose syrup.' },
 ];
 
 function Logo({ light = false }: { light?: boolean }) {
