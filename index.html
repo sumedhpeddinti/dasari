@@ -178,5 +178,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Slice online ordering widget -->
+    <script>
+      (function (w, d, s, o, f, js, fjs) {
+        w[o] = w[o] || function (opt) { w[o].q = w[o].q || opt };
+        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+        js.src = f;
+        js.async = 1;
+        if (fjs) { fjs.parentNode.insertBefore(js, fjs) } else { fjs = d.getElementsByTagName('head')[0]; fjs.appendChild(js) }
+      })(window, document, 'script', 'SliceWidgets', 'https://restaurant-widgets-integrations.slicelife.com/widget.js');
+      SliceWidgets({ shopUuid: 'f2a2c277-4073-48d2-bca1-ad4746365d87' });
+    </script>
   </body>
 </html>
